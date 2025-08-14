@@ -1,0 +1,1 @@
+export default function App(){return <div style={{padding:20,fontFamily:'sans-serif'}}>EDUSAFIRA – Projet prêt pour GitHub & StackBlitz.</div>}
