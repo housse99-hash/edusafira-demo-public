@@ -3,9 +3,11 @@
   <img src="public/logo-edusafira.png" alt="EduSafira Logo" width="300">
 </p>
 
-<!-- Badge Licence -->
+<!-- Bouton StackBlitz -->
 <p align="center">
-  <img src="public/edusafira-badge.png?v=2" alt="EDUSAFIRA - Tous droits réservés" width="420">
+  <a href="https://stackblitz.com/github/housse99-hash/edusafira-demo">
+    <img src="https://developer.stackblitz.com/img/open_in_stackblitz.svg" alt="Open in StackBlitz">
+  </a>
 </p>
 
 ---
@@ -21,26 +23,26 @@ Elle simplifie la gestion **administrative**, **financière** et **pédagogique*
 
 ### 🚀 Fonctionnalités clés
 - 📚 Inscriptions, classes, matières  
-- 📅 Planning & emplois du temps  
+- 🗓 Planning & emplois du temps  
 - 💳 **Paiements locaux** : Wave, Orange Money, MoMo, Moov Africa  
-- 📊 Notes, bulletins, rapports  
+- 📝 Notes, bulletins, rapports  
 - 💼 Frais de scolarité & comptabilité  
-- 📱 Appli bilingue **(FR & EN)**  
+- 🌐 Appli bilingue (**FR & EN**)  
 - 🔐 Rôles & permissions
 
 ---
 
 ## 🇬🇧 Overview
-**EduSafira** is an **all‑in‑one** management app for schools and vocational training centers.  
-It streamlines **administrative**, **financial**, and **academic** workflows and connects **students, parents, teachers, and admins** through an intuitive interface.
+**EduSafira** is an **all‑in‑one** management app designed for schools and training centers.  
+It streamlines **administrative**, **financial**, and **academic** workflows and connects **students**, **parents**, **teachers**, and **admins** through an intuitive interface.
 
 ### 🚀 Key Features
 - 📚 Enrollments, classes, subjects  
-- 📅 Schedules & timetables  
+- 🗓 Schedules & timetables  
 - 💳 **Local payments**: Wave, Orange Money, MoMo, Moov Africa  
-- 📊 Performance tracking & reports  
+- 📝 Performance tracking & reports  
 - 💼 Tuition & accounting  
-- 📱 Bilingual **(FR & EN)**  
+- 🌐 Bilingual (**FR & EN**)  
 - 🔐 Roles & permissions
 
 ---
@@ -49,7 +51,7 @@ It streamlines **administrative**, **financial**, and **academic** workflows and
 
 ### Option 1 — Local
 ```bash
-git clone https://github.com/housse99-hash/edusafira.git
+git clone https://github.com/housse99-hash/edusafira-demo.git
 cd edusafira
 npm install
 npm run dev
