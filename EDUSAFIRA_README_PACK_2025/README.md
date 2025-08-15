@@ -1,11 +1,11 @@
 <!-- Logo -->
 <p align="center">
-  <img src="EDUSAFIRA_README_PACK_2025/public/logo-edusafira.png" alt="EduSafira Logo" width="450">
+  <img src="public/logo-edusafira.png" alt="EduSafira Logo" width="450">
 </p>
 
 <!-- Badge Licence -->
 <p align="center">
-  <img src="EDUSAFIRA_README_PACK_2025/public/edusafira-badge.png?v=1" alt="EDUSAFIRA - Tous droits réservés" width="520">
+  <img src="public/edusafira-badge.png?v=2" alt="EDUSAFIRA - Tous droits réservés" width="520">
 </p>
 
 ---
