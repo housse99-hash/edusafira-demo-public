@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="EDUSAFIRA_README_PACK_2025/public/edusafira-badge.png" alt="EduSafira Badge" width="300"/>
+  <img src="public/edusafira-badge.png" alt="EduSafira Badge" width="400"/>
 </p>
 
 <p align="center">
@@ -8,46 +8,50 @@
   </a>
 </p>
 
-# EduSafira
-**Gestion scolaire et de formation – _School & Training Management_**
+# EduSafira  
+
+Gestion scolaire et de formation – *School & Training Management*  
 
 ---
 
-## FR Présentation
-**EduSafira** est une application de gestion **tout-en-un** conçue pour les écoles et centres de formation.  
-Elle simplifie la gestion **administrative**, **financière** et **pédagogique** en connectant **apprenants**, **parents**, **enseignants** et **administrateurs** via une interface moderne et inclusive.
+## 🇫🇷 Présentation  
 
-### 🚀 Fonctionnalités clés
-- 🗂 Inscriptions, classes, matières  
+**EduSafira** est une application de gestion **tout-en-un** conçue pour les écoles et centres de formation.  
+Elle simplifie la gestion **administrative, financière et pédagogique** en connectant **apprenants, parents, enseignants et administrateurs** via une interface moderne et inclusive.  
+
+### 🚀 Fonctionnalités clés  
+- 🏫 Inscriptions, classes, matières  
 - 📅 Planning & emplois du temps  
 - 💳 **Paiements locaux** : Wave, Orange Money, MoMo, Moov Africa  
-- 📄 Notes, bulletins, rapports  
+- 📑 Notes, bulletins, rapports  
 - 💰 Frais de scolarité & comptabilité  
 - 🌐 Appli bilingue (**FR & EN**)  
-- 🔑 Rôles & permissions  
+- 🔐 Rôles & permissions  
 
 ---
 
-## GB Overview
-**EduSafira** is an **all-in-one** management app designed for schools and training centers.  
-It streamlines **administrative**, **financial**, and **academic** workflows and connects **students**, **parents**, **teachers**, and **admins** through an intuitive interface.
+## 🇬🇧 Overview  
 
-### 🚀 Key Features
-- 🗂 Enrollments, classes, subjects  
+**EduSafira** is an **all-in-one** management app designed for schools and training centers.  
+It streamlines **administrative, financial, and academic** workflows and connects **students, parents, teachers, and admins** through an intuitive interface.  
+
+### 🚀 Key Features  
+- 🏫 Enrollments, classes, subjects  
 - 📅 Schedules & timetables  
 - 💳 **Local payments**: Wave, Orange Money, MoMo, Moov Africa  
-- 📄 Performance tracking & reports  
+- 📑 Performance tracking & reports  
 - 💰 Tuition & accounting  
 - 🌐 Bilingual (**FR & EN**)  
-- 🔑 Roles & permissions  
+- 🔐 Roles & permissions  
 
 ---
 
-## ⚙️ Installation
+## ⚙️ Installation  
 
-### Option 1 — Local
+### Option 1 — Local  
 ```bash
 git clone https://github.com/housse99-hash/edusafira-demo.git
-cd edusafira
+cd edusafira-demo
 npm install
 npm run dev
+ dev
