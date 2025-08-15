@@ -1,55 +1,55 @@
 <!-- Logo -->
 <p align="center">
-  <img src="public/logo-edusafira.png" alt="EduSafira Logo" width="450">
+  <img src="public/logo-edusafira.png" alt="EduSafira Logo" width="300">
 </p>
 
 <!-- Badge Licence -->
 <p align="center">
-  <img src="public/edusafira-badge.png?v=2" alt="EDUSAFIRA - Tous droits réservés" width="520">
+  <img src="public/edusafira-badge.png?v=2" alt="EDUSAFIRA - Tous droits réservés" width="420">
 </p>
 
 ---
 
 # EduSafira
-**Gestion scolaire et de formation – School & Training Management**
+**Gestion scolaire et de formation – *School & Training Management***
 
 ---
 
-## 🇫🇷 Français
+## 🇫🇷 Présentation
+**EduSafira** est une application de gestion **tout‑en‑un** conçue pour les écoles et centres de formation.  
+Elle simplifie la gestion **administrative**, **financière** et **pédagogique** en connectant **apprenants**, **parents**, **enseignants** et **administrateurs** via une interface moderne et inclusive.
 
-**EduSafira** est une application de gestion **tout-en-un** conçue pour les écoles et les centres de formation professionnelle.  
-Elle simplifie la gestion **administrative**, **financière** et **pédagogique** en connectant **apprenants**, **parents**, **enseignants** et **administrateurs** via une interface simple, intuitive et inclusive.
-
-### 🚀 Fonctionnalités principales
-- 📚 Gestion des élèves, enseignants et classes
-- 📅 Planning et emplois du temps
-- 💳 **Connecteurs de paiement locaux** : Wave, Orange Money, MoMo, Moov Africa
-- 📊 Suivi pédagogique et résultats scolaires
-- 💼 Gestion des frais de scolarité et de la comptabilité
-- 📱 Application mobile bilingue **(Français & Anglais)**
-- 🔔 Notifications automatiques aux parents et étudiants
-- 🔐 Sécurité et gestion des droits d’accès
+### 🚀 Fonctionnalités clés
+- 📚 Inscriptions, classes, matières  
+- 📅 Planning & emplois du temps  
+- 💳 **Paiements locaux** : Wave, Orange Money, MoMo, Moov Africa  
+- 📊 Notes, bulletins, rapports  
+- 💼 Frais de scolarité & comptabilité  
+- 📱 Appli bilingue **(FR & EN)**  
+- 🔐 Rôles & permissions
 
 ---
 
-## 🇬🇧 English
-
-**EduSafira** is an **all-in-one** management application designed for schools and vocational training centers.  
-It streamlines **administrative**, **financial**, and **academic** management by connecting **students**, **parents**, **teachers**, and **administrators** through a simple, intuitive, and inclusive interface.
+## 🇬🇧 Overview
+**EduSafira** is an **all‑in‑one** management app for schools and vocational training centers.  
+It streamlines **administrative**, **financial**, and **academic** workflows and connects **students, parents, teachers, and admins** through an intuitive interface.
 
 ### 🚀 Key Features
-- 📚 Management of students, teachers, and classes
-- 📅 Scheduling and timetables
-- 💳 **Local payment connectors**: Wave, Orange Money, MoMo, Moov Africa
-- 📊 Academic monitoring and student performance tracking
-- 💼 Tuition fees and accounting management
-- 📱 Bilingual mobile app **(French & English)**
-- 🔔 Automatic notifications to parents and students
-- 🔐 Security and access rights management
+- 📚 Enrollments, classes, subjects  
+- 📅 Schedules & timetables  
+- 💳 **Local payments**: Wave, Orange Money, MoMo, Moov Africa  
+- 📊 Performance tracking & reports  
+- 💼 Tuition & accounting  
+- 📱 Bilingual **(FR & EN)**  
+- 🔐 Roles & permissions
 
 ---
 
-## 📜 Licence
-**Tous droits réservés © EduSafira**  
-L’utilisation, la reproduction ou la modification de ce projet est interdite sans autorisation préalable.  
-Voir le fichier **[LICENSE](LICENSE)** pour les détails.
+## ⚙️ Installation
+
+### Option 1 — Local
+```bash
+git clone https://github.com/housse99-hash/edusafira.git
+cd edusafira
+npm install
+npm run dev
