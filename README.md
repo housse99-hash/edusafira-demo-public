@@ -55,3 +55,14 @@ cd edusafira-demo
 npm install
 npm run dev
  dev
+
+---
+
+## 📄 Licence
+
+<p align="center">
+  <img src="public/edusafira-badge.png" alt="Licence EduSafira" width="120"/><br>
+  <strong>© EDUSAFIRA – Tous droits réservés</strong><br>
+  L'utilisation, la copie ou la distribution de ce logiciel sans autorisation écrite préalable sont strictement interdites.  
+  👉 <a href="LICENSE">Voir la licence complète</a>
+</p>
