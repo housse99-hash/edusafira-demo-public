@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="EDUSAFIRA_README_PACK_2025/public/edusafira-badge.png" alt="EduSafira Badge" width="400"/>
+  <img src="public/edusafira-badge.png" alt="EduSafira Badge" width="300"/>
 </p>
 
 <p align="center">
@@ -8,9 +8,9 @@
   </a>
 </p>
 
-# EduSafira  
+# EduSafira
 
-Gestion scolaire et de formation – *School & Training Management*  
+Gestion scolaire et de formation – *School & Training Management*
 
 ---
 
@@ -23,7 +23,7 @@ Elle simplifie la gestion **administrative, financière et pédagogique** en con
 - 🏫 Inscriptions, classes, matières  
 - 📅 Planning & emplois du temps  
 - 💳 **Paiements locaux** : Wave, Orange Money, MoMo, Moov Africa  
-- 📑 Notes, bulletins, rapports  
+- 📝 Notes, bulletins, rapports  
 - 💰 Frais de scolarité & comptabilité  
 - 🌐 Appli bilingue (**FR & EN**)  
 - 🔐 Rôles & permissions  
@@ -39,7 +39,7 @@ It streamlines **administrative, financial, and academic** workflows and connect
 - 🏫 Enrollments, classes, subjects  
 - 📅 Schedules & timetables  
 - 💳 **Local payments**: Wave, Orange Money, MoMo, Moov Africa  
-- 📑 Performance tracking & reports  
+- 📝 Performance tracking & reports  
 - 💰 Tuition & accounting  
 - 🌐 Bilingual (**FR & EN**)  
 - 🔐 Roles & permissions  
@@ -49,20 +49,9 @@ It streamlines **administrative, financial, and academic** workflows and connect
 ## ⚙️ Installation  
 
 ### Option 1 — Local  
+
 ```bash
 git clone https://github.com/housse99-hash/edusafira-demo.git
-cd edusafira-demo
+cd edusafira
 npm install
 npm run dev
- dev
-
----
-
-## 📄 Licence
-
-<p align="center">
-  <img src="public/edusafira-badge.png" alt="Licence EduSafira" width="120"/><br>
-  <strong>© EDUSAFIRA – Tous droits réservés</strong><br>
-  L'utilisation, la copie ou la distribution de ce logiciel sans autorisation écrite préalable sont strictement interdites.  
-  👉 <a href="LICENSE">Voir la licence complète</a>
-</p>
