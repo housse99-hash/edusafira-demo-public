@@ -46,25 +46,20 @@ It streamlines **administrative, financial, and academic** workflows and connect
 
 ---
 
-## ⚙️ Installation  
+## Installation
 
-### Option 1 — Local  
+Option 1 — Local
 
 ```bash
 git clone https://github.com/housse99-hash/edusafira-demo.git
 cd edusafira
 npm install
 npm run dev
+📜 Licence
+<p align="center"> <img src="EDUSAFIRA_README_PACK_2025/public/edusafira-badge.png" alt="Licence EduSafira – Tous droits réservés" width="220" /> </p>
 
-## 📜 Licence
-
-<p align="center">
-  <img src="EDUSAFIRA_README_PACK_2025/public/edusafira-badge.png"
-       alt="Licence EduSafira – Tous droits réservés" width="220" />
-</p>
-
-**© 2025 EduSafira – Tous droits réservés.**  
+© 2025 EduSafira – Tous droits réservés.
 L’utilisation, la copie ou la distribution de ce logiciel sans autorisation écrite préalable sont strictement interdites.
 
-👉 Texte complet : [LICENSE](./LICENSE)
+👉 Texte complet : LICENSE
 
