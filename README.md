@@ -4,8 +4,8 @@
 </p>
 
 <p align="center">
-  <a href="https://stackblitz.com/github/housse99-hash/edusafira-demo">
-    <img src="https://developer.stackblitz.com/img/open_in_stackblitz.svg" alt="Open in StackBlitz"/>
+  <a href="https://stackblitz.com/github/housse99-hash/edusafira-demo" target="_blank">
+    <img src="https://developer.stackblitz.com/img/open_in_stackblitz.svg" alt="Open in StackBlitz" width="180"/>
   </a>
 </p>
 
