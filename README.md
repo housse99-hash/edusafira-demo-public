@@ -59,11 +59,12 @@ npm run dev
 ## 📜 Licence
 
 <p align="center">
-  <img src="./public/edusafira-badge.png"
-       alt="Licence EduSafira – Tous droits réservés"
-       width="320">
+  <img src="EDUSAFIRA_README_PACK_2025/public/edusafira-badge.png"
+       alt="Licence EduSafira – Tous droits réservés" width="220" />
 </p>
 
-**© 2025 EduSafira — Tous droits réservés.**  
-L'utilisation, la copie ou la distribution de ce logiciel sans autorisation écrite préalable sont strictement interdites.  
+**© 2025 EduSafira – Tous droits réservés.**  
+L’utilisation, la copie ou la distribution de ce logiciel sans autorisation écrite préalable sont strictement interdites.
+
 👉 Texte complet : [LICENSE](./LICENSE)
+
