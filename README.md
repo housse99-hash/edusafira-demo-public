@@ -58,7 +58,7 @@ npm run dev
 ## 📜 Licence
 
 <p align="center">
-  <img src="./public/edusafira-badge.png"
+  <img src="EDUSAFIRA_README_PACK_2025/public/edusafira-badge.png"
        alt="Licence EduSafira – Tous droits réservés"
        width="320">
 </p>
