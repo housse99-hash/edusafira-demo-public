@@ -55,8 +55,8 @@ It streamlines **administrative, financial, and academic** workflows and connect
 git clone https://github.com/housse99-hash/edusafira-demo.git
 cd edusafira
 npm install
-npm run dev
 bash```
+
 ---
 
 📜 Licence
