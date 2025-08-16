@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="public/edusafira-badge.png" alt="EduSafira Badge" width="300"/>
+  <img src="EDUSAFIRA_README_PACK_2025/public/edusafira-badge.png" alt="EduSafira Badge" width="400"/>
 </p>
 
 <p align="center">
