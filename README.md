@@ -56,9 +56,7 @@ git clone https://github.com/housse99-hash/edusafira-demo.git
 cd edusafira
 npm install
 npm run dev
-bash ...
-
----
+bash---
 
 📜 Licence
 <p align="center"> <img src="EDUSAFIRA_README_PACK_2025/public/edusafira-badge.png" alt="Licence EduSafira – Tous droits réservés" width="220" /> </p>
