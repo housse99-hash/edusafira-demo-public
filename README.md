@@ -53,11 +53,11 @@ npm run dev
 © 2025 EduSafira – Tous droits réservés.
 L’utilisation, la copie ou la distribution de ce logiciel sans autorisation écrite préalable sont strictement interdites.
 
-📄 Texte complet : LICENSE
+📄 Texte complet : [LICENSE](./LICENSE)
 
 🇬🇧 English
 
 © 2025 EduSafira – All rights reserved.
 Use, copying, or distribution of this software without prior written authorization is strictly prohibited.
 
-📄 Full text : LICENSE_EN
+📄 Full text : [LICENSE_EN](./LICENSE_EN) 
