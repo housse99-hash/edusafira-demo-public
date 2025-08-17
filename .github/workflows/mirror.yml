@@ -1,1 +1,22 @@
+name: Mirror to Public Repo
+
+on:
+  push:
+    branches:
+      - main   # Déclenche quand tu pushes sur "main"
+
+jobs:
+  mirror:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Push to mirror repo
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git clone --bare https://github.com/${{ github.repository }} source-repo
+          cd source-repo
+          git push --mirror https://x-access-token:${{ secrets.MIRROR_TOKEN }}@github.com/${{ secrets.MIRROR_REPO }}.git
 
