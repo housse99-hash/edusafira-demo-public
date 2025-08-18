@@ -1,12 +1,11 @@
 name: Mirror to Public Repo
+
 on:
-
   push:
-    branches: [main]   # Trigger on pushes to main
+    branches: [ main ]  # déclenche sur la branche main
 
-# Minimal permissions to read private repo
 permissions:
-  contents: read
+  contents: read        # lecture du dépôt privé par l'action
 
 jobs:
   mirror:
@@ -16,39 +15,31 @@ jobs:
       - name: Checkout (full history)
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0   # full history for push --mirror
+          fetch-depth: 0        # historique complet pour --mirror
 
       - name: Configure Git
         run: |
-          git config --global user.name "github-actions[bot]"
+          git config --global user.name  "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
-            - name: Push to public mirror
+      - name: Push to public mirror
         env:
           MIRROR_TOKEN: ${{ secrets.MIRROR_TOKEN }}
-          MIRROR_REPO:  ${{ secrets.MIRROR_REPO }}
+          MIRROR_REPO:  ${{ secrets.MIRROR_REPO }}   # ex: housse99-hash/edusafira-demo-public
         run: |
           set -euo pipefail
 
-          # Sanitize / trim
+          # élimine tout retour à la ligne / espace parasite venu des secrets
           TOKEN="$(printf %s "$MIRROR_TOKEN" | tr -d '\r\n')"
-          REPO="$(printf %s "$MIRROR_REPO"  | tr -d '\r\n ')"
-          REPO="${REPO%.git}"
+          DEST="$(printf %s "$MIRROR_REPO"  | tr -d '\r\n ')"
+          DEST="${DEST%.git}"   # tolère si vous avez mis .git par erreur
 
-          # Garde-fous : secrets vides = on stoppe tout de suite
-          [ -n "$TOKEN" ] || { echo "::error::MIRROR_TOKEN est vide"; exit 1; }
-          [ -n "$REPO"  ] || { echo "::error::MIRROR_REPO est vide";  exit 1; }
+          REMOTE_URL="https://x-access-token:${TOKEN}@github.com/${DEST}.git"
+          echo "Pushing to github.com/${DEST}.git"
 
-          echo "Debug: TOKEN length = ${#TOKEN} (masqué), REPO = $REPO"
+          # idempotent : on (re)crée le remote 'mirror'
+          git remote remove mirror || true
+          git remote add mirror "$REMOTE_URL"
 
-          REMOTE_URL="https://x-access-token:${TOKEN}@github.com/${REPO}.git"
-          echo "Remote = https://x-access-token:***@github.com/${REPO}.git"
-
-          # Idempotent: add/set-url remote
-          if git remote get-url mirror >/dev/null 2>&1; then
-            git remote set-url mirror "$REMOTE_URL"
-          else
-            git remote add mirror "$REMOTE_URL"
-          fi
-
-          git remote -v
+          # push miroir (toutes branches / tags / refs)
+          git push --mirror mirror
