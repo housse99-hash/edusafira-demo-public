@@ -52,9 +52,3 @@ jobs:
           fi
 
           git remote -v
-
-          # Test d'accès (échoue ici si le token n'a pas les droits)
-          git ls-remote mirror >/dev/null
-
-          # Push mirroir (branches + tags + refs)
-          git push --mirror mirror
