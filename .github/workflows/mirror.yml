@@ -23,24 +23,38 @@ jobs:
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
-      - name: Push to public mirror
+            - name: Push to public mirror
         env:
           MIRROR_TOKEN: ${{ secrets.MIRROR_TOKEN }}
           MIRROR_REPO:  ${{ secrets.MIRROR_REPO }}
         run: |
           set -euo pipefail
 
-          # sanitize secrets in case of accidental newlines/spaces
+          # Sanitize / trim
           TOKEN="$(printf %s "$MIRROR_TOKEN" | tr -d '\r\n')"
           REPO="$(printf %s "$MIRROR_REPO"  | tr -d '\r\n ')"
           REPO="${REPO%.git}"
 
+          # Garde-fous : secrets vides = on stoppe tout de suite
+          [ -n "$TOKEN" ] || { echo "::error::MIRROR_TOKEN est vide"; exit 1; }
+          [ -n "$REPO"  ] || { echo "::error::MIRROR_REPO est vide";  exit 1; }
+
+          echo "Debug: TOKEN length = ${#TOKEN} (masqué), REPO = $REPO"
+
           REMOTE_URL="https://x-access-token:${TOKEN}@github.com/${REPO}.git"
           echo "Remote = https://x-access-token:***@github.com/${REPO}.git"
 
-          # idempotent remote add
-          git remote remove mirror || true
-          git remote add mirror "$REMOTE_URL"
+          # Idempotent: add/set-url remote
+          if git remote get-url mirror >/dev/null 2>&1; then
+            git remote set-url mirror "$REMOTE_URL"
+          else
+            git remote add mirror "$REMOTE_URL"
+          fi
 
-          # mirror push (branches + tags + refs)
+          git remote -v
+
+          # Test d'accès (échoue ici si le token n'a pas les droits)
+          git ls-remote mirror >/dev/null
+
+          # Push mirroir (branches + tags + refs)
           git push --mirror mirror
