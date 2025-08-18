@@ -1,6 +1,6 @@
 name: Mirror to Public Repo
-
 on:
+
   push:
     branches: [main]   # Trigger on pushes to main
 
