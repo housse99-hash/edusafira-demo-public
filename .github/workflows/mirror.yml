@@ -2,74 +2,44 @@ name: Mirror to Public Repo (SSH)
 
 on:
   push:
-    branches: [ main ]          # adapte si ta branche par défaut n'est pas "main"
-  workflow_dispatch:            # permet de déclencher manuellement
+    branches: [ main ]
+  workflow_dispatch:
 
 permissions:
-  contents: read                # permissions minimales côté Actions
-
-# Évite les exécutions parallèles pour la même ref (plus propre)
-concurrency:
-  group: mirror-${{ github.ref }}
-  cancel-in-progress: false
+  contents: read
 
 jobs:
   mirror:
     runs-on: ubuntu-latest
-
     steps:
-      # 1) Récupère l'historique complet (indispensable pour --mirror)
       - name: Checkout (full history)
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      # 2) Démarre l’agent SSH avec la clé privée stockée en secret
       - name: Start SSH agent
         uses: webfactory/ssh-agent@v0.9.0
         with:
           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
-          log-public-key: true        # pratique pour vérifier la bonne clé dans les logs
 
-      # 3) Ajoute les hôtes connus (github.com) pour fiabiliser l’empreinte
-      - name: Add GitHub to known_hosts
-        env:
-          SSH_KNOWN_HOSTS: ${{ secrets.SSH_KNOWN_HOSTS }}
+      - name: Add GitHub host keys
         run: |
-          set -euo pipefail
           mkdir -p ~/.ssh
-          printf '%s\n' "$SSH_KNOWN_HOSTS" >> ~/.ssh/known_hosts
-          chmod 600 ~/.ssh/known_hosts
+          echo "${{ secrets.SSH_KNOWN_HOSTS }}" > ~/.ssh/known_hosts
 
-      # 4) Configure l’identité Git du bot (commit metadata côté runner, safe)
-      - name: Configure Git
+      - name: Disable workflows for public mirror
         run: |
-          git config --global user.name  "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          mkdir -p .github/workflows
+          for f in .github/workflows/*.yml; do
+            if [ -f "$f" ]; then
+              echo "# DISABLED FOR PUBLIC MIRROR" | cat - "$f" > temp && mv temp "$f"
+            fi
+          done
 
-      # 5) Push miroir vers le dépôt public (branches + tags + refs)
       - name: Push to public mirror
-        env:
-          DEST: ${{ secrets.MIRROR_REPO }}   # ex: "housse99-hash/edusafira-demo-public"
         run: |
-          set -euo pipefail
-
-          # Nettoyage des retours à la ligne/espaces
-          dest="$(printf %s "$DEST" | tr -d '\r\n ')"
-          dest="${dest%.git}"
-
-          # Construit une URL SSH correcte si on fournit "owner/repo"
-          case "$dest" in
-            git@github.com:*) url="$dest" ;;
-            */*)              url="git@github.com:${dest}.git" ;;
-            *) echo "✖ Secret MIRROR_REPO doit être 'owner/repo' ou 'git@github.com:owner/repo.git'"; exit 1 ;;
-          esac
-
-          echo "➡️  Mirroring to: $url"
-
-          # Remote idempotent
           git remote remove mirror || true
-          git remote add mirror "$url"
-
-          # Push "miroir" (branches + tags + refs), prune pour nettoyer les refs supprimées
+          git remote add mirror "git@github.com:${{ secrets.MIRROR_REPO }}.git"
+          git push --mirror mirror
+upprimées
           git push --prune --mirror mirror
