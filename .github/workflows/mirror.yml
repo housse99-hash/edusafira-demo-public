@@ -41,5 +41,3 @@ jobs:
           git remote remove mirror || true
           git remote add mirror "git@github.com:${{ secrets.MIRROR_REPO }}.git"
           git push --mirror mirror
-upprimées
-          git push --prune --mirror mirror
