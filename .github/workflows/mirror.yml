@@ -42,5 +42,3 @@ jobs:
           git remote remove mirror || true
           git remote add mirror "$REMOTE_URL"
           git push --mirror mirror
-        git remote add mirror git@github.com:housse99-hash/edusafira-demo-public.git
-          git push --mirror mirror
