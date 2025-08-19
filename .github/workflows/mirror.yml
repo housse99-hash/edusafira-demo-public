@@ -2,10 +2,10 @@ name: Mirror to Public Repo
 
 on:
   push:
-    branches: [ main ]  # déclenche sur la branche main
+    branches: [main]
 
 permissions:
-  contents: read        # lecture du dépôt privé par l'action
+  contents: read
 
 jobs:
   mirror:
@@ -15,31 +15,32 @@ jobs:
       - name: Checkout (full history)
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0        # historique complet pour --mirror
+          fetch-depth: 0
 
-      - name: Configure Git
+      - name: Setup SSH agent
+        uses: webfactory/ssh-agent@v0.9.0
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+          # host-key: option non supportée ici, on gère juste après
+
+      - name: Add known_hosts (safe)
+        if: secrets.SSH_KNOWN_HOSTS != ''
         run: |
-          git config --global user.name  "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_KNOWN_HOSTS }}" >> ~/.ssh/known_hosts
+          chmod 600 ~/.ssh/known_hosts
 
-      - name: Push to public mirror
-        env:
-          MIRROR_TOKEN: ${{ secrets.MIRROR_TOKEN }}
-          MIRROR_REPO:  ${{ secrets.MIRROR_REPO }}   # ex: housse99-hash/edusafira-demo-public
+      - name: Add known_hosts (fallback)
+        if: secrets.SSH_KNOWN_HOSTS == ''
+        run: |
+          mkdir -p ~/.ssh
+          ssh-keyscan github.com >> ~/.ssh/known_hosts
+          chmod 600 ~/.ssh/known_hosts
+
+      - name: Push to public mirror (SSH)
         run: |
           set -euo pipefail
-
-          # élimine tout retour à la ligne / espace parasite venu des secrets
-          TOKEN="$(printf %s "$MIRROR_TOKEN" | tr -d '\r\n')"
-          DEST="$(printf %s "$MIRROR_REPO"  | tr -d '\r\n ')"
-          DEST="${DEST%.git}"   # tolère si vous avez mis .git par erreur
-
-          REMOTE_URL="https://x-access-token:${TOKEN}@github.com/${DEST}.git"
-          echo "Pushing to github.com/${DEST}.git"
-
-          # idempotent : on (re)crée le remote 'mirror'
           git remote remove mirror || true
-          git remote add mirror "$REMOTE_URL"
-
-          # push miroir (toutes branches / tags / refs)
+          # ⚠️ Remplace par VOTRE repo public en SSH :
+          git remote add mirror git@github.com:housse99-hash/edusafira-demo-public.git
           git push --mirror mirror
