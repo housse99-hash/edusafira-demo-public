@@ -2,30 +2,27 @@ name: Mirror to Public Repo (SSH)
 
 on:
   push:
-    branches: [ main ]     # déclenche au push sur main
-  workflow_dispatch:        # lancement manuel optionnel
+    branches: [ main ]         # déclenche au push sur main
+  workflow_dispatch:            # lancement manuel possible
 
 permissions:
-  contents: read            # permissions minimales côté Actions
+  contents: read                # permissions minimales pour Actions
 
 jobs:
   mirror:
     runs-on: ubuntu-latest
 
     steps:
-      # 1) Récupère tout l'historique (tags/branches/refs)
       - name: Checkout (full history)
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      # 2) Démarre un agent SSH et charge la clé privée stockée en secret
       - name: Start SSH agent
         uses: webfactory/ssh-agent@v0.9.0
         with:
           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
-      # 3) Installe les clés d’hôte GitHub (sécurité SSH)
       - name: Add GitHub host keys
         run: |
           mkdir -p ~/.ssh
@@ -33,22 +30,17 @@ jobs:
           printf '%s\n' "${{ secrets.SSH_KNOWN_HOSTS }}" > ~/.ssh/known_hosts
           chmod 644 ~/.ssh/known_hosts
 
-      # 4) Push miroir vers le dépôt public (branches + tags + refs)
       - name: Push to public mirror
         env:
           DEST: ${{ secrets.MIRROR_REPO }}   # ex: housse99-hash/edusafira-demo-public
         run: |
           set -euo pipefail
-          # nettoie les espaces/retours chariot éventuels
           DEST="$(printf %s "$DEST" | tr -d '\r\n ')"
           DEST="${DEST%.git}"
           REMOTE_URL="git@github.com:${DEST}.git"
 
           git remote remove mirror || true
           git remote add mirror "$REMOTE_URL"
-
-          # pousse branches, tags et autres refs
           git push --mirror mirror
-mplace par VOTRE repo public en SSH :
-          git remote add mirror git@github.com:housse99-hash/edusafira-demo-public.git
+        git remote add mirror git@github.com:housse99-hash/edusafira-demo-public.git
           git push --mirror mirror
