@@ -49,18 +49,13 @@ npm run dev
 
 ```
 ---
-📜 Licence
-<p align="center"> <img src="edusafira-github/public/edusafira-badge.png" alt="Licence EduSafira – Tous droits réservés" width="220"/> </p>
-🇫🇷 Français
+## 📜 Licence / License
 
-© 2025 EduSafira – Tous droits réservés.
-L’utilisation, la copie ou la distribution de ce logiciel sans autorisation écrite préalable sont strictement interdites.
+<p align="center">
+  <img src="edusafira-github/public/edusafira-badge.png" alt="Badge Licence EduSafira" width="220"/>
+</p>
 
-📄 Texte complet : [LICENSE](./LICENSE)
+**© 2025 EduSafira — Tous droits réservés / All rights reserved**
 
-🇬🇧 English
-
-© 2025 EduSafira – All rights reserved.
-Use, copying, or distribution of this software without prior written authorization is strictly prohibited.
-
-📄 Full text : [LICENSE_EN](./LICENSE_EN) 
+- [LICENSE (FR)](/LICENSE)
+- [LICENSE (EN)](/LICENSE_EN)
