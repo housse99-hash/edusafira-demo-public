@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="edusafira-github/public/logo.png" alt="Logo EduSafira" width="220"/>
+  <img src="edusafira-github/public/logo.png" alt="Logo EduSafira" width="260"/>
 </p>
 
 <p align="center">
