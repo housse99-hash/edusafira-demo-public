@@ -1,3 +1,5 @@
+<img src="edusafira-github/public/edusafira-badge.png" 
+
 <p align="center">
   <img src="edusafira-github/public/edusafira-badge.png" 
        alt="EduSafira Badge" width="300"/>
