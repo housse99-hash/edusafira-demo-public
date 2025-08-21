@@ -1,7 +1,7 @@
 <!-- ============== HEADER ============== -->
 
 <p align="center">
-  <img src="edusafira-github/public/logo.png" alt="EduSafira Logo" width="300"/>
+  <img src="edusafira-demo/public/logo.png" alt="EduSafira Logo" width="300"/>
 </p>
 
 <p align="center">
@@ -61,6 +61,6 @@ npm run dev
 ## 📜 Licence
 
 <p align="center">
-  <img src="edusafira-github/public/edusafira-badge.png" alt="Licence EduSafira - Tous droits réservés" width="220"/>
+  <img src="edusafira-demo/public/edusafira-badge.png" alt="Licence EduSafira - Tous droits réservés" width="220"/>
 </p>
 ---
