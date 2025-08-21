@@ -12,6 +12,8 @@
   </a>
 </p>
 
+[![Uptime & SSL Monitor](https://github.com/housse99-hash/edusafira-demo/actions/workflows/uptime-monitor.yml/badge.svg)](https://github.com/housse99-hash/edusafira-demo/actions/workflows/uptime-monitor.yml)
+
 ---
 
 ## 🌍 EduSafira
