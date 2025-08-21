@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 Hello from Edusafira static deploy!
+=======
+hello 2025-08-21 19:45:00Z
+>>>>>>> c3eb421 (feat(health): add static health page)
