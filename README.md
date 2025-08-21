@@ -1,19 +1,26 @@
+<!-- ============== HEADER ============== -->
+
 <p align="center">
-  <img src="edusafira-github/public/logo.png" alt="Logo EduSafira" width="260"/>
+  <img src="edusafira-github/public/logo.png" alt="EduSafira Logo" width="260"/>
 </p>
 
 <p align="center">
-  <a href="https://github.com/housse99-hash/edusafira-demo/actions/workflows/mirror.yml">
-    <img src="https://github.com/housse99-hash/edusafira-demo/actions/workflows/mirror.yml/badge.svg" alt="Mirror Status"/>
-  </a>
-  &nbsp;
+  <img src="edusafira-github/public/edusafira-badge.png" alt="Badge EduSafira" width="200"/>
+</p>
+
+<p align="center">
+  <!-- Bouton démo en ligne (StackBlitz) -->
   <a href="https://stackblitz.com/github/housse99-hash/edusafira-demo-public">
-    <img src="https://developer.stackblitz.com/img/open_in_stackblitz.svg" alt="Open in StackBlitz"/>
+    <img src="https://developer.stackblitz.com/img/open_in_stackblitz.svg" alt="Open in StackBlitz">
+  </a>
+  &nbsp;&nbsp;
+  <!-- Statut du monitor (GitHub Actions) -->
+  <a href="https://github.com/housse99-hash/edusafira-demo/actions/workflows/uptime-monitor.yml">
+    <img src="https://github.com/housse99-hash/edusafira-demo/actions/workflows/uptime-monitor.yml/badge.svg" alt="Uptime & SSL Monitor">
   </a>
 </p>
 
-[![Uptime & SSL Monitor](https://github.com/housse99-hash/edusafira-demo/actions/workflows/uptime-monitor.yml/badge.svg)](https://github.com/housse99-hash/edusafira-demo/actions/workflows/uptime-monitor.yml)
-
+<!-- ============ /HEADER ============== -->
 ---
 
 ## 🌍 EduSafira
