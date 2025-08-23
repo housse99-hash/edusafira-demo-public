@@ -3,59 +3,86 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="robots" content="index,follow" />
-  <title>EduSafira – Plateforme de gestion scolaire & formation</title>
+  <title>EduSafira – Gestion scolaire & formation</title>
   <style>
-    :root { --pink:#dd2476; --dark:#1a1a1a; --ok:#0a7d00; }
-    html,body { margin:0; padding:0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; color:var(--dark); }
-    .container { max-width: 880px; margin: 0 auto; padding: 24px; }
-    header.hero { background: linear-gradient(135deg, #ff512f, var(--pink)); color:#fff; border-radius: 14px; padding: 28px; }
-    header h1 { margin: 0 0 8px 0; font-size: clamp(28px, 4vw, 40px); }
-    header p { margin: 0 0 16px 0; font-size: 16px; opacity:.95 }
-    .cta { display:inline-block; background:#fff; color:#222; font-weight:700; padding:12px 18px; border-radius:10px; text-decoration:none; border:2px solid #fff; }
-    .cta:hover { background:transparent; color:#fff; }
-    section { margin:28px 0; }
-    ul { margin:12px 0 0 0; padding-left:20px; }
-    .links a { display:inline-block; margin-right:12px; }
-    .ok { color:var(--ok); font-weight:700; }
-    .muted { color:#777; }
-    footer { margin-top: 24px; border-top:1px solid #eee; padding-top:16px; font-size:14px; color:#666; }
+    :root { --primary:#2563eb; --primary-dark:#1e3a8a; --text:#1f2937; --muted:#6b7280; }
+    * { box-sizing:border-box }
+    body { margin:0; font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif; line-height:1.5; background:#f9fafb; color:var(--text); }
+    .container { max-width:1000px; margin:0 auto; padding:16px; }
+    header.hero {
+      background:linear-gradient(135deg,var(--primary),var(--primary-dark));
+      color:#fff; border-radius:16px; padding:24px 16px 32px;
+    }
+    .brand { display:flex; align-items:center; gap:16px; flex-wrap:wrap; }
+    .brand img { display:block }
+    .logo { width:160px; height:auto; }
+    .badge { width:220px; height:auto; }
+    .title { margin:8px 0 0; font-size:clamp(26px,4vw,42px); font-weight:800; }
+    .subtitle { margin:6px 0 14px; font-size:1.05rem; opacity:.95 }
+    .cta { display:inline-block; background:#fff; color:var(--primary); font-weight:700; padding:.75rem 1.25rem; border-radius:10px; text-decoration:none; transition:.2s; border:2px solid #ffffff33 }
+    .cta:hover { background:#eef2ff }
+    main { max-width:900px; margin:2rem auto; padding:0 8px; }
+    section { margin-bottom:1.6rem; background:#fff; border:1px solid #e5e7eb; border-radius:12px; padding:16px; }
+    h2 { color:var(--primary); font-size:1.25rem; margin:0 0 .5rem }
+    ul { margin:0; padding-left:1.2rem }
+    footer { text-align:center; font-size:.9rem; color:var(--muted); margin:2rem 0 }
+    .links a { color:#2563eb; text-decoration:none }
+    .links a:hover { text-decoration:underline }
+    @media (max-width:520px){
+      .logo { width:140px }
+      .badge { width:200px }
+    }
   </style>
 </head>
 <body>
-  <div class="container">
 
+  <div class="container">
     <header class="hero">
-      <h1>Bienvenue sur EduSafira</h1>
-      <p>Plateforme de gestion scolaire & formation</p>
-      <a class="cta" href="/health">Vérifier l’état /health</a>
+      <div class="brand">
+        <!-- Logo (fallback texte si l'image manque) -->
+        <img class="logo" src="/logo.png" alt="Logo EduSafira" onerror="this.outerHTML='<strong>EDUSAFIRA</strong>'">
+        <!-- Badge licence (fallback masqué si absent) -->
+        <img class="badge" src="/edusafira-badge.png" alt="Badge – Tous droits réservés" onerror="this.style.display='none'">
+      </div>
+
+      <h1 class="title">Bienvenue sur EduSafira</h1>
+      <p class="subtitle">Application tout-en-un pour la gestion scolaire & centres de formation</p>
+      <a href="/health" class="cta">Vérifier l’état /health</a>
     </header>
 
-    <section>
-      <ul>
-        <li>✔ Inscriptions & classes</li>
-        <li>✔ Paiements (carte, Google&nbsp;Pay)</li>
-        <li>✔ Communication parents & enseignants</li>
-      </ul>
-    </section>
+    <main>
+      <section>
+        <h2>Fonctionnalités principales</h2>
+        <ul>
+          <li>✔ Inscriptions & gestion des classes</li>
+          <li>✔ Paiements sécurisés (carte bancaire, Google&nbsp;Pay, mobile money)</li>
+          <li>✔ Communication parents ↔ enseignants</li>
+          <li>✔ Suivi pédagogique et assiduité en temps réel</li>
+        </ul>
+      </section>
 
-    <section class="links">
-      <a href="/check.txt">Fichier de test</a> •
-      <a href="/edusafira-badge.png">Badge</a> •
-      <a href="/logo.png">Logo</a>
-    </section>
+      <section lang="en">
+        <h2>Main Features (English)</h2>
+        <ul>
+          <li>✔ Enrollment & class management</li>
+          <li>✔ Secure payments (cards, Google Pay, mobile money)</li>
+          <li>✔ Parents ↔ Teachers communication</li>
+          <li>✔ Real‑time academic tracking</li>
+        </ul>
+      </section>
 
-    <section>
-      <h2>It works 🎉</h2>
-      <p>Servi directement depuis <code>/public</code>.</p>
-      <p><a href="/health">Aller à /health</a></p>
-      <p class="muted">Si la page /health ne s’affiche pas, vérifie que <code>public/health/index.html</code> existe bien et contient du HTML valide.</p>
-    </section>
+      <section class="links">
+        Ressources rapides :
+        <a href="/health">Health</a> •
+        <a href="/check.txt">Check</a> •
+        <a href="https://github.com/housse99-hash/edusafira-demo-public" target="_blank" rel="noopener">GitHub</a>
+      </section>
+    </main>
 
     <footer>
-      <span>© EduSafira</span>
+      © 2025 EduSafira — Tous droits réservés
     </footer>
-
   </div>
+
 </body>
 </html>
