@@ -7,31 +7,29 @@
   <style>
     :root { --primary:#2563eb; --primary-dark:#1e3a8a; --text:#1f2937; --muted:#6b7280; }
     * { box-sizing:border-box }
-    body { margin:0; font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif; line-height:1.5; background:#f9fafb; color:var(--text); }
+    body { margin:0; font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+           line-height:1.5; background:#f9fafb; color:var(--text); }
     .container { max-width:1000px; margin:0 auto; padding:16px; }
     header.hero {
       background:linear-gradient(135deg,var(--primary),var(--primary-dark));
       color:#fff; border-radius:16px; padding:24px 16px 32px;
     }
     .brand { display:flex; align-items:center; gap:16px; flex-wrap:wrap; }
-    .brand img { display:block }
-    .logo { width:160px; height:auto; }
-    .badge { width:220px; height:auto; }
-    .title { margin:8px 0 0; font-size:clamp(26px,4vw,42px); font-weight:800; }
+    .brand img.logo { width:160px; height:auto; display:block; }
+    .title { margin:12px 0 0; font-size:clamp(26px,4vw,42px); font-weight:800; }
     .subtitle { margin:6px 0 14px; font-size:1.05rem; opacity:.95 }
-    .cta { display:inline-block; background:#fff; color:var(--primary); font-weight:700; padding:.75rem 1.25rem; border-radius:10px; text-decoration:none; transition:.2s; border:2px solid #ffffff33 }
+    .cta { display:inline-block; background:#fff; color:var(--primary); font-weight:700;
+           padding:.75rem 1.25rem; border-radius:10px; text-decoration:none;
+           transition:.2s; border:2px solid #ffffff33 }
     .cta:hover { background:#eef2ff }
     main { max-width:900px; margin:2rem auto; padding:0 8px; }
-    section { margin-bottom:1.6rem; background:#fff; border:1px solid #e5e7eb; border-radius:12px; padding:16px; }
+    section { margin-bottom:1.6rem; background:#fff; border:1px solid #e5e7eb;
+              border-radius:12px; padding:16px; }
     h2 { color:var(--primary); font-size:1.25rem; margin:0 0 .5rem }
     ul { margin:0; padding-left:1.2rem }
     footer { text-align:center; font-size:.9rem; color:var(--muted); margin:2rem 0 }
     .links a { color:#2563eb; text-decoration:none }
     .links a:hover { text-decoration:underline }
-    @media (max-width:520px){
-      .logo { width:140px }
-      .badge { width:200px }
-    }
   </style>
 </head>
 <body>
@@ -39,10 +37,8 @@
   <div class="container">
     <header class="hero">
       <div class="brand">
-        <!-- Logo (fallback texte si l'image manque) -->
+        <!-- Logo -->
         <img class="logo" src="/logo.png" alt="Logo EduSafira" onerror="this.outerHTML='<strong>EDUSAFIRA</strong>'">
-        <!-- Badge licence (fallback masqué si absent) -->
-        <img class="badge" src="/edusafira-badge.png" alt="Badge – Tous droits réservés" onerror="this.style.display='none'">
       </div>
 
       <h1 class="title">Bienvenue sur EduSafira</h1>
@@ -67,7 +63,7 @@
           <li>✔ Enrollment & class management</li>
           <li>✔ Secure payments (cards, Google Pay, mobile money)</li>
           <li>✔ Parents ↔ Teachers communication</li>
-          <li>✔ Real‑time academic tracking</li>
+          <li>✔ Real-time academic tracking</li>
         </ul>
       </section>
 
