@@ -3,107 +3,221 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>EduSafira – Gestion scolaire & formation</title>
+  <title>EDUSAFIRA – Gestion scolaire & formation</title>
+
+  <!-- SEO / Partage -->
+  <meta name="description" content="EDUSAFIRA : application tout‑en‑un pour la gestion scolaire & des centres de formation (inscriptions, paiements, communication, suivi pédagogique).">
+  <meta property="og:title" content="EDUSAFIRA – Gestion scolaire & formation">
+  <meta property="og:description" content="Application tout‑en‑un : inscriptions, paiements, communication, suivi pédagogique.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://edusafira.com">
+  <meta name="theme-color" content="#ff7a18">
+
   <style>
-    :root { --text:#1f2937; --muted:#6b7280; --orangeA:#ff7a18; --orangeB:#ff3d00; --orangeC:#ff9f1a; }
-    * { box-sizing:border-box }
-    body { margin:0; font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif; line-height:1.5; background:#f9fafb; color:var(--text); }
-    .container { max-width:1000px; margin:0 auto; padding:16px; }
-    /* Hero glossy orange */
-    header.hero {
-      position:relative; overflow:hidden; border-radius:20px; padding:32px 20px 40px; color:#fff;
-      background:
-        radial-gradient(1200px 600px at -10% -40%, rgba(255,255,255,.35), transparent 60%),
-        linear-gradient(135deg, var(--orangeA), var(--orangeB));
-      box-shadow:0 10px 26px rgba(255,102,0,.25), 0 2px 6px rgba(0,0,0,.08), inset 0 2px 6px rgba(255,255,255,.55);
+    :root{
+      --text:#1f2937; --muted:#6b7280;
+      --orangeA:#ff7a18; --orangeB:#ff3d00; --orangeC:#ff9f1a;
+      --card:#ffffff; --line:#e5e7eb;
+      --shadow-sm:0 4px 10px rgba(0,0,0,.06);
+      --shadow-md:0 8px 18px rgba(0,0,0,.08);
+      --shadow-lg:0 12px 28px rgba(0,0,0,.14);
     }
-    /* reflet glossy */
-    header.hero::after{
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0}
+    body{
+      font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+      line-height:1.55; color:var(--text); background:#f8fafc;
+    }
+    .container{max-width:1080px;margin:0 auto;padding:0 16px}
+
+    /* Topbar */
+    .topbar{
+      position:sticky; top:0; z-index:40; backdrop-filter:saturate(140%) blur(8px);
+      background:rgba(255,255,255,.75); border-bottom:1px solid var(--line);
+    }
+    .topbar-inner{display:flex; align-items:center; justify-content:space-between; padding:10px 0}
+    .brand{display:flex; align-items:center; gap:10px}
+    .brand .logo{width:140px;height:auto; display:block; filter:drop-shadow(0 2px 6px rgba(0,0,0,.15))}
+    .nav a{color:var(--text); text-decoration:none; padding:8px 10px; border-radius:10px}
+    .nav a:hover{background:#f3f4f6}
+
+    /* Hero glossy orange */
+    .hero{
+      position:relative; overflow:hidden; border-radius:20px; margin:16px 0 24px;
+      color:#fff; box-shadow:var(--shadow-lg);
+      background:
+        radial-gradient(900px 500px at -10% -35%, rgba(255,255,255,.35), transparent 60%),
+        linear-gradient(135deg, var(--orangeA), var(--orangeB));
+    }
+    .hero::after{
       content:""; position:absolute; top:-45%; left:-35%; width:180%; height:180%;
       background:linear-gradient(115deg, rgba(255,255,255,.55), rgba(255,255,255,0) 55%);
       transform:rotate(22deg); pointer-events:none;
     }
-    .brand { display:flex; align-items:center; gap:16px; flex-wrap:wrap; position:relative; z-index:1; }
-    .brand img.logo { width:180px; height:auto; display:block; filter:drop-shadow(0 4px 10px rgba(0,0,0,.25)); }
-    .title { margin:16px 0 0; font-size:clamp(28px,4vw,44px); font-weight:900; letter-spacing:.3px; color:#fff; text-shadow:0 2px 8px rgba(0,0,0,.25); }
-    .subtitle { margin:8px 0 20px; font-size:1.1rem; color:#fff; opacity:.95; text-shadow:0 1px 6px rgba(0,0,0,.2); }
-    .cta {
-      display:inline-block; background:#fff; color:#b43403; font-weight:800;
-      padding:.9rem 1.4rem; border-radius:12px; text-decoration:none; transition:.25s;
-      box-shadow:0 10px 20px rgba(0,0,0,.15), 0 6px 14px rgba(255,102,0,.25); border:2px solid #ffffff40; position:relative; z-index:1;
+    .hero-inner{position:relative; z-index:1; padding:36px 18px 44px}
+    .hero h1{margin:0 0 10px; font-size:clamp(30px,4.6vw,48px); font-weight:900; letter-spacing:.3px; text-shadow:0 2px 8px rgba(0,0,0,.25)}
+    .hero p{margin:0 0 18px; font-size:1.1rem; opacity:.96; text-shadow:0 1px 6px rgba(0,0,0,.2)}
+    .cta{
+      display:inline-block; text-decoration:none; border-radius:12px; font-weight:800;
+      padding:.9rem 1.4rem; background:#fff; color:#9a3412; border:2px solid #ffffff40;
+      box-shadow:0 10px 20px rgba(0,0,0,.15), 0 6px 14px rgba(255,102,0,.25); transition:.25s;
     }
-    .cta:hover { background:#fff7f0; transform:translateY(-1px) }
-    main { max-width:900px; margin:2rem auto; padding:0 8px; }
-    section { margin-bottom:1.6rem; background:#fff; border:1px solid #e5e7eb; border-radius:14px; padding:20px; box-shadow:0 6px 16px rgba(0,0,0,.06); }
-    h2 { color:#d9480f; font-size:1.3rem; margin:0 0 .6rem }
-    ul { margin:0; padding-left:1.2rem }
-    .links a { color:#b43403; text-decoration:none } .links a:hover { text-decoration:underline }
-    .contact { text-align:center; padding:26px; background:linear-gradient(180deg,#fff,#fff8f1); border:1px solid #fde7d6; border-radius:14px; box-shadow:0 8px 18px rgba(0,0,0,.06) }
-    .cta-row { display:flex; gap:12px; flex-wrap:wrap; justify-content:center; margin-top:12px }
-    .btn { display:inline-block; padding:.8rem 1.2rem; border-radius:12px; text-decoration:none; font-weight:700; border:1px solid #fde7d6; background:#fff; color:#b43403; box-shadow:0 4px 10px rgba(0,0,0,.05); transition:.2s; }
-    .btn:hover { background:#fff3e6 }
-    .btn.primary { background:#ffefe3; border-color:#ffd6b3; color:#9a3412; box-shadow:0 10px 20px rgba(255,102,0,.25); }
-    .btn.primary:hover { background:#ffe5cf }
-    footer { text-align:center; font-size:.9rem; color:#6b7280; margin:2rem 0 }
-    @media (max-width:520px){ .brand img.logo { width:150px } }
+    .cta:hover{background:#fff7ef; transform:translateY(-1px)}
+    .cta.secondary{background:transparent; color:#fff; border-color:#fff; margin-left:8px}
+    .cta.secondary:hover{background:rgba(255,255,255,.15)}
+
+    main{margin:24px 0}
+    .card{background:var(--card); border:1px solid var(--line); border-radius:14px; padding:20px; box-shadow:var(--shadow-sm)}
+    h2{margin:0 0 10px; font-size:1.3rem; color:#b43403}
+    .grid{display:grid; gap:14px}
+    @media(min-width:720px){ .grid.cols-2{grid-template-columns:repeat(2,1fr)} .grid.cols-3{grid-template-columns:repeat(3,1fr)} }
+
+    .feature{display:flex; gap:12px; align-items:flex-start}
+    .icon{
+      width:36px; height:36px; border-radius:10px;
+      background:linear-gradient(135deg,#fff,#ffe9dc); color:#b43403;
+      display:flex; align-items:center; justify-content:center; font-weight:900;
+      box-shadow:inset 0 1px 2px rgba(255,255,255,.8), 0 2px 6px rgba(0,0,0,.06);
+      flex:0 0 36px;
+    }
+    .muted{color:var(--muted)}
+
+    /* Paiements */
+    .pill{display:inline-block; padding:6px 10px; border-radius:999px; border:1px solid var(--line); background:#fff; box-shadow:var(--shadow-sm); font-weight:600; margin:6px 6px 0 0}
+
+    /* Étapes */
+    .steps{counter-reset:s; display:grid; gap:12px}
+    .step{position:relative; padding-left:56px}
+    .step::before{
+      counter-increment:s; content:counter(s);
+      position:absolute; left:0; top:0; width:40px; height:40px; border-radius:12px;
+      background:linear-gradient(135deg,#fff,#ffe9dc); color:#b43403; display:flex; align-items:center; justify-content:center; font-weight:900;
+      box-shadow:inset 0 1px 2px rgba(255,255,255,.8), 0 2px 6px rgba(0,0,0,.06);
+    }
+
+    /* Contact */
+    .contact{ text-align:center; background:linear-gradient(180deg,#fff,#fff8f1); border:1px solid #fde7d6; box-shadow:var(--shadow-md); }
+    .btn{
+      display:inline-block; padding:.85rem 1.2rem; border-radius:12px; text-decoration:none; font-weight:800;
+      border:1px solid #ffd6b3; background:#fff; color:#9a3412; box-shadow:var(--shadow-sm); transition:.2s;
+    }
+    .btn:hover{background:#fff3e6}
+    .btn.primary{ background:#ffefe3 }
+    footer{ text-align:center; color:var(--muted); padding:28px 0 36px }
+    .links a{ color:#b43403; text-decoration:none } .links a:hover{text-decoration:underline}
   </style>
 </head>
 <body>
 
-  <div class="container">
-    <header class="hero">
+  <!-- Barre supérieure -->
+  <div class="topbar">
+    <div class="container topbar-inner">
       <div class="brand">
-        <!-- Logo (si l’image manque, fallback texte) -->
-        <img class="logo" src="/logo.png" alt="Logo EduSafira" onerror="this.outerHTML='<strong style=&quot;color:#fff;text-shadow:0 2px 8px rgba(0,0,0,.25);font-size:28px&quot;>EDUSAFIRA</strong>'">
+        <img class="logo" src="/logo.png" alt="Logo EDUSAFIRA" onerror="this.outerHTML='<strong>EDUSAFIRA</strong>'">
       </div>
+      <nav class="nav" aria-label="Navigation principale">
+        <a href="#features">Fonctionnalités</a>
+        <a href="#paiements">Paiements</a>
+        <a href="/health">Health</a>
+        <a href="/check.txt">Check</a>
+      </nav>
+    </div>
+  </div>
 
-      <h1 class="title">EDUSAFIRA</h1>
-      <p class="subtitle">Application tout-en-un pour la gestion scolaire & centres de formation</p>
-      <a href="/health" class="cta">Vérifier l’état /health</a>
-    </header>
+  <!-- Hero glossy orange -->
+  <header class="hero">
+    <div class="container hero-inner">
+      <h1>EDUSAFIRA</h1>
+      <p>Application tout‑en‑un pour la gestion scolaire & des centres de formation.</p>
+      <a class="cta" href="mailto:contact@edusafira.com?subject=Demande%20de%20d%C3%A9mo%20EDUSAFIRA">Demander une démo</a>
+      <a class="cta secondary" href="/health">Voir /health</a>
+    </div>
+  </header>
 
-    <main>
-      <section>
-        <h2>Fonctionnalités principales</h2>
-        <ul>
-          <li>✔ Inscriptions & gestion des classes</li>
-          <li>✔ Paiements sécurisés (carte bancaire, Google&nbsp;Pay, mobile money)</li>
-          <li>✔ Communication parents ↔ enseignants</li>
-          <li>✔ Suivi pédagogique et assiduité en temps réel</li>
-        </ul>
-      </section>
-
-      <section lang="en">
-        <h2>Main Features (English)</h2>
-        <ul>
-          <li>✔ Enrollment & class management</li>
-          <li>✔ Secure payments (cards, Google Pay, mobile money)</li>
-          <li>✔ Parents ↔ Teachers communication</li>
-          <li>✔ Real-time academic tracking</li>
-        </ul>
-      </section>
-
-      <section class="contact">
-        <h2>Contact & Démo</h2>
-        <p>Vous souhaitez une démonstration ou discuter de votre besoin ? Contactez-nous.</p>
-        <div class="cta-row">
-          <a class="btn primary" href="mailto:contact@edusafira.com?subject=Demande%20de%20d%C3%A9mo%20EduSafira&body=Bonjour%2C%20je%20souhaite%20une%20d%C3%A9monstration.">Demander une démo</a>
-          <a class="btn" href="https://github.com/housse99-hash/edusafira-demo-public/issues" target="_blank" rel="noopener">Ouvrir une demande</a>
+  <main class="container">
+    <!-- Fonctionnalités -->
+    <section id="features" class="card">
+      <h2>Fonctionnalités principales</h2>
+      <div class="grid cols-2">
+        <div class="feature">
+          <div class="icon">A</div>
+          <div>
+            <strong>Admissions & classes</strong><br>
+            <span class="muted">Inscriptions, groupes, emplois du temps, présences.</span>
+          </div>
         </div>
-      </section>
+        <div class="feature">
+          <div class="icon">P</div>
+          <div>
+            <strong>Paiements intégrés</strong><br>
+            <span class="muted">Carte, Google Pay, mobile money (Wave, OM, MoMo, Moov Africa).</span>
+          </div>
+        </div>
+        <div class="feature">
+          <div class="icon">C</div>
+          <div>
+            <strong>Communication</strong><br>
+            <span class="muted">Parents ↔ enseignants, notifications, bulletins.</span>
+          </div>
+        </div>
+        <div class="feature">
+          <div class="icon">S</div>
+          <div>
+            <strong>Suivi pédagogique</strong><br>
+            <span class="muted">Notes, compétences, tableaux de bord.</span>
+          </div>
+        </div>
+      </div>
+    </section>
 
-      <section class="links">
-        Ressources rapides :
+    <!-- Connecteurs de paiement -->
+    <section id="paiements" class="card">
+      <h2>Connecteurs de paiement</h2>
+      <div>
+        <span class="pill">💳 Carte bancaire</span>
+        <span class="pill">🅶 Google Pay</span>
+        <span class="pill">🌊 Wave</span>
+        <span class="pill">🟠 Orange Money</span>
+        <span class="pill">💜 Moov Africa</span>
+        <span class="pill">💬 MoMo</span>
+      </div>
+      <p class="muted" style="margin-top:8px">Intégrations progressives selon les pays. Support multi‑devises.</p>
+    </section>
+
+    <!-- Parcours en 3 étapes -->
+    <section class="card">
+      <h2>Démarrer en 3 étapes</h2>
+      <div class="steps">
+        <div class="step"><strong>Configurer votre établissement</strong><br><span class="muted">Années, cycles, classes, matières, équipes.</span></div>
+        <div class="step"><strong>Importer vos données</strong><br><span class="muted">Élèves, parents, enseignants, historiques.</span></div>
+        <div class="step"><strong>Lancer la communication</strong><br><span class="muted">Portail familial, notifications, paiements.</span></div>
+      </div>
+    </section>
+
+    <!-- Contact / Démo -->
+    <section class="card contact">
+      <h2>Contact & Démo</h2>
+      <p>Vous souhaitez une démonstration ou discuter de votre besoin ? Écrivez‑nous.</p>
+      <div style="margin-top:12px">
+        <a class="btn primary" href="mailto:contact@edusafira.com?subject=Demande%20de%20d%C3%A9mo%20EDUSAFIRA">Demander une démo</a>
+        <a class="btn" href="https://github.com/housse99-hash/edusafira-demo-public/issues" target="_blank" rel="noopener">Ouvrir une demande</a>
+      </div>
+    </section>
+
+    <!-- Liens rapides -->
+    <section class="card">
+      <h2>Ressources</h2>
+      <div class="links">
         <a href="/health">Health</a> •
         <a href="/check.txt">Check</a> •
         <a href="https://github.com/housse99-hash/edusafira-demo-public" target="_blank" rel="noopener">GitHub</a>
-      </section>
-    </main>
+      </div>
+    </section>
+  </main>
 
-    <footer>
-      © 2025 EduSafira — Tous droits réservés
-    </footer>
-  </div>
+  <footer>
+    © 2025 EDUSAFIRA — Tous droits réservés
+  </footer>
 
 </body>
 </html>
