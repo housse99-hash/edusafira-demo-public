@@ -17,6 +17,7 @@
     :root{
       --text:#1f2937; --muted:#6b7280;
       --orangeA:#ff7a18; --orangeB:#ff3d00; --orangeC:#ff9f1a;
+      --blue:#2563eb; --blue-dark:#1e3a8a;
       --card:#ffffff; --line:#e5e7eb;
       --shadow-sm:0 4px 10px rgba(0,0,0,.06);
       --shadow-md:0 8px 18px rgba(0,0,0,.08);
@@ -33,13 +34,13 @@
     /* Topbar */
     .topbar{
       position:sticky; top:0; z-index:40; backdrop-filter:saturate(140%) blur(8px);
-      background:rgba(255,255,255,.75); border-bottom:1px solid var(--line);
+      background:rgba(255,255,255,.78); border-bottom:1px solid var(--line);
     }
     .topbar-inner{display:flex; align-items:center; justify-content:space-between; padding:10px 0}
     .brand{display:flex; align-items:center; gap:10px}
     .brand .logo{width:140px;height:auto; display:block; filter:drop-shadow(0 2px 6px rgba(0,0,0,.15))}
-    .nav a{color:var(--text); text-decoration:none; padding:8px 10px; border-radius:10px}
-    .nav a:hover{background:#f3f4f6}
+    .nav a{color:var(--blue); text-decoration:none; padding:8px 10px; border-radius:10px; font-weight:600}
+    .nav a:hover{background:#eef2ff}
 
     /* Hero glossy orange */
     .hero{
@@ -55,8 +56,10 @@
       transform:rotate(22deg); pointer-events:none;
     }
     .hero-inner{position:relative; z-index:1; padding:36px 18px 44px}
-    .hero h1{margin:0 0 10px; font-size:clamp(30px,4.6vw,48px); font-weight:900; letter-spacing:.3px; text-shadow:0 2px 8px rgba(0,0,0,.25)}
-    .hero p{margin:0 0 18px; font-size:1.1rem; opacity:.96; text-shadow:0 1px 6px rgba(0,0,0,.2)}
+    .hero-grid{display:grid; gap:22px; align-items:center}
+    @media(min-width:820px){ .hero-grid{ grid-template-columns:1.05fr .95fr } }
+    .hero h1{margin:0 0 10px; font-size:clamp(30px,4.6vw,48px); font-weight:900; letter-spacing:.3px; color:#fff; text-shadow:0 2px 8px rgba(0,0,0,.25)}
+    .hero p{margin:0 0 18px; font-size:1.1rem; color:#fff; opacity:.96; text-shadow:0 1px 6px rgba(0,0,0,.2)}
     .cta{
       display:inline-block; text-decoration:none; border-radius:12px; font-weight:800;
       padding:.9rem 1.4rem; background:#fff; color:#9a3412; border:2px solid #ffffff40;
@@ -65,10 +68,15 @@
     .cta:hover{background:#fff7ef; transform:translateY(-1px)}
     .cta.secondary{background:transparent; color:#fff; border-color:#fff; margin-left:8px}
     .cta.secondary:hover{background:rgba(255,255,255,.15)}
+    .hero-image img{
+      width:100%; max-width:460px; border-radius:16px;
+      box-shadow:0 12px 26px rgba(0,0,0,.18);
+      background:#fff; /* si PNG transparent, ça reste propre */
+    }
 
     main{margin:24px 0}
     .card{background:var(--card); border:1px solid var(--line); border-radius:14px; padding:20px; box-shadow:var(--shadow-sm)}
-    h2{margin:0 0 10px; font-size:1.3rem; color:#b43403}
+    h2{margin:0 0 10px; font-size:1.3rem; color:var(--blue-dark)}
     .grid{display:grid; gap:14px}
     @media(min-width:720px){ .grid.cols-2{grid-template-columns:repeat(2,1fr)} .grid.cols-3{grid-template-columns:repeat(3,1fr)} }
 
@@ -104,7 +112,7 @@
     .btn:hover{background:#fff3e6}
     .btn.primary{ background:#ffefe3 }
     footer{ text-align:center; color:var(--muted); padding:28px 0 36px }
-    .links a{ color:#b43403; text-decoration:none } .links a:hover{text-decoration:underline}
+    .links a{ color:var(--blue); text-decoration:none } .links a:hover{text-decoration:underline}
   </style>
 </head>
 <body>
@@ -124,13 +132,21 @@
     </div>
   </div>
 
-  <!-- Hero glossy orange -->
+  <!-- Hero glossy orange avec image -->
   <header class="hero">
     <div class="container hero-inner">
-      <h1>EDUSAFIRA</h1>
-      <p>Application tout‑en‑un pour la gestion scolaire & des centres de formation.</p>
-      <a class="cta" href="mailto:contact@edusafira.com?subject=Demande%20de%20d%C3%A9mo%20EDUSAFIRA">Demander une démo</a>
-      <a class="cta secondary" href="/health">Voir /health</a>
+      <div class="hero-grid">
+        <div class="hero-text">
+          <h1>EDUSAFIRA</h1>
+          <p>Application tout‑en‑un pour la gestion scolaire & des centres de formation.</p>
+          <a class="cta" href="mailto:info@edusafira.com?subject=Demande%20de%20d%C3%A9mo%20EDUSAFIRA">Demander une démo</a>
+          <a class="cta secondary" href="/health">Voir /health</a>
+        </div>
+        <div class="hero-image">
+          <!-- Ajoute /public/hero-illustration.png -->
+          <img src="/hero-illustration.png" alt="Aperçu EduSafira (illustration)">
+        </div>
+      </div>
     </div>
   </header>
 
@@ -197,9 +213,9 @@
     <!-- Contact / Démo -->
     <section class="card contact">
       <h2>Contact & Démo</h2>
-      <p>Vous souhaitez une démonstration ou discuter de votre besoin ? Écrivez‑nous.</p>
+      <p>Une question ? Besoin d’une démonstration ? Écrivez‑nous.</p>
       <div style="margin-top:12px">
-        <a class="btn primary" href="mailto:contact@edusafira.com?subject=Demande%20de%20d%C3%A9mo%20EDUSAFIRA">Demander une démo</a>
+        <a class="btn primary" href="mailto:info@edusafira.com?subject=Demande%20de%20d%C3%A9mo%20EDUSAFIRA">Demander une démo</a>
         <a class="btn" href="https://github.com/housse99-hash/edusafira-demo-public/issues" target="_blank" rel="noopener">Ouvrir une demande</a>
       </div>
     </section>
@@ -216,7 +232,7 @@
   </main>
 
   <footer>
-    © 2025 EDUSAFIRA — Tous droits réservés
+    © 2025 EDUSAFIRA — Tous droits réservés • <a class="links" href="mailto:info@edusafira.com">info@edusafira.com</a>
   </footer>
 
 </body>
