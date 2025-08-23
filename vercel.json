@@ -1,6 +1,16 @@
 {
   "cleanUrls": true,
-{
-  "cleanUrls": true,
-  "trailingSlash": false
+  "trailingSlash": false,
+  "redirects": [],
+  "rewrites": [
+    { "source": "/health", "destination": "/health.html" }
+  ],
+  "headers": [
+    {
+      "source": "/health",
+      "headers": [
+        { "key": "Cache-Control", "value": "no-store" }
+      ]
+    }
+  ]
 }
