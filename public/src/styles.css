@@ -1,153 +1,212 @@
 <!doctype html>
 <html lang="fr">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>EduSafira — Gestion scolaire & formation</title>
-  <meta name="robots" content="index,follow" />
-  <link rel="icon" href="icon.png" />
-  <!-- Styles globaux : pense à conserver/mettre à jour public/styles.css -->
-  <link rel="stylesheet" href="styles.css" />
+/* =========================
+   EduSafira – Styles globaux
+   ========================= */
 
-  <!-- Petits styles de secours (au cas où styles.css ne se charge pas) -->
-  <style>
-    /* Fallback très léger pour garder une mise en page correcte si styles.css n'est pas chargé */
-    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif;color:#1a1a1a;background:#fff}
-    .container{max-width:1120px;margin:0 auto;padding:0 20px}
-    .hero{position:relative;color:#fff;padding:72px 0;box-shadow:0 18px 40px rgba(0,0,0,.15)}
-    .hero::before{
-      content:"";position:absolute;inset:0;border-radius:0;
-      background: radial-gradient(70% 120% at 10% 10%, rgba(255,255,255,.18) 0%, rgba(255,255,255,0) 60%),
-                  linear-gradient(145deg,#ff8a00 0%, #ff5e00 35%, #ff3d00 70%, #ff7a1a 100%);
-      filter: saturate(105%);
-    }
-    .hero > .container{position:relative;z-index:2}
-    .logo{height:40px;width:auto;vertical-align:middle}
-    .site-title{margin:0 0 6px 12px;font-size:28px;display:inline-block;vertical-align:middle}
-    .site-title span{font-weight:800}
-    .tagline{margin:8px 0 0;font-size:18px;opacity:.95}
-    .grid{display:grid;gap:28px;grid-template-columns:1.05fr .95fr;align-items:center}
-    .hero-card{
-      background: rgba(255,255,255,.12);backdrop-filter: blur(6px);
-      border:1px solid rgba(255,255,255,.35);
-      border-radius:18px;padding:22px 22px 18px;box-shadow:0 10px 30px rgba(0,0,0,.18)
-    }
-    .health-link{display:inline-block;margin-top:6px;background:#fff;color:#ff5a00;
-      border-radius:999px;padding:10px 16px;font-weight:700;text-decoration:none}
-    .buttons{display:flex;gap:12px;flex-wrap:wrap;margin-top:20px}
-    .btn{
-      display:inline-flex;align-items:center;gap:10px;padding:12px 18px;border-radius:12px;
-      text-decoration:none;font-weight:700;box-shadow:0 8px 20px rgba(0,0,0,.12)
-    }
-    .btn-primary{background:#0057ff;color:#fff}
-    .btn-ghost{background:#ffffff;border:1px solid #e6e6e6;color:#1a1a1a}
-    .features{display:grid;gap:14px;margin-top:10px}
-    .features li{list-style:none;padding-left:28px;position:relative}
-    .features li::before{
-      content:"✔";position:absolute;left:0;top:0;color:#14b85a;font-weight:900
-    }
-    .section{padding:56px 0}
-    .badges{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
-    .payments{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:8px}
-    .payments span{display:inline-block;border:1px solid #e8e8e8;border-radius:10px;padding:8px 12px;background:#fff}
-    footer{padding:28px 0 50px;border-top:1px solid #efefef;color:#666}
-    .muted{color:#7a7a7a}
-  </style>
-</head>
+/* Couleurs & thème */
+:root{
+  --orange-1:#ff7a29;
+  --orange-2:#ff4f11;
+  --orange-3:#ff9351;
 
-<body>
-  <!-- HERO / en-tête glossy -->
-  <header class="hero" role="banner" aria-label="Bannière d’accueil EduSafira">
-    <div class="container">
-      <div class="grid">
-        <!-- Colonne gauche : logo + titre + CTA -->
-        <div>
-          <div class="logo-container" aria-label="Logo et titre">
-            <img src="logo.png" alt="Logo EduSafira" class="logo" />
-            <h1 class="site-title">Bienvenue sur <span>EduSafira</span></h1>
-          </div>
-          <p class="tagline">La plateforme moderne de gestion scolaire & de formation</p>
+  --blue-1:#0f58ff;
+  --blue-2:#1640b5;
 
-          <div class="hero-card" aria-label="État du service">
-            <strong style="display:flex;align-items:center;gap:10px">
-              <span style="display:inline-flex;width:22px;height:22px;border-radius:6px;background:#18b35b;border:2px solid #0e8e47;box-shadow:inset 0 0 0 3px rgba(255,255,255,.35)"></span>
-              Service opérationnel
-            </strong>
-            <a class="health-link" href="/health" title="Vérifier la page /health (statique)">/health</a>
-            <p class="muted" style="margin:10px 0 0">
-              <small>Build : <span id="ts">--</span></small>
-            </p>
-          </div>
+  --bg:#f6f7fb;
+  --text:#212529;
+  --muted:#6b7280;
+  --white:#ffffff;
+}
 
-          <div class="buttons" aria-label="Actions principales">
-            <a class="btn btn-primary" href="#features">Découvrir les fonctionnalités</a>
-            <a class="btn btn-ghost" href="mailto:info@edusafira.com">Contact : info@edusafira.com</a>
-          </div>
-        </div>
+/* Reset doux */
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font:16px/1.6 ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;
+  color:var(--text);
+  background:var(--bg);
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
 
-        <!-- Colonne droite : illustration -->
-        <div>
-          <img src="hero-illustration.png" alt="Illustration de tableau de bord éducatif" style="width:100%;height:auto;border-radius:18px;box-shadow:0 18px 40px rgba(0,0,0,.2);border:1px solid rgba(255,255,255,.35)" />
-        </div>
-      </div>
-    </div>
-  </header>
+/* Liens */
+a{color:var(--blue-1);text-decoration:none}
+a:hover{opacity:.9}
 
-  <!-- SECTION FONCTIONNALITÉS -->
-  <main id="features" class="section" role="main">
-    <div class="container">
-      <h2 style="margin:0 0 6px">Fonctionnalités clés</h2>
-      <p class="muted" style="margin:0 0 16px">Tout ce qu’il faut pour gérer votre établissement rapidement.</p>
+/* Conteneur */
+.container{
+  width:min(1120px, 92vw);
+  margin-inline:auto;
+}
 
-      <ul class="features">
-        <li>Gestion des inscriptions & des classes</li>
-        <li>Suivi administratif & financier</li>
-        <li>Communication parents & enseignants</li>
-        <li>Rapports et tableaux de bord</li>
-      </ul>
+/* =========================
+   Header & Navigation
+   ========================= */
+.site-header{
+  position:sticky; top:0; z-index:40;
+  background:rgba(255,255,255,.75);
+  backdrop-filter:saturate(140%) blur(10px);
+  border-bottom:1px solid rgba(20,20,20,.06);
+}
+.site-header .bar{
+  display:flex; align-items:center; justify-content:space-between;
+  padding:14px 0;
+  gap:20px;
+}
 
-      <h3 style="margin:22px 0 6px">Paiements intégrés</h3>
-      <div class="payments" aria-label="Connecteurs de paiement">
-        <span>💳 Carte bancaire</span>
-        <span>🅖 Google Pay</span>
-        <!-- Si tu ajoutes Apple Pay / Mobile Money, ajoute ici par la suite -->
-      </div>
-    </div>
-  </main>
+/* Logo glossy */
+.logo-badge{
+  display:inline-flex; align-items:center; justify-content:center;
+  width:56px; height:56px; border-radius:16px;
+  background:linear-gradient(135deg, var(--orange-3), var(--orange-1) 60%, var(--orange-2));
+  box-shadow:
+    0 8px 18px rgba(255,79,17,.20),
+    inset 0 1px 0 rgba(255,255,255,.45);
+  position:relative; overflow:hidden;
+}
+.logo-badge::after{
+  /* reflet glossy */
+  content:""; position:absolute; inset:auto 0 0 0; height:50%;
+  background:linear-gradient(to top, rgba(255,255,255,.28), rgba(255,255,255,0));
+  pointer-events:none;
+}
+.logo-badge img{width:70%; height:70%; object-fit:contain; filter:drop-shadow(0 1px 0 rgba(0,0,0,.15))}
 
-  <!-- SECTION STATUT & BADGES -->
-  <section class="section" aria-label="Statut & badges">
-    <div class="container">
-      <h2 style="margin:0 0 10px">Statut & Qualité</h2>
-      <div class="badges">
-        <!-- Ton badge interne de marque -->
-        <img src="edusafira-badge.png" alt="Badge EduSafira" height="28" />
+/* Nav */
+.nav{
+  display:flex; align-items:center; gap:22px; flex-wrap:wrap;
+}
+.nav a{
+  color:#2b2f36; font-weight:600;
+  padding:8px 10px; border-radius:10px;
+}
+.nav a:hover{background:rgba(15,88,255,.06)}
 
-        <!-- Exemple de badges GitHub Actions (remplace les URLs si besoin) -->
-        <a href="https://github.com/housse99-hash/edusafira-demo/actions/workflows/uptime-monitor.yml" rel="noopener" target="_blank">
-          <img alt="Uptime & SSL" height="20"
-               src="https://img.shields.io/github/actions/workflow/status/housse99-hash/edusafira-demo/uptime-monitor.yml?label=Uptime%20%26%20SSL&style=for-the-badge" />
-        </a>
-        <a href="https://github.com/housse99-hash/edusafira-demo/actions/workflows/mirror.yml" rel="noopener" target="_blank">
-          <img alt="Sync (miroir)" height="20"
-               src="https://img.shields.io/github/actions/workflow/status/housse99-hash/edusafira-demo/mirror.yml?label=Sync%20miroir&style=for-the-badge" />
-        </a>
-      </div>
-    </div>
-  </section>
+/* =========================
+   Hero section glossy
+   ========================= */
+.hero{
+  margin:18px 0 28px;
+  border-radius:22px;
+  background:linear-gradient(135deg, var(--orange-3), var(--orange-1) 55%, var(--orange-2));
+  color:var(--white);
+  position:relative; overflow:hidden;
+  box-shadow:0 24px 50px rgba(255,79,17,.18);
+}
+.hero::before{
+  /* voile glossy haut */
+  content:""; position:absolute; inset:0 0 45% 0;
+  background:linear-gradient(to bottom, rgba(255,255,255,.28), rgba(255,255,255,0) 70%);
+  pointer-events:none;
+}
+.hero .wrap{
+  display:grid; grid-template-columns: 1.1fr 1fr; align-items:center;
+  gap:32px; padding:54px min(64px,5vw);
+}
+.hero h1{
+  font-size:clamp(36px, 4.2vw, 56px);
+  line-height:1.1; margin:0 0 10px;
+  letter-spacing:.5px; font-weight:800;
+  text-shadow:0 2px 0 rgba(0,0,0,.06);
+}
+.hero p.lead{
+  font-size:clamp(16px, 1.15vw, 18px);
+  opacity:.95; margin:8px 0 24px;
+}
+.hero .art{
+  background:rgba(255,255,255,.16);
+  border:1px solid rgba(255,255,255,.28);
+  border-radius:18px; padding:18px;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.4), 0 10px 30px rgba(0,0,0,.08);
+}
+.hero .art img{width:100%; height:auto; display:block}
 
-  <!-- PIED DE PAGE -->
-  <footer role="contentinfo">
-    <div class="container">
-      <p class="muted" style="margin:0 0 8px">© <span id="year">2025</span> EduSafira — Tous droits réservés.</p>
-      <p class="muted" style="margin:0">Contact : <a href="mailto:info@edusafira.com">info@edusafira.com</a></p>
-    </div>
-  </footer>
+/* =========================
+   Boutons glossy
+   ========================= */
+.btn{
+  --radius:12px;
+  display:inline-flex; align-items:center; justify-content:center;
+  gap:10px; padding:12px 18px;
+  border-radius:var(--radius);
+  font-weight:800; letter-spacing:.2px;
+  border:0; cursor:pointer; user-select:none;
+  transition:transform .15s ease, box-shadow .2s ease, filter .2s ease;
+  text-decoration:none;
+}
+.btn:active{transform:translateY(1px)}
 
-  <!-- Petit script pour injecter l’horodatage & l’année -->
-  <script>
-    document.getElementById("ts").textContent = new Date().toISOString();
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
-</body>
-</html>
+.btn-primary{
+  color:#fff;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.28), rgba(255,255,255,0)) top/100% 55% no-repeat,
+    linear-gradient(135deg, var(--orange-3), var(--orange-1) 55%, var(--orange-2));
+  box-shadow:
+    0 12px 24px rgba(255,79,17,.22),
+    inset 0 1px 0 rgba(255,255,255,.45);
+}
+.btn-primary:hover{filter:saturate(110%); box-shadow:0 16px 28px rgba(255,79,17,.27), inset 0 1px 0 rgba(255,255,255,.5)}
+
+.btn-outline{
+  color:#fff;
+  background:rgba(255,255,255,.12);
+  border:1px solid rgba(255,255,255,.45);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.35);
+}
+.btn-outline:hover{background:rgba(255,255,255,.18)}
+
+/* Groupe de boutons */
+.btns{display:flex; gap:14px; flex-wrap:wrap}
+
+/* =========================
+   Cartes / Features
+   ========================= */
+.card{
+  background:#fff; border:1px solid rgba(17,24,39,.06);
+  border-radius:16px; padding:22px;
+  box-shadow:0 8px 24px rgba(15,88,255,.05);
+}
+.section{margin:26px 0}
+.section h2{
+  font-size:clamp(22px, 2.2vw, 28px);
+  margin:0 0 12px; letter-spacing:.2px
+}
+
+.feature-list{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px 24px}
+.feature{display:flex; gap:14px; align-items:flex-start}
+.feature .chip{
+  width:30px; height:30px; border-radius:10px; flex:0 0 auto;
+  display:inline-grid; place-items:center; font-weight:800; color:#fff;
+  background:linear-gradient(135deg, var(--blue-1), var(--blue-2));
+  box-shadow:0 8px 16px rgba(15,88,255,.18), inset 0 1px 0 rgba(255,255,255,.45);
+}
+
+/* =========================
+   Footer
+   ========================= */
+.site-footer{
+  margin:40px 0 24px;
+  color:var(--muted); font-size:14px;
+  text-align:center;
+}
+
+/* =========================
+   Utilitaires
+   ========================= */
+.mt-0{margin-top:0} .mb-0{margin-bottom:0}
+.mt-1{margin-top:8px} .mb-1{margin-bottom:8px}
+.mt-2{margin-top:16px} .mb-2{margin-bottom:16px}
+.mt-3{margin-top:24px} .mb-3{margin-bottom:24px}
+
+/* =========================
+   Responsive
+   ========================= */
+@media (max-width: 960px){
+  .hero .wrap{grid-template-columns:1fr; padding:40px 24px}
+  .hero .art{order:-1}
+  .feature-list{grid-template-columns:1fr}
+  .site-header .bar{padding:10px 0}
+}
