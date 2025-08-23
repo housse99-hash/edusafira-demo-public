@@ -1,22 +1,20 @@
-cd ~/dev/edusafira-demo
-mkdir -p public/health
-
-# Remplace ENTIEREMENT le fichier par ce contenu minimal + horodatage
-cat > public/health/index.html <<'EOF'
 <!doctype html>
 <html lang="fr">
-<meta charset="utf-8">
-<title>Health • OK</title>
-<style>
-  body{font:16px/1.5 system-ui;margin:2rem;background:#fff}
-  .ok{color:#0a7d00;font-weight:700}
-  small{color:#666}
-</style>
-<h1 class="ok">✅ Service opérationnel</h1>
-<p>Page de test statique servie depuis <code>/public/health/index.html</code>.</p>
-<p><small>Build: __BUILD_STAMP__</small></p>
+<head>
+  <meta charset="utf-8" />
+  <title>Health Check</title>
+  <style>
+    body { font:16px/1.5 system-ui, sans-serif; margin:2rem; background:#fff }
+    .ok { color:#0a0; font-weight:700 }
+    small { color:#666 }
+  </style>
+</head>
+<body>
+  <h1 class="ok">✅ Service opérationnel</h1>
+  <p>Page de test statique servie depuis <code>/public/health/index.html</code>.</p>
+  <p><small>Build : <span id="ts"></span></small></p>
+  <script>
+    document.getElementById("ts").textContent = new Date().toISOString();
+  </script>
+</body>
 </html>
-EOF
-
-# Injecte un horodatage UTC pour suivre les versions
-sed -i "s/__BUILD_STAMP__/$(date -u +%Y-%m-%dT%H:%M:%SZ)/" public/health/index.html
