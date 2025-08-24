@@ -1,89 +1,329 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>EDUSAFIRA — School & Training Center Management</title>
-  <link rel="stylesheet" href="/src/styles.css" />
+  <meta name="description" content="EDUSAFIRA: admissions, payments, communication and learning tracking for schools and training centers." />
+  <link rel="icon" href="/icon.png" />
+  <style>
+    :root{--bg:#f6f7fb;--card:#ffffff;--ink:#0f172a;--muted:#475569;--brand-grad:linear-gradient(135deg,#ff7a1a 0%,#ff6a00 35%,#ff4d00 100%);--blue:#2563eb;--orange:#ea580c;--green:#059669;--radius:20px;--ring:0 10px 28px rgba(2,8,23,.06),0 2px 6px rgba(2,8,23,.04)}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font:16px/1.55 system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:var(--bg)}a{text-decoration:none;color:inherit}img{max-width:100%;height:auto;display:block}
+    .site-header{position:sticky;top:0;z-index:50;backdrop-filter:blur(10px);background:rgba(255,255,255,.85);border-bottom:1px solid rgba(15,23,42,.06)}
+    .nav{max-width:1200px;margin:auto;padding:10px 16px;display:flex;align-items:center;justify-content:space-between;gap:14px}
+    .brand img{height:80px;width:auto}
+    .nav-right{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+    .navlinks{display:flex;gap:18px;font-weight:600;align-items:center;flex-wrap:wrap}
+    .navlinks a:hover{color:var(--blue)}
+    .lang-switch{display:flex;align-items:center;gap:6px;font-weight:600}
+    .lang-switch .lang{color:#475569;transition:color .2s}
+    .lang-switch .lang:hover{color:#2563eb}
+    .lang-switch b.lang{color:#ff6a00}
+
+    .hero{max-width:1200px;margin:28px auto 0;padding:0 16px 24px}
+    .hero-card{background:var(--brand-grad);color:#fff;border-radius:28px;padding:48px;display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:center;box-shadow:var(--ring)}
+    .hero h1{margin:0 0 14px;font-size:48px}.hero p{margin:0 0 22px}
+    .cta-row{display:flex;gap:14px;flex-wrap:wrap}
+    .btn{padding:14px 20px;font-weight:700;border-radius:14px;display:inline-block;text-align:center}
+    .btn.primary{background:#fff;color:#ff6a00}.btn.secondary{border:2px solid #fff;color:#fff}
+
+    .cta-access{padding:40px 16px 14px;background:#fff}
+    .cta-access__wrap{max-width:1100px;margin:auto;display:grid;gap:16px;grid-template-columns:1fr}
+    @media (min-width:860px){.cta-access__wrap{grid-template-columns:1fr auto}}
+    .section-title{text-align:center;margin:0 0 6px 0;font-size:clamp(1.2rem,2.4vw,1.6rem)}
+    .muted{text-align:center;color:#6b7280;margin:0}
+    .cta-access__actions{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+    .btn--orange{color:#fff;background:linear-gradient(135deg,#ff7b20 0%,#ff9933 100%);box-shadow:0 10px 26px rgba(255,123,32,.22)}
+    .btn--light{color:#102a43;background:#eef2f7;border:1px solid #e5e9f0}
+    .btn--white{color:#102a43;background:#fff;border:1px solid #e9edf3;box-shadow:0 6px 18px rgba(16,42,67,.04)}
+    .signup{position:relative}.signup>summary{list-style:none;cursor:pointer}.signup>summary::-webkit-details-marker{display:none}
+    .signup__menu{position:absolute;z-index:20;top:calc(100% + 8px);left:0;min-width:220px;padding:10px;background:#fff;border:1px solid #e5e9f0;border-radius:12px;box-shadow:0 18px 36px rgba(16,42,67,.12)}
+    .signup__item{display:block;padding:10px 12px;border-radius:8px;color:#102a43;font-weight:600}.signup__item:hover{background:#f7f8fb}
+
+    .section{padding:10px 16px 40px}
+    .card{background:var(--card);border-radius:var(--radius);padding:32px;box-shadow:var(--ring);max-width:1100px;margin:auto}
+    .features{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+    .feat{display:flex;gap:12px;align-items:flex-start}
+    .dot{width:36px;height:36px;border-radius:12px;display:grid;place-items:center;font-weight:800;color:#fff;box-shadow:0 6px 16px rgba(0,0,0,.15)}
+    .dot.a{background:var(--blue)}.dot.p{background:var(--orange)}.dot.c{background:var(--blue)}.dot.s{background:var(--green)}
+    .about p{color:var(--muted);margin:0;text-align:center}
+
+    .partners{padding:64px 0;background:linear-gradient(180deg,#f7f8fb 0%,#ffffff 100%)}
+    .partners .section-title{font-weight:800;color:#102a43}
+    .partners .muted{margin:0 0 28px 0}
+    .partners-grid{--gap:18px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--gap);align-items:center;justify-items:center;max-width:1100px;margin:0 auto;padding:0;list-style:none}
+    @media (min-width:640px){.partners-grid{grid-template-columns:repeat(3,1fr)}}
+    @media (min-width:1100px){.partners-grid{grid-template-columns:repeat(4,1fr)}}
+    .partners-grid img{display:block;max-width:200px;width:100%;height:auto;filter:grayscale(100%) contrast(1.05) brightness(0.9);opacity:.9;transition:filter .25s,opacity .25s,transform .25s}
+    .partners-grid img:hover{filter:grayscale(0%) contrast(1) brightness(1);opacity:1;transform:translateY(-2px)}
+
+    .pricing{padding:64px 0;background:#fff}
+    .pricing .muted{text-align:center;margin-bottom:28px}
+    .pricing__grid{display:grid;gap:18px;max-width:1100px;margin:0 auto;grid-template-columns:1fr}
+    @media (min-width:900px){.pricing__grid{grid-template-columns:repeat(3,1fr)}}
+    .plan{position:relative;background:#fff;border:1px solid #eaeef4;border-radius:18px;padding:22px 20px 20px;box-shadow:0 12px 28px rgba(16,42,67,.06)}
+    .plan--popular{border-color:#ffd6b6;box-shadow:0 18px 42px rgba(255,123,32,.20)}
+    .plan__badge{position:absolute;top:-12px;left:20px;background:linear-gradient(135deg,#ff7b20,#ff9933);color:#fff;font-weight:800;font-size:.8rem;padding:6px 10px;border-radius:999px;box-shadow:0 10px 24px rgba(255,123,32,.25)}
+    .plan__title{margin:0 0 4px 0;font-size:1.3rem;font-weight:800}.plan__subtitle{margin:0 0 12px 0;color:#6b7280}
+    .plan__price{display:flex;align-items:baseline;gap:6px;margin:8px 0 14px}
+    .plan__price .amount{font-size:1.8rem;font-weight:900;color:#102a43}
+    .plan__price .currency,.plan__price .period{color:#6b7280;font-weight:700}
+    .plan__features{list-style:none;padding:0;margin:0 0 18px 0}
+    .plan__features li{display:flex;gap:8px;align-items:center;padding:8px 0;border-bottom:1px dashed #eef2f7}
+    .plan__features li:last-child{border-bottom:0}
+    .plan__cta{display:flex;gap:10px;flex-wrap:wrap}.plan__cta .btn{flex:1 1 auto}
+
+    .contact{padding:64px 0}
+    .contact__grid{display:grid;gap:18px;max-width:1100px;margin:0 auto;grid-template-columns:1fr}
+    @media (min-width:900px){.contact__grid{grid-template-columns:1fr 1.2fr}}
+    .contact__card,.contact__form{background:#fff;border:1px solid #eaeef4;border-radius:18px;box-shadow:0 12px 28px rgba(16,42,67,.06);padding:22px 20px}
+    .contact__card-title{margin:0 0 8px 0;font-size:1.2rem;font-weight:800}
+    .contact__list{margin:8px 0 14px;padding:0 0 0 18px}.contact__list li{margin:6px 0}
+    .contact__badges{display:flex;gap:8px;flex-wrap:wrap}
+    .badge{background:#f3f6fb;color:#102a43;font-weight:700;padding:6px 10px;border-radius:999px;border:1px solid #e5e9f0}
+    .form-row{display:grid;grid-template-columns:1fr;gap:12px}
+    @media (min-width:720px){.form-row{grid-template-columns:1fr 1fr}}
+    .form-field{display:grid;gap:6px}.form-field label{font-weight:800;color:#102a43}
+    .form-field input,.form-field select,.form-field textarea{appearance:none;width:100%;border-radius:12px;border:1px solid #dfe5ee;background:#fafbfd;padding:12px 14px;font:inherit;color:#102a43;transition:border-color .2s,box-shadow .2s,background .2s}
+    .form-field textarea{resize:vertical;min-height:140px}
+    .form-field input:focus,.form-field select:focus,.form-field textarea:focus{outline:none;border-color:#ff9933;box-shadow:0 0 0 4px rgba(255,153,51,.15);background:#fff}
+    .check{display:flex;align-items:center;gap:10px;margin:6px 0 14px}.check input{width:18px;height:18px}
+    .form-actions{display:flex;gap:10px;flex-wrap:wrap}.form-actions .btn{min-width:160px}
+
+    .site-footer{background:#0b1220;color:#e5e7eb;padding:28px 16px;margin-top:30px}
+    .footer-inner{max-width:1100px;margin:auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
+    .f-brand{display:flex;align-items:center;gap:12px}.f-brand img{height:40px}.f-brand b{font-size:20px}
+    .foot-links{display:flex;gap:18px}.foot-links a{color:#cbd5e1}.foot-links a:hover{color:#fff}
+
+    @media(max-width:900px){.hero-card{grid-template-columns:1fr;padding:32px;text-align:center}.features{grid-template-columns:1fr}}
+  </style>
 </head>
 <body>
-  <!-- Header -->
-  <header class="header">
-    <div class="logo">
-      <img src="/logo.png" alt="EDUSAFIRA Logo" style="height:80px;">
-    </div>
-    <nav class="nav">
-      <a href="/#features">Features</a>
-      <a href="/#about">About</a>
-      <a href="/#contact">Contact</a>
-      <a href="/health">Health</a>
-      <a href="/check.txt">Check</a>
-      <!-- switch FR -->
-      <a href="/" class="lang-switch">FR</a>
-    </nav>
-  </header>
 
-  <!-- Hero -->
-  <section class="hero">
-    <div class="hero-text">
-      <h1>EDUSAFIRA</h1>
-      <p>All-in-one app for school & training center management.</p>
-      <div class="cta-buttons">
-        <a href="#contact" class="btn primary">Request a demo</a>
-        <a href="/health" class="btn secondary">See /health</a>
+<header class="site-header">
+  <nav class="nav">
+    <a class="brand" href="#top" aria-label="Home"><img src="/logo.png" alt="EDUSAFIRA logo"></a>
+    <div class="nav-right">
+      <div class="navlinks">
+        <a href="#family">Family access</a>
+        <a href="#features">Features</a>
+        <a href="#about">About</a>
+        <a href="#partners">Partners</a>
+        <a href="#pricing">Plans</a>
+        <a href="#contact">Contact</a>
+        <a href="/health">Health</a>
+        <a href="/check.txt">Check</a>
+      </div>
+      <div class="lang-switch">
+        <a href="/" class="lang" aria-label="Switch to French">FR</a><span>|</span><b class="lang">EN</b>
       </div>
     </div>
-    <div class="hero-img">
-      <img src="/src/hero-illustration.png" alt="Dashboard illustration">
+  </nav>
+</header>
+
+<main id="top">
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-card">
+      <div>
+        <h1>EDUSAFIRA</h1>
+        <p>All‑in‑one platform for schools & training centers: admin, payments, and learning tracking.</p>
+        <div class="cta-row">
+          <a class="btn primary" href="#contact">Request a demo</a>
+          <a class="btn secondary" href="/health">See /health</a>
+        </div>
+      </div>
+      <div><img src="/src/hero-edu.svg" alt="Education dashboard illustration"></div>
     </div>
   </section>
 
-  <!-- Features -->
+  <!-- FAMILY ACCESS -->
+  <section id="family" class="section cta-access">
+    <div class="cta-access__wrap">
+      <div class="cta-access__text">
+        <h2 class="section-title">Family access</h2>
+        <p class="muted">Students & parents — securely access your portal.</p>
+      </div>
+      <div class="cta-access__actions">
+        <a href="/login" class="btn btn--light">Sign in</a>
+        <details class="signup">
+          <summary class="btn btn--white">Sign up</summary>
+          <div class="signup__menu" role="menu" aria-label="Choose a role to sign up">
+            <a role="menuitem" href="/signup?role=student"  class="signup__item">Student</a>
+            <a role="menuitem" href="/signup?role=parent"   class="signup__item">Parent</a>
+          </div>
+        </details>
+        <a href="/app" class="btn btn--orange">My Account</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
   <section id="features" class="section">
-    <h2>Main Features</h2>
-    <div class="features-grid">
-      <div><strong>Admissions & Classes</strong><p>Registrations, groups, timetables, attendance.</p></div>
-      <div><strong>Integrated Payments</strong><p>Cards, Google Pay, Mobile money (Wave, OM, MoMo, Moov Africa).</p></div>
-      <div><strong>Communication</strong><p>Parents ↔ Teachers, notifications, report cards.</p></div>
-      <div><strong>Pedagogical Follow-up</strong><p>Grades, skills, dashboards.</p></div>
+    <div class="card">
+      <h2 class="section-title">Key features</h2>
+      <div class="features">
+        <div class="feat"><div class="dot a">A</div><div><b>Admissions & Classes</b><br><small>Enrollment, groups, timetables, attendance.</small></div></div>
+        <div class="feat"><div class="dot p">P</div><div><b>Integrated Payments</b><br><small>Cards, Google Pay, mobile money (Wave, OM, MoMo, Moov Africa).</small></div></div>
+        <div class="feat"><div class="dot c">C</div><div><b>Communication</b><br><small>Parents ↔ teachers, notifications, reports.</small></div></div>
+        <div class="feat"><div class="dot s">S</div><div><b>Learning Tracking</b><br><small>Grades, skills, dashboards.</small></div></div>
+      </div>
     </div>
   </section>
 
-  <!-- About -->
+  <!-- ABOUT -->
   <section id="about" class="section">
-    <h2>About EDUSAFIRA</h2>
-    <p>
-      EDUSAFIRA is an inclusive platform designed to facilitate the administrative, financial, 
-      and pedagogical management of schools and training centers.
-    </p>
+    <div class="card about">
+      <h2 class="section-title">About EDUSAFIRA</h2>
+      <p>EDUSAFIRA streamlines administrative, financial and pedagogical operations for schools and training centers. We connect students, parents, teachers and admins through a modern, fast and secure platform.</p>
+    </div>
   </section>
 
-  <!-- Contact -->
+  <!-- PARTNERS (SVG images) -->
+  <section id="partners" class="section partners">
+    <div class="container">
+      <h2 class="section-title">Partners & payment methods</h2>
+      <p class="muted">They trust us</p>
+      <ul class="partners-grid" aria-label="Partner logos">
+        <li><img src="/src/partners/college-moderne-bouake.svg" alt="Collège Moderne de Bouaké"></li>
+        <li><img src="/src/partners/ecole-ingenieurs.svg" alt="École des Ingénieurs"></li>
+        <li><img src="/src/partners/ecole-les-elites.svg" alt="École Les Élites"></li>
+        <li><img src="/src/partners/ecole-polytechnique-mans.svg" alt="École Polytechnique de Mans"></li>
+        <li><img src="/src/partners/ecole-sainte-marie.svg" alt="École Sainte Marie"></li>
+        <li><img src="/src/partners/ecole-technique.svg" alt="École Technique"></li>
+        <li><img src="/src/partners/genie-informatique.svg" alt="Génie Informatique"></li>
+        <li><img src="/src/partners/grande-ecole-medecins.svg" alt="La Grande École des Médecins"></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- PLANS -->
+  <section id="pricing" class="section pricing">
+    <div class="container">
+      <h2 class="section-title">School plans</h2>
+      <p class="muted">Start with a 14‑day free trial. No credit card required.</p>
+
+      <div class="pricing__grid">
+        <article class="plan">
+          <h3 class="plan__title">Starter</h3>
+          <p class="plan__subtitle">Up to 200 students</p>
+          <div class="plan__price"><span class="amount">29,000</span><span class="currency">XOF</span><span class="period">/month</span></div>
+          <ul class="plan__features">
+            <li>Admissions & classes</li><li>Timetables & attendance</li><li>Family portal</li><li>Email support</li>
+          </ul>
+          <div class="plan__cta">
+            <a class="btn btn--white"  href="#contact">Request a demo</a>
+            <a class="btn btn--orange" href="/signup?role=school&plan=starter">Start free trial</a>
+          </div>
+        </article>
+
+        <article class="plan plan--popular">
+          <div class="plan__badge">Most popular</div>
+          <h3 class="plan__title">Pro</h3>
+          <p class="plan__subtitle">Up to 1,000 students</p>
+          <div class="plan__price"><span class="amount">79,000</span><span class="currency">XOF</span><span class="period">/month</span></div>
+          <ul class="plan__features">
+            <li>Everything in Starter</li><li>Integrated payments (cards, GPay, Wave, OM, MoMo, Moov)</li><li>Grades & skills, reports</li><li>Priority support</li>
+          </ul>
+          <div class="plan__cta">
+            <a class="btn btn--white"  href="#contact">Request a demo</a>
+            <a class="btn btn--orange" href="/signup?role=school&plan=pro">Start free trial</a>
+          </div>
+        </article>
+
+        <article class="plan">
+          <h3 class="plan__title">Campus</h3>
+          <p class="plan__subtitle">Unlimited schools</p>
+          <div class="plan__price"><span class="amount">Custom</span></div>
+          <ul class="plan__features">
+            <li>Multi‑school (primary → higher ed)</li><li>SSO / Directory / API & integrations</li><li>Dedicated hosting & SLA</li><li>Onboarding & training</li>
+          </ul>
+          <div class="plan__cta">
+            <a class="btn btn--white"  href="#contact">Talk to an expert</a>
+            <a class="btn btn--orange" href="/contact">Contact us</a>
+          </div>
+        </article>
+      </div>
+
+      <p class="muted" style="text-align:center;margin-top:10px">*Monthly billing — <strong>15% off</strong> yearly. Indicative pricing in XOF.</p>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
   <section id="contact" class="section contact">
-    <h2>Contact & Demo</h2>
-    <form action="https://formsubmit.co/info@edusafira.com" method="POST" class="contact-form">
-      <input type="hidden" name="_next" value="https://edusafira.com/en/thank-you.html">
-      <input type="text" name="name" placeholder="Your name" required>
-      <input type="email" name="email" placeholder="Your email" required>
-      <textarea name="message" placeholder="Your message" required></textarea>
-      <button type="submit">Send</button>
-    </form>
-  </section>
+    <div class="container">
+      <h2 class="section-title">Contact & Demo</h2>
+      <p class="muted">Questions, demo or quote? Send us a message.</p>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="footer-left">
-      <img src="/logo.png" alt="EDUSAFIRA" style="height:60px; margin-right:10px;">
-      <span>© 2025 EDUSAFIRA — All rights reserved</span>
+      <div class="contact__grid">
+        <aside class="contact__card">
+          <h3 class="contact__card-title">EDUSAFIRA Team</h3>
+          <p>We reply within one business day.</p>
+          <ul class="contact__list">
+            <li><strong>Email:</strong> <a href="mailto:info@edusafira.com">info@edusafira.com</a></li>
+            <li><strong>Support:</strong> Mon–Fri, 9am–6pm</li>
+            <li><strong>Demo:</strong> by appointment (video)</li>
+          </ul>
+          <div class="contact__badges"><span class="badge">14‑day free trial</span><span class="badge">Onboarding help</span></div>
+        </aside>
+
+        <form class="contact__form" action="https://formsubmit.co/info@edusafira.com" method="POST">
+          <input type="hidden" name="_subject" value="📩 New message – edusafira.com (EN)">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_next" value="https://edusafira.com/en/thank-you.html">
+          <input type="text" name="_honey" style="display:none">
+
+          <div class="form-row">
+            <div class="form-field"><label for="name">Full name</label><input id="name" name="name" type="text" required placeholder="Your full name"></div>
+            <div class="form-field"><label for="email">Email</label><input id="email" name="email" type="email" required placeholder="you@school.tld"></div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-field">
+              <label for="role">You are</label>
+              <select id="role" name="role" required>
+                <option value="" disabled selected>Choose…</option>
+                <option value="Leadership">School leadership</option>
+                <option value="Administration">Administration</option>
+                <option value="Teacher">Teacher</option>
+                <option value="Parent">Parent</option>
+                <option value="Student">Student</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+            <div class="form-field"><label for="school">School</label><input id="school" name="school" type="text" placeholder="School / campus name"></div>
+          </div>
+
+          <div class="form-field"><label for="message">Message</label><textarea id="message" name="message" rows="6" required placeholder="Describe your needs (demo, quote, integrations, etc.)."></textarea></div>
+
+          <label class="check"><input type="checkbox" name="consent" required><span>I consent to being contacted about my request.</span></label>
+
+          <div class="form-actions">
+            <button type="submit" class="btn btn--orange">Send</button>
+            <a class="btn btn--white" href="#contact">Request a demo</a>
+          </div>
+        </form>
+      </div>
     </div>
-    <div class="footer-links">
-      <a href="/health">Health</a> •
-      <a href="/check.txt">Check</a> •
-      <a href="https://github.com/housse99-hash">GitHub</a>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="f-brand"><img src="/logo.png" alt="EDUSAFIRA logo"><b>EDUSAFIRA</b></div>
+    <div class="foot-links">
+      <a href="#family">Family access</a>
+      <a href="/health">Health</a><a href="/check.txt">Check</a>
+      <a href="https://github.com/housse99-hash/edusafira-demo-public" target="_blank">GitHub</a>
+      <div class="lang-switch" style="margin-left:6px"><a href="/" class="lang">FR</a><span>|</span><b class="lang">EN</b></div>
     </div>
-    <div class="footer-contact">
-      <a href="mailto:info@edusafira.com">info@edusafira.com</a>
-    </div>
-  </footer>
+  </div>
+  <div class="footer-inner" style="margin-top:8px;font-size:14px;color:#9aa4b2">
+    © <span id="y"></span> EDUSAFIRA — All rights reserved • <a href="mailto:info@edusafira.com" style="color:#cbd5e1">info@edusafira.com</a>
+  </div>
+</footer>
+
+<script>document.getElementById('y').textContent=new Date().getFullYear();</script>
 </body>
 </html>
