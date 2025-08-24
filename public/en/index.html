@@ -1,1 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EDUSAFIRA — School & Training Center Management</title>
+  <link rel="stylesheet" href="/src/styles.css" />
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="logo">
+      <img src="/logo.png" alt="EDUSAFIRA Logo" style="height:80px;">
+    </div>
+    <nav class="nav">
+      <a href="/#features">Features</a>
+      <a href="/#about">About</a>
+      <a href="/#contact">Contact</a>
+      <a href="/health">Health</a>
+      <a href="/check.txt">Check</a>
+      <!-- switch FR -->
+      <a href="/" class="lang-switch">FR</a>
+    </nav>
+  </header>
 
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-text">
+      <h1>EDUSAFIRA</h1>
+      <p>All-in-one app for school & training center management.</p>
+      <div class="cta-buttons">
+        <a href="#contact" class="btn primary">Request a demo</a>
+        <a href="/health" class="btn secondary">See /health</a>
+      </div>
+    </div>
+    <div class="hero-img">
+      <img src="/src/hero-illustration.png" alt="Dashboard illustration">
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section id="features" class="section">
+    <h2>Main Features</h2>
+    <div class="features-grid">
+      <div><strong>Admissions & Classes</strong><p>Registrations, groups, timetables, attendance.</p></div>
+      <div><strong>Integrated Payments</strong><p>Cards, Google Pay, Mobile money (Wave, OM, MoMo, Moov Africa).</p></div>
+      <div><strong>Communication</strong><p>Parents ↔ Teachers, notifications, report cards.</p></div>
+      <div><strong>Pedagogical Follow-up</strong><p>Grades, skills, dashboards.</p></div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="section">
+    <h2>About EDUSAFIRA</h2>
+    <p>
+      EDUSAFIRA is an inclusive platform designed to facilitate the administrative, financial, 
+      and pedagogical management of schools and training centers.
+    </p>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="section contact">
+    <h2>Contact & Demo</h2>
+    <form action="https://formsubmit.co/info@edusafira.com" method="POST" class="contact-form">
+      <input type="hidden" name="_next" value="https://edusafira.com/en/thank-you.html">
+      <input type="text" name="name" placeholder="Your name" required>
+      <input type="email" name="email" placeholder="Your email" required>
+      <textarea name="message" placeholder="Your message" required></textarea>
+      <button type="submit">Send</button>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-left">
+      <img src="/logo.png" alt="EDUSAFIRA" style="height:60px; margin-right:10px;">
+      <span>© 2025 EDUSAFIRA — All rights reserved</span>
+    </div>
+    <div class="footer-links">
+      <a href="/health">Health</a> •
+      <a href="/check.txt">Check</a> •
+      <a href="https://github.com/housse99-hash">GitHub</a>
+    </div>
+    <div class="footer-contact">
+      <a href="mailto:info@edusafira.com">info@edusafira.com</a>
+    </div>
+  </footer>
+</body>
+</html>
