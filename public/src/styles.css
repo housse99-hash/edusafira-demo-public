@@ -269,3 +269,29 @@ a:hover{opacity:.9}
   border-radius: 999px;
   box-shadow: 0 2px 6px rgba(19, 94, 67, .12);
 }
+
+/* === Clip arrondi robuste pour le héros (SVG friendly) === */
+.hero-clip {
+  border-radius: 18px;      /* ajuste 18px à ton goût */
+  overflow: hidden;         /* le plus important : clippe le contenu */
+  display: inline-block;    /* pour que le radius s’applique au bloc */
+  box-shadow: 0 10px 28px rgba(0,0,0,.18);
+  isolation: isolate;       /* évite certains bugs de clipping */
+}
+
+.hero-clip > img,
+.hero-clip > svg,
+.hero-clip > object,
+.hero-clip > embed {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Bonus : sur les navigateurs qui gèrent bien clip-path, on renforce le clipping */
+@supports (clip-path: inset(0 round 18px)) {
+  .hero-clip > img,
+  .hero-clip > svg {
+    clip-path: inset(0 round 18px);
+  }
+}
