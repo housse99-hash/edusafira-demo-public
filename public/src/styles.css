@@ -210,3 +210,21 @@ a:hover{opacity:.9}
   .feature-list{grid-template-columns:1fr}
   .site-header .bar{padding:10px 0}
 }
+
+/* Badge "Vérifié" pour logos écoles */
+.schools-grid .school {
+  position: relative;
+}
+
+.verified {
+  position: absolute;
+  top: -10px;
+  left: 10px;
+  background: linear-gradient(135deg, #10b981, #059669);
+  color: #fff;
+  font-weight: 800;
+  font-size: 0.7rem;
+  padding: 6px 8px;
+  border-radius: 999px;
+  box-shadow: 0 8px 22px rgba(16, 185, 129, .25);
+}
