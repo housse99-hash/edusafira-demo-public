@@ -228,3 +228,11 @@ a:hover{opacity:.9}
   border-radius: 999px;
   box-shadow: 0 8px 22px rgba(16, 185, 129, .25);
 }
+
+/* Arrondi de l'illustration du héros */
+.hero__illustration img {
+  width: min(560px, 100%);
+  height: auto;
+  border-radius: 18px;  /* <-- Ajuste 18px à ton goût (ex: 22px) */
+  box-shadow: 0 10px 28px rgba(0,0,0,.18);
+}
