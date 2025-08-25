@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>EDUSAFIRA — Gestion scolaire & centres de formation</title>
-  <meta name="description" content="EDUSAFIRA : admissions, paiements, communication et suivi pédagogique pour écoles et centres de formation." />
+  <title>EDUSAFIRA — School & Training Center Management</title>
+  <meta name="description" content="EDUSAFIRA: admissions, payments, communication and learning tracking for schools and training centers." />
   <link rel="icon" href="/icon.png" />
 
   <style>
@@ -22,10 +22,13 @@
 
     /* ===== HEADER ===== */
     .site-header{position:sticky;top:0;z-index:50;backdrop-filter:blur(10px);background:rgba(255,255,255,.85);border-bottom:1px solid rgba(15,23,42,.06)}
-    .nav{max-width:1200px;margin:auto;padding:10px 16px;display:flex;align-items:center;justify-content:space-between}
+    .nav{max-width:1200px;margin:auto;padding:10px 16px;display:flex;align-items:center;justify-content:space-between;gap:14px}
+    .brand{display:flex;align-items:center;gap:10px}
     .brand img{height:80px;width:auto}
-    .navlinks{display:flex;gap:22px;font-weight:600}
+    .navlinks{display:flex;gap:18px;font-weight:600;align-items:center;flex-wrap:wrap}
     .navlinks a:hover{color:var(--blue)}
+    .lang{opacity:.85}
+    .lang:hover{opacity:1;color:var(--blue)}
 
     /* ===== HERO ===== */
     .hero{max-width:1200px;margin:28px auto 0;padding:0 16px 24px}
@@ -37,7 +40,7 @@
     .btn.primary{background:#fff;color:#ff6a00}
     .btn.secondary{border:2px solid #fff;color:#fff}
 
-    /* ===== BLOC ACCÈS FAMILLES ===== */
+    /* ===== FAMILY ACCESS ===== */
     .cta-access{padding:40px 16px 14px;background:#fff}
     .cta-access__wrap{max-width:1100px;margin:auto;display:grid;gap:16px;grid-template-columns:1fr}
     @media (min-width:860px){.cta-access__wrap{grid-template-columns:1fr auto}}
@@ -63,7 +66,7 @@
     .dot.a{background:var(--blue)} .dot.p{background:var(--orange)} .dot.c{background:var(--blue)} .dot.s{background:var(--green)}
     .about p{color:var(--muted);margin:0;text-align:center}
 
-    /* ===== PARTENAIRES ===== */
+    /* ===== PARTNERS ===== */
     .partners{padding:64px 0;background:linear-gradient(180deg,#f7f8fb 0%,#ffffff 100%)}
     .partners .section-title{font-weight:800;color:#102a43}
     .partners .muted{margin:0 0 28px 0}
@@ -133,16 +136,17 @@
 
 <header class="site-header">
   <nav class="nav">
-    <a class="brand" href="#top"><img src="/logo.png" alt="Logo EDUSAFIRA"></a>
+    <a class="brand" href="#top" aria-label="Home"><img src="/logo.png" alt="EDUSAFIRA logo"></a>
     <div class="navlinks">
-      <a href="#acces-familles">Accès familles</a>
-      <a href="#features">Fonctionnalités</a>
-      <a href="#about">À propos</a>
-      <a href="#partners">Partenaires</a>
-      <a href="#pricing">Souscription</a>
+      <a href="#family">Family access</a>
+      <a href="#features">Features</a>
+      <a href="#about">About</a>
+      <a href="#partners">Partners</a>
+      <a href="#pricing">Plans</a>
       <a href="#contact">Contact</a>
       <a href="/health">Health</a>
       <a href="/check.txt">Check</a>
+      <a class="lang" href="/" aria-label="Switch to French">FR</a>
     </div>
   </nav>
 </header>
@@ -153,68 +157,67 @@
     <div class="hero-card">
       <div>
         <h1>EDUSAFIRA</h1>
-        <p>Application tout‑en‑un pour la gestion scolaire & des centres de formation.</p>
+        <p>All‑in‑one platform for schools & training centers: admin, payments, and learning tracking.</p>
         <div class="cta-row">
-          <a class="btn primary" href="#contact">Demander une démo</a>
-          <a class="btn secondary" href="/health">Voir /health</a>
+          <a class="btn primary" href="#contact">Request a demo</a>
+          <a class="btn secondary" href="/health">See /health</a>
         </div>
       </div>
       <div>
-        <img src="/src/hero-edu.svg" alt="Illustration de tableau de bord éducatif">
+        <img src="/src/hero-edu.svg" alt="Education dashboard illustration">
       </div>
     </div>
   </section>
 
-  <!-- ACCÈS FAMILLES -->
-  <section id="acces-familles" class="section cta-access">
+  <!-- FAMILY ACCESS -->
+  <section id="family" class="section cta-access">
     <div class="cta-access__wrap">
       <div class="cta-access__text">
-        <h2 class="section-title">Accès familles</h2>
-        <p class="muted">Élèves, étudiants & parents — accédez à votre espace en toute sécurité.</p>
+        <h2 class="section-title">Family access</h2>
+        <p class="muted">Students & parents — securely access your portal.</p>
       </div>
       <div class="cta-access__actions">
-        <a href="/login" class="btn btn--light">Se connecter</a>
+        <a href="/login" class="btn btn--light">Sign in</a>
         <details class="signup">
-          <summary class="btn btn--white">S’inscrire</summary>
-          <div class="signup__menu" role="menu" aria-label="Choisir un rôle pour l’inscription">
-            <a role="menuitem" href="/signup?role=student"  class="signup__item">Élève / Étudiant</a>
+          <summary class="btn btn--white">Sign up</summary>
+          <div class="signup__menu" role="menu" aria-label="Choose a role to sign up">
+            <a role="menuitem" href="/signup?role=student"  class="signup__item">Student</a>
             <a role="menuitem" href="/signup?role=parent"   class="signup__item">Parent</a>
           </div>
         </details>
-        <a href="/app" class="btn btn--orange">Mon Compte</a>
+        <a href="/app" class="btn btn--orange">My Account</a>
       </div>
     </div>
   </section>
 
-  <!-- FONCTIONNALITÉS -->
+  <!-- FEATURES -->
   <section id="features" class="section">
     <div class="card">
-      <h2 class="section-title">Fonctionnalités principales</h2>
+      <h2 class="section-title">Key features</h2>
       <div class="features">
-        <div class="feat"><div class="dot a">A</div><div><b>Admissions & classes</b><br><small>Inscriptions, groupes, emplois du temps, présences.</small></div></div>
-        <div class="feat"><div class="dot p">P</div><div><b>Paiements intégrés</b><br><small>Carte, Google Pay, mobile money (Wave, OM, MoMo, Moov Africa).</small></div></div>
-        <div class="feat"><div class="dot c">C</div><div><b>Communication</b><br><small>Parents ↔ enseignants, notifications, bulletins.</small></div></div>
-        <div class="feat"><div class="dot s">S</div><div><b>Suivi pédagogique</b><br><small>Notes, compétences, tableaux de bord.</small></div></div>
+        <div class="feat"><div class="dot a">A</div><div><b>Admissions & Classes</b><br><small>Enrollment, groups, timetables, attendance.</small></div></div>
+        <div class="feat"><div class="dot p">P</div><div><b>Integrated Payments</b><br><small>Cards, Google Pay, mobile money (Wave, OM, MoMo, Moov Africa).</small></div></div>
+        <div class="feat"><div class="dot c">C</div><div><b>Communication</b><br><small>Parents ↔ teachers, notifications, reports.</small></div></div>
+        <div class="feat"><div class="dot s">S</div><div><b>Learning Tracking</b><br><small>Grades, skills, dashboards.</small></div></div>
       </div>
     </div>
   </section>
 
-  <!-- À PROPOS -->
+  <!-- ABOUT -->
   <section id="about" class="section">
     <div class="card about">
-      <h2 class="section-title">À propos d’EDUSAFIRA</h2>
-      <p>EDUSAFIRA est une application inclusive qui simplifie la gestion administrative, financière et pédagogique des écoles
-      et centres de formation. Elle connecte apprenants, parents, enseignants et administrateurs via une plateforme moderne,
-      rapide et sécurisée.</p>
+      <h2 class="section-title">About EDUSAFIRA</h2>
+      <p>EDUSAFIRA streamlines administrative, financial and pedagogical operations for schools and training centers.  
+      We connect students, parents, teachers and admins through a modern, fast and secure platform.</p>
     </div>
   </section>
 
-  <!-- PARTENAIRES -->
+  <!-- PARTNERS -->
   <section id="partners" class="section partners">
     <div class="container">
-      <h2 class="section-title">Partenaires & moyens de paiement</h2>
-      <p class="muted">Ils nous font confiance</p>
-      <ul class="partners-grid" aria-label="Logos des partenaires">
+      <h2 class="section-title">Partners & payment methods</h2>
+      <p class="muted">They trust us</p>
+      <ul class="partners-grid" aria-label="Partner logos">
         <li><span class="partner-badge">Visa / Mastercard</span></li>
         <li><span class="partner-badge">Google&nbsp;Pay</span></li>
         <li><span class="partner-badge">Wave</span></li>
@@ -225,131 +228,131 @@
     </div>
   </section>
 
-  <!-- SOUSCRIPTION ÉCOLES -->
+  <!-- PLANS -->
   <section id="pricing" class="section pricing">
     <div class="container">
-      <h2 class="section-title">Souscription Écoles</h2>
-      <p class="muted">Démarrez avec un essai gratuit de 14 jours. Sans carte bancaire.</p>
+      <h2 class="section-title">School plans</h2>
+      <p class="muted">Start with a 14‑day free trial. No credit card required.</p>
 
       <div class="pricing__grid">
         <article class="plan">
           <h3 class="plan__title">Starter</h3>
-          <p class="plan__subtitle">Jusqu’à 200 élèves</p>
-          <div class="plan__price"><span class="amount">29 000</span><span class="currency">FCFA</span><span class="period">/mois</span></div>
+          <p class="plan__subtitle">Up to 200 students</p>
+          <div class="plan__price"><span class="amount">29,000</span><span class="currency">XOF</span><span class="period">/month</span></div>
           <ul class="plan__features">
-            <li>Admissions & classes</li><li>Présences & emplois du temps</li><li>Portail familles</li><li>Support par email</li>
+            <li>Admissions & classes</li><li>Timetables & attendance</li><li>Family portal</li><li>Email support</li>
           </ul>
           <div class="plan__cta">
-            <a class="btn btn--white"  href="#contact">Demander une démo</a>
-            <a class="btn btn--orange" href="/signup?role=school&plan=starter">Démarrer l’essai</a>
+            <a class="btn btn--white"  href="#contact">Request a demo</a>
+            <a class="btn btn--orange" href="/signup?role=school&plan=starter">Start free trial</a>
           </div>
         </article>
 
         <article class="plan plan--popular">
-          <div class="plan__badge">Le plus choisi</div>
+          <div class="plan__badge">Most popular</div>
           <h3 class="plan__title">Pro</h3>
-          <p class="plan__subtitle">Jusqu’à 1 000 élèves</p>
-          <div class="plan__price"><span class="amount">79 000</span><span class="currency">FCFA</span><span class="period">/mois</span></div>
+          <p class="plan__subtitle">Up to 1,000 students</p>
+          <div class="plan__price"><span class="amount">79,000</span><span class="currency">XOF</span><span class="period">/month</span></div>
           <ul class="plan__features">
-            <li>Toutes les fonctions Starter</li><li>Paiements intégrés (carte, GPay, Wave, OM, MoMo, Moov)</li><li>Notes & compétences, bulletins</li><li>Support prioritaire</li>
+            <li>Everything in Starter</li><li>Integrated payments (cards, GPay, Wave, OM, MoMo, Moov)</li><li>Grades & skills, reports</li><li>Priority support</li>
           </ul>
           <div class="plan__cta">
-            <a class="btn btn--white"  href="#contact">Demander une démo</a>
-            <a class="btn btn--orange" href="/signup?role=school&plan=pro">Démarrer l’essai</a>
+            <a class="btn btn--white"  href="#contact">Request a demo</a>
+            <a class="btn btn--orange" href="/signup?role=school&plan=pro">Start free trial</a>
           </div>
         </article>
 
         <article class="plan">
           <h3 class="plan__title">Campus</h3>
-          <p class="plan__subtitle">Établissements illimités</p>
-          <div class="plan__price"><span class="amount">Sur&nbsp;devis</span></div>
+          <p class="plan__subtitle">Unlimited schools</p>
+          <div class="plan__price"><span class="amount">Custom</span></div>
           <ul class="plan__features">
-            <li>Multi‑établissements (primaire → supérieur)</li><li>SSO / Annuaire / API & intégrations</li><li>Hébergement dédié & SLA</li><li>Accompagnement & formation</li>
+            <li>Multi‑school (primary → higher ed)</li><li>SSO / Directory / API & integrations</li><li>Dedicated hosting & SLA</li><li>Onboarding & training</li>
           </ul>
           <div class="plan__cta">
-            <a class="btn btn--white"  href="#contact">Parler à un expert</a>
-            <a class="btn btn--orange" href="/contact">Nous contacter</a>
+            <a class="btn btn--white"  href="#contact">Talk to an expert</a>
+            <a class="btn btn--orange" href="/contact">Contact us</a>
           </div>
         </article>
       </div>
 
       <p class="muted" style="text-align:center;margin-top:10px">
-        *Facturation mensuelle — remise <strong>‑15 %</strong> en annuel. Prix indicatifs en FCFA (XOF).
+        *Monthly billing — <strong>15% off</strong> yearly. Indicative pricing in XOF. Other currencies available.
       </p>
     </div>
   </section>
 
-  <!-- CONTACT & DÉMO -->
+  <!-- CONTACT -->
   <section id="contact" class="section contact">
     <div class="container">
-      <h2 class="section-title">Contact & Démo</h2>
-      <p class="muted">Une question, besoin d’une démonstration ou d’un devis ? Écrivez‑nous.</p>
+      <h2 class="section-title">Contact & Demo</h2>
+      <p class="muted">Questions, demo or quote? Send us a message.</p>
 
       <div class="contact__grid">
         <aside class="contact__card">
-          <h3 class="contact__card-title">Équipe EDUSAFIRA</h3>
-          <p>Nous répondons sous 24h ouvrées.</p>
+          <h3 class="contact__card-title">EDUSAFIRA Team</h3>
+          <p>We reply within one business day.</p>
           <ul class="contact__list">
-            <li><strong>Email :</strong> <a href="mailto:info@edusafira.com">info@edusafira.com</a></li>
-            <li><strong>Support :</strong> Lun‑Ven, 9h‑18h</li>
-            <li><strong>Démo :</strong> sur rendez‑vous (visio)</li>
+            <li><strong>Email:</strong> <a href="mailto:info@edusafira.com">info@edusafira.com</a></li>
+            <li><strong>Support:</strong> Mon–Fri, 9am–6pm</li>
+            <li><strong>Demo:</strong> by appointment (video)</li>
           </ul>
           <div class="contact__badges">
-            <span class="badge">Essai gratuit 14j</span>
-            <span class="badge">Aide au démarrage</span>
+            <span class="badge">14‑day free trial</span>
+            <span class="badge">Onboarding help</span>
           </div>
         </aside>
 
         <form class="contact__form" action="https://formsubmit.co/info@edusafira.com" method="POST">
-          <input type="hidden" name="_subject" value="📩 Nouveau message – edusafira.com">
+          <input type="hidden" name="_subject" value="📩 New message – edusafira.com (EN)">
           <input type="hidden" name="_template" value="table">
           <input type="hidden" name="_captcha" value="false">
-          <input type="hidden" name="_next" value="https://edusafira.com/merci.html">
+          <input type="hidden" name="_next" value="https://edusafira.com/en/thank-you.html">
           <input type="text" name="_honey" style="display:none">
 
           <div class="form-row">
             <div class="form-field">
-              <label for="nom">Nom & Prénom</label>
-              <input id="nom" name="nom" type="text" required placeholder="Votre nom complet">
+              <label for="name">Full name</label>
+              <input id="name" name="name" type="text" required placeholder="Your full name">
             </div>
             <div class="form-field">
               <label for="email">Email</label>
-              <input id="email" name="email" type="email" required placeholder="vous@ecole.tld">
+              <input id="email" name="email" type="email" required placeholder="you@school.tld">
             </div>
           </div>
 
           <div class="form-row">
             <div class="form-field">
-              <label for="role">Vous êtes</label>
+              <label for="role">You are</label>
               <select id="role" name="role" required>
-                <option value="" disabled selected>Choisir…</option>
-                <option value="Direction">Direction d’établissement</option>
+                <option value="" disabled selected>Choose…</option>
+                <option value="Leadership">School leadership</option>
                 <option value="Administration">Administration</option>
-                <option value="Enseignant">Enseignant</option>
+                <option value="Teacher">Teacher</option>
                 <option value="Parent">Parent</option>
-                <option value="Etudiant">Élève / Étudiant</option>
-                <option value="Autre">Autre</option>
+                <option value="Student">Student</option>
+                <option value="Other">Other</option>
               </select>
             </div>
             <div class="form-field">
-              <label for="ecole">Établissement</label>
-              <input id="ecole" name="ecole" type="text" placeholder="Nom de l’école / campus">
+              <label for="school">School</label>
+              <input id="school" name="school" type="text" placeholder="School / campus name">
             </div>
           </div>
 
           <div class="form-field">
             <label for="message">Message</label>
-            <textarea id="message" name="message" rows="6" required placeholder="Décrivez votre besoin (démo, devis, intégrations, etc.)."></textarea>
+            <textarea id="message" name="message" rows="6" required placeholder="Describe your needs (demo, quote, integrations, etc.)."></textarea>
           </div>
 
           <label class="check">
             <input type="checkbox" name="consent" required>
-            <span>J’accepte d’être recontacté par EDUSAFIRA à propos de ma demande.</span>
+            <span>I consent to being contacted about my request.</span>
           </label>
 
           <div class="form-actions">
-            <button type="submit" class="btn btn--orange">Envoyer</button>
-            <a class="btn btn--white" href="#contact">Demander une démo</a>
+            <button type="submit" class="btn btn--orange">Send</button>
+            <a class="btn btn--white" href="#contact">Request a demo</a>
           </div>
         </form>
       </div>
@@ -360,24 +363,23 @@
 <footer class="site-footer">
   <div class="footer-inner">
     <div class="f-brand">
-      <img src="/logo.png" alt="Logo EDUSAFIRA">
+      <img src="/logo.png" alt="EDUSAFIRA logo">
       <b>EDUSAFIRA</b>
     </div>
     <div class="foot-links">
-      <a href="#acces-familles">Accès familles</a>
+      <a href="#family">Family access</a>
       <a href="/health">Health</a>
       <a href="/check.txt">Check</a>
       <a href="https://github.com/housse99-hash/edusafira-demo-public" target="_blank">GitHub</a>
+      <a class="lang" href="/" aria-label="Switch to French">FR</a>
     </div>
   </div>
   <div class="footer-inner" style="margin-top:8px;font-size:14px;color:#9aa4b2">
-    © <span id="y"></span> EDUSAFIRA — Tous droits réservés • <a href="mailto:info@edusafira.com" style="color:#cbd5e1">info@edusafira.com</a>
+    © <span id="y"></span> EDUSAFIRA — All rights reserved • <a href="mailto:info@edusafira.com" style="color:#cbd5e1">info@edusafira.com</a>
   </div>
 </footer>
 
-<script>
-  document.getElementById('y').textContent = new Date().getFullYear();
-</script>
-
+<script>document.getElementById('y').textContent = new Date().getFullYear();</script>
 </body>
 </html>
+
