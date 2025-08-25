@@ -54,47 +54,14 @@
     .about p{color:var(--muted);margin:0;text-align:center}
 
     /* Partenaires */
-    <section id="partners" class="section partners">
-  <div class="container">
-    <h2 class="section-title">Établissements scolaires & universitaires</h2>
-    <p class="muted">Réseau d’écoles et centres de formation — partenaires vérifiés</p>
-
-    <ul class="partners-grid schools-grid" aria-label="Logos des établissements">
-      <li class="school">
-        <span class="verified">Vérifié</span>
-        <img src="/src/partners/college-moderne-bouake.svg" alt="Collège Moderne de Bouaké">
-      </li>
-      <li class="school">
-        <span class="verified">Vérifié</span>
-        <img src="/src/partners/ecole-ingenieurs.svg" alt="École des Ingénieurs">
-      </li>
-      <li class="school">
-        <span class="verified">Vérifié</span>
-        <img src="/src/partners/ecole-les-elites.svg" alt="École Les Élites">
-      </li>
-      <li class="school">
-        <span class="verified">Vérifié</span>
-        <img src="/src/partners/ecole-polytechnique-mans.svg" alt="École Polytechnique de Mans">
-      </li>
-      <li class="school">
-        <span class="verified">Vérifié</span>
-        <img src="/src/partners/ecole-sainte-marie.svg" alt="École Sainte Marie">
-      </li>
-      <li class="school">
-        <span class="verified">Vérifié</span>
-        <img src="/src/partners/ecole-technique.svg" alt="École Technique">
-      </li>
-      <li class="school">
-        <span class="verified">Vérifié</span>
-        <img src="/src/partners/genie-informatique.svg" alt="Génie Informatique">
-      </li>
-      <li class="school">
-        <span class="verified">Vérifié</span>
-        <img src="/src/partners/grande-ecole-medecins.svg" alt="La Grande École des Médecins">
-      </li>
-    </ul>
-  </div>
-</section>
+    .partners{padding:64px 0;background:linear-gradient(180deg,#f7f8fb 0%,#ffffff 100%)}
+    .partners .section-title{font-weight:800;color:#102a43}
+    .partners .muted{margin:0 0 28px 0}
+    .partners-grid{--gap:18px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--gap);align-items:center;justify-items:center;max-width:1100px;margin:0 auto;padding:0;list-style:none}
+    @media (min-width:640px){.partners-grid{grid-template-columns:repeat(3,1fr)}}
+    @media (min-width:1100px){.partners-grid{grid-template-columns:repeat(4,1fr)}}
+    .partners-grid img{display:block;max-width:200px;width:100%;height:auto;filter:grayscale(100%) contrast(1.05) brightness(0.9);opacity:.9;transition:filter .25s,opacity .25s,transform .25s}
+    .partners-grid img:hover{filter:grayscale(0%) contrast(1) brightness(1);opacity:1;transform:translateY(-2px)}
 
     /* Pricing */
     .pricing{padding:64px 0;background:#fff}
@@ -223,21 +190,46 @@
 
   <!-- PARTENAIRES (images SVG) -->
   <section id="partners" class="section partners">
-    <div class="container">
-      <h2 class="section-title">Partenaires & moyens de paiement</h2>
-      <p class="muted">Ils nous font confiance</p>
-      <ul class="partners-grid" aria-label="Logos des partenaires">
-        <li><img src="/src/partners/college-moderne-bouake.svg" alt="Collège Moderne de Bouaké"></li>
-        <li><img src="/src/partners/ecole-ingenieurs.svg" alt="École des Ingénieurs"></li>
-        <li><img src="/src/partners/ecole-les-elites.svg" alt="École Les Élites"></li>
-        <li><img src="/src/partners/ecole-polytechnique-mans.svg" alt="École Polytechnique de Mans"></li>
-        <li><img src="/src/partners/ecole-sainte-marie.svg" alt="École Sainte Marie"></li>
-        <li><img src="/src/partners/ecole-technique.svg" alt="École Technique"></li>
-        <li><img src="/src/partners/genie-informatique.svg" alt="Génie Informatique"></li>
-        <li><img src="/src/partners/grande-ecole-medecins.svg" alt="La Grande École des Médecins"></li>
-      </ul>
-    </div>
-  </section>
+  <div class="container">
+    <h2 class="section-title">Établissements scolaires & universitaires</h2>
+    <p class="muted">Réseau d’écoles et centres de formation — partenaires vérifiés</p>
+
+    <ul class="partners-grid schools-grid" aria-label="Logos des établissements">
+      <li class="school">
+        <span class="verified">Vérifié</span>
+        <img src="/src/partners/college-moderne-bouake.svg" alt="Collège Moderne de Bouaké">
+      </li>
+      <li class="school">
+        <span class="verified">Vérifié</span>
+        <img src="/src/partners/ecole-ingenieurs.svg" alt="École des Ingénieurs">
+      </li>
+      <li class="school">
+        <span class="verified">Vérifié</span>
+        <img src="/src/partners/ecole-les-elites.svg" alt="École Les Élites">
+      </li>
+      <li class="school">
+        <span class="verified">Vérifié</span>
+        <img src="/src/partners/ecole-polytechnique-mans.svg" alt="École Polytechnique de Mans">
+      </li>
+      <li class="school">
+        <span class="verified">Vérifié</span>
+        <img src="/src/partners/ecole-sainte-marie.svg" alt="École Sainte Marie">
+      </li>
+      <li class="school">
+        <span class="verified">Vérifié</span>
+        <img src="/src/partners/ecole-technique.svg" alt="École Technique">
+      </li>
+      <li class="school">
+        <span class="verified">Vérifié</span>
+        <img src="/src/partners/genie-informatique.svg" alt="Génie Informatique">
+      </li>
+      <li class="school">
+        <span class="verified">Vérifié</span>
+        <img src="/src/partners/grande-ecole-medecins.svg" alt="La Grande École des Médecins">
+      </li>
+    </ul>
+  </div>
+</section>
 
   <!-- PRICING -->
   <section id="pricing" class="section pricing">
