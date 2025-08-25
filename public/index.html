@@ -193,35 +193,65 @@
   </section>
 
   <!-- PARTENAIRES (images SVG) -->
-<section id="partners" class="partners section">
+<section id="partners" class="section partners">
   <div class="container">
-    <header class="section-head">
-      <h2>Établissements scolaires & universitaires</h2>
-      <p>Réseau d’écoles et centres de formation — partenaires vérifiés</p>
-    </header>
+    <h2 class="h2">Établissements scolaires & universitaires</h2>
+    <p class="lead">Réseau d’écoles et centres de formation — partenaires vérifiés</p>
 
-    <!-- slider (défilement de droite à gauche) -->
-    <div class="partners-marquee" aria-label="logos partenaires">
-      <div class="marquee-track">
-        <!-- Copie 1 -->
-        <a class="partner-card" href="#" aria-label="Collège moderne de Bouaké"><span class="verified">Vérifié</span><img class="logo" src="/partners/college-moderne-de-bouake.svg" alt=""></a>
-        <a class="partner-card" href="#" aria-label="École des ingénieurs"><span class="verified">Vérifié</span><img class="logo" src="/partners/ecole-des-ingenieurs.svg" alt=""></a>
-        <a class="partner-card" href="#" aria-label="École les Élites"><span class="verified">Vérifié</span><img class="logo" src="/partners/ecole-les-elites.svg" alt=""></a>
-        <a class="partner-card" href="#" aria-label="École Polytechnique de Mans"><span class="verified">Vérifié</span><img class="logo" src="/partners/ecole-polytechnique-de-mans.svg" alt=""></a>
-        <a class="partner-card" href="#" aria-label="Collège Sainte Marie"><span class="verified">Vérifié</span><img class="logo" src="/partners/ecole-sainte-marie.svg" alt=""></a>
-        <a class="partner-card" href="#" aria-label="École Technique"><span class="verified">Vérifié</span><img class="logo" src="/partners/ecole-technique.svg" alt=""></a>
-        <a class="partner-card" href="#" aria-label="Génie informatique"><span class="verified">Vérifié</span><img class="logo" src="/partners/genie-informatique.svg" alt=""></a>
-        <a class="partner-card" href="#" aria-label="La grande école des médecins"><span class="verified">Vérifié</span><img class="logo" src="/partners/la-grande-ecole-des-medecins.svg" alt=""></a>
+    <div class="partners-track" aria-label="Logos partenaires en défilement">
+      <div class="partners-row">
+        <!-- 8 logos — copie/colle si tu veux plus d’items -->
+        <figure class="partner-card">
+          <img src="/src/partners/college-moderne-de-bouake.svg" alt="Collège Moderne de Bouaké">
+          <figcaption><span class="verified">Vérifié</span></figcaption>
+        </figure>
 
-        <!-- Copie 2 (pour boucle infinie sans trou) -->
-        <a class="partner-card" href="#" aria-label="Collège moderne de Bouaké"><span class="verified">Vérifié</span><img class="logo" src="/partners/college-moderne-de-bouake.svg" alt=""></a>
-        <a class="partner-card" href="#" aria-label="École des ingénieurs"><span class="verified">Vérifié</span><img class="logo" src="/partners/ecole-des-ingenieurs.svg" alt=""></a>
-        <a class="partner-card" href="#" aria-label="École les Élites"><span class="verified">Vérifié</span><img class="logo" src="/partners/ecole-les-elites.svg" alt=""></a>
-        <a class="partner-card" href="#" aria-label="École Polytechnique de Mans"><span class="verified">Vérifié</span><img class="logo" src="/partners/ecole-polytechnique-de-mans.svg" alt=""></a>
-        <a class="partner-card" href="#" aria-label="Collège Sainte Marie"><span class="verified">Vérifié</span><img class="logo" src="/partners/ecole-sainte-marie.svg" alt=""></a>
-        <a class="partner-card" href="#" aria-label="École Technique"><span class="verified">Vérifié</span><img class="logo" src="/partners/ecole-technique.svg" alt=""></a>
-        <a class="partner-card" href="#" aria-label="Génie informatique"><span class="verified">Vérifié</span><img class="logo" src="/partners/genie-informatique.svg" alt=""></a>
-        <a class="partner-card" href="#" aria-label="La grande école des médecins"><span class="verified">Vérifié</span><img class="logo" src="/partners/la-grande-ecole-des-medecins.svg" alt=""></a>
+        <figure class="partner-card">
+          <img src="/src/partners/ecole-des-ingenieurs.svg" alt="École des Ingénieurs">
+          <figcaption><span class="verified">Vérifié</span></figcaption>
+        </figure>
+
+        <figure class="partner-card">
+          <img src="/src/partners/ecole-les-elites.svg" alt="École les Élites">
+          <figcaption><span class="verified">Vérifié</span></figcaption>
+        </figure>
+
+        <figure class="partner-card">
+          <img src="/src/partners/ecole-polytechnique-de-mans.svg" alt="École Polytechnique de Mans">
+          <figcaption><span class="verified">Vérifié</span></figcaption>
+        </figure>
+
+        <figure class="partner-card">
+          <img src="/src/partners/ecole-sainte-marie.svg" alt="École Sainte Marie">
+          <figcaption><span class="verified">Vérifié</span></figcaption>
+        </figure>
+
+        <figure class="partner-card">
+          <img src="/src/partners/ecole-technique.svg" alt="École Technique">
+          <figcaption><span class="verified">Vérifié</span></figcaption>
+        </figure>
+
+        <figure class="partner-card">
+          <img src="/src/partners/genie-informatique.svg" alt="Génie Informatique">
+          <figcaption><span class="verified">Vérifié</span></figcaption>
+        </figure>
+
+        <figure class="partner-card">
+          <img src="/src/partners/la-grande-ecole-des-medecins.svg" alt="La Grande École des Médecins">
+          <figcaption><span class="verified">Vérifié</span></figcaption>
+        </figure>
+      </div>
+
+      <!-- duplique la rangée pour un défilement infini fluide -->
+      <div class="partners-row" aria-hidden="true">
+        <figure class="partner-card"><img src="/src/partners/college-moderne-de-bouake.svg" alt=""></figure>
+        <figure class="partner-card"><img src="/src/partners/ecole-des-ingenieurs.svg" alt=""></figure>
+        <figure class="partner-card"><img src="/src/partners/ecole-les-elites.svg" alt=""></figure>
+        <figure class="partner-card"><img src="/src/partners/ecole-polytechnique-de-mans.svg" alt=""></figure>
+        <figure class="partner-card"><img src="/src/partners/ecole-sainte-marie.svg" alt=""></figure>
+        <figure class="partner-card"><img src="/src/partners/ecole-technique.svg" alt=""></figure>
+        <figure class="partner-card"><img src="/src/partners/genie-informatique.svg" alt=""></figure>
+        <figure class="partner-card"><img src="/src/partners/la-grande-ecole-des-medecins.svg" alt=""></figure>
       </div>
     </div>
   </div>
