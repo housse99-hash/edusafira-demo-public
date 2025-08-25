@@ -295,3 +295,92 @@ a:hover{opacity:.9}
     clip-path: inset(0 round 18px);
   }
 }
+
+/* ========== Build 2025-08-24 — Hero + Partenaires ========== */
+
+/* HERO – clip arrondi compatible SVG */
+.hero-clip {
+  position: relative;
+  max-width: 620px;
+  aspect-ratio: 16/11;
+  margin: 0 auto;
+  clip-path: inset(0 round 28px);
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0,0,0,.12);
+  background: linear-gradient(135deg,#fff8f2 0%,#fff 60%);
+}
+.hero-clip img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* PARTENAIRES – slider horizontal */
+.partners { padding: 56px 0; }
+.partners .section-head { text-align:center; margin-bottom: 26px; }
+.partners .section-head h2 { font-size: clamp(20px,2.6vw,30px); margin:0 0 6px; }
+
+.partners-marquee {
+  position: relative;
+  overflow: hidden;
+  mask-image: linear-gradient(to right, transparent 0, #000 8%, #000 92%, transparent 100%);
+}
+.marquee-track {
+  display: flex;
+  gap: 18px;
+  align-items: center;
+  will-change: transform;
+  animation: partners-scroll 38s linear infinite;
+}
+@keyframes partners-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.partner-card {
+  flex: 0 0 auto;
+  width: clamp(180px, 24vw, 240px);
+  height: clamp(120px, 16vw, 150px);
+  border-radius: 16px;
+  background: #111;
+  display: grid;
+  place-items: center;
+  position: relative;
+  box-shadow: 0 8px 22px rgba(0,0,0,.15);
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+.partner-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 28px rgba(0,0,0,.18);
+}
+
+/* Logos en COULEUR + taille fluide */
+.partner-card .logo {
+  width: clamp(120px, 16vw, 180px);
+  height: auto;
+  filter: none !important;       /* neutralise un éventuel grayscale */
+  opacity: .95;
+}
+
+/* Badge "Vérifié" */
+.partner-card .verified {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #0f5132;
+  background: #d1fae5;
+  border: 1px solid #10b981;
+  padding: 4px 8px;
+  border-radius: 999px;
+  box-shadow: 0 6px 14px rgba(16,185,129,.18);
+}
+
+/* Responsive */
+@media (max-width: 680px) {
+  .marquee-track { animation-duration: 28s; }
+  .partner-card { width: 58vw; height: 34vw; }
+  .partner-card .logo { width: 44vw; }
+}
