@@ -334,20 +334,15 @@
   </section>
 </main>
 
-<footer class="site-footer">
-  <div class="footer-inner">
-    <div class="f-brand"><img src="/logo.png" alt="EDUSAFIRA logo"><b>EDUSAFIRA</b></div>
-    <div class="foot-links">
-      <a href="#family">Family access</a>
-      <a href="/health">Health</a><a href="/check.txt">Check</a>
-      <a href="https://github.com/housse99-hash/edusafira-demo-public" target="_blank">GitHub</a>
-      <div class="lang-switch" style="margin-left:6px"><a href="/" class="lang">FR</a><span>|</span><b class="lang">EN</b></div>
-    </div>
+<form class="newsletter" action="https://formsubmit.co/info@edusafira.com" method="POST">
+  <input type="hidden" name="_subject" value="📬 Newsletter — edusafira.com (EN)">
+  <input type="hidden" name="_captcha" value="false">
+  <label for="nl" class="nl-label">Newsletter</label>
+  <div class="nl-row">
+    <input id="nl" type="email" name="email" required placeholder="Your email">
+    <button class="btn btn--orange" type="submit">Subscribe</button>
   </div>
-  <div class="footer-inner" style="margin-top:8px;font-size:14px;color:#9aa4b2">
-    © <span id="y"></span> EDUSAFIRA — All rights reserved • <a href="mailto:info@edusafira.com" style="color:#cbd5e1">info@edusafira.com</a>
-  </div>
-</footer>
+</form>
 
 <script>document.getElementById('y').textContent=new Date().getFullYear();</script>
 </body>
