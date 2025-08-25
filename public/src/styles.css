@@ -384,3 +384,22 @@ a:hover{opacity:.9}
   .partner-card { width: 58vw; height: 34vw; }
   .partner-card .logo { width: 44vw; }
 }
+
+/* ========== Hero clipping ========== */
+.hero-clip{
+  border-radius: 22px;            /* arrondi visible */
+  overflow: hidden;               /* masque l’image */
+  box-shadow: 0 15px 40px rgba(0,0,0,.12);
+}
+.hero-clip img{
+  display:block;
+  width:100%;
+  height:auto;
+  object-fit:cover;
+}
+@media (max-width: 1024px){
+  .hero-clip{ border-radius: 18px; }
+}
+@media (max-width: 640px){
+  .hero-clip{ border-radius: 14px; }
+}
