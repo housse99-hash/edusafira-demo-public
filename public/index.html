@@ -4,339 +4,380 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>EDUSAFIRA — Gestion scolaire & centres de formation</title>
-  <meta name="description" content="EDUSAFIRA est une application tout‑en‑un pour gérer admissions, paiements, communication et suivi pédagogique dans les écoles et centres de formation." />
+  <meta name="description" content="EDUSAFIRA : admissions, paiements, communication et suivi pédagogique pour écoles et centres de formation." />
   <link rel="icon" href="/icon.png" />
 
   <style>
     :root{
-      --bg:#f6f7fb;
-      --card:#ffffff;
-      --ink:#0f172a;
-      --muted:#475569;
-      --brand:#ff6a00;          /* orange principal */
-      --brand-200:#ffa366;
-      --brand-700:#d94f00;
+      --bg:#f6f7fb; --card:#ffffff; --ink:#0f172a; --muted:#475569;
       --brand-grad: linear-gradient(135deg,#ff7a1a 0%, #ff6a00 35%, #ff4d00 100%);
-      --ring: 0 10px 28px rgba(2,8,23,.06), 0 2px 6px rgba(2,8,23,.04);
-      --radius: 20px;
-      --blue:#2563eb;
+      --blue:#2563eb; --orange:#ea580c; --green:#059669;
+      --radius:20px; --ring:0 10px 28px rgba(2,8,23,.06),0 2px 6px rgba(2,8,23,.04);
     }
-
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
-    body{
-      margin:0;
-      font: 16px/1.55 ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
-      color:var(--ink);
-      background:var(--bg);
-    }
+    body{margin:0;font:16px/1.55 system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:var(--bg)}
+    a{text-decoration:none;color:inherit}
+    img{max-width:100%;height:auto;display:block}
 
-    a{color:inherit;text-decoration:none}
-    img{display:block;max-width:100%}
+    /* ===== HEADER ===== */
+    .site-header{position:sticky;top:0;z-index:50;backdrop-filter:blur(10px);background:rgba(255,255,255,.85);border-bottom:1px solid rgba(15,23,42,.06)}
+    .nav{max-width:1200px;margin:auto;padding:10px 16px;display:flex;align-items:center;justify-content:space-between}
+    .brand img{height:80px;width:auto}
+    .navlinks{display:flex;gap:22px;font-weight:600}
+    .navlinks a:hover{color:var(--blue)}
 
-    /* ====== Header ====== */
-    .site-header{
-      position:sticky; top:0; z-index:50;
-      backdrop-filter:saturate(180%) blur(10px);
-      background: rgba(255,255,255,.85);
-      border-bottom: 1px solid rgba(15,23,42,.06);
-    }
-    .nav{
-      max-width:1200px; margin-inline:auto;
-      display:flex; align-items:center; justify-content:space-between;
-      gap:16px; padding:10px 16px;
-    }
-    .brand{
-      display:flex; align-items:center; gap:10px;
-    }
-    .brand img{
-      height:44px;               /* logo agrandi */
-      width:auto;
-    }
-    .navlinks{
-      display:flex; gap:22px; align-items:center;
-      font-weight:600; color:#0b1220;
-    }
-    .navlinks a{opacity:.9}
-    .navlinks a:hover{opacity:1;color:var(--blue)}
-    .nav-cta{display:flex; gap:10px; align-items:center}
+    /* ===== HERO ===== */
+    .hero{max-width:1200px;margin:28px auto 0;padding:0 16px 24px}
+    .hero-card{background:var(--brand-grad);color:#fff;border-radius:28px;padding:48px;display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:center;box-shadow:var(--ring)}
+    .hero h1{margin:0 0 14px;font-size:48px}
+    .hero p{margin:0 0 22px}
+    .cta-row{display:flex;gap:14px;flex-wrap:wrap}
+    .btn{padding:14px 20px;font-weight:700;border-radius:14px;display:inline-block;text-align:center}
+    .btn.primary{background:#fff;color:#ff6a00}
+    .btn.secondary{border:2px solid #fff;color:#fff}
 
-    /* hamburger (mobile) */
-    .burger{
-      display:none; appearance:none; border:0; background:transparent; cursor:pointer;
-      width:42px;height:42px; border-radius:10px;
-    }
-    .burger span,.burger::before,.burger::after{
-      content:""; display:block; height:2px; background:#0b1220; margin:6px 8px; border-radius:2px;
-      transition:.25s ease;
-    }
-    .mobile-panel{
-      display:none;
-      border-top:1px solid rgba(15,23,42,.06);
-      background:#fff;
-    }
-    .mobile-panel a{
-      display:block; padding:14px 18px; border-bottom:1px dashed rgba(2,8,23,.06);
-      font-weight:600;
-    }
+    /* ===== BLOC ACCÈS FAMILLES ===== */
+    .cta-access{padding:40px 16px 14px;background:#fff}
+    .cta-access__wrap{max-width:1100px;margin:auto;display:grid;gap:16px;grid-template-columns:1fr}
+    @media (min-width:860px){.cta-access__wrap{grid-template-columns:1fr auto}}
+    .section-title{text-align:center;margin:0 0 6px 0;font-size:clamp(1.2rem,2.4vw,1.6rem)}
+    .muted{text-align:center;color:#6b7280;margin:0}
+    .cta-access__actions{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+    .btn--orange{color:#fff;background:linear-gradient(135deg,#ff7b20 0%,#ff9933 100%);box-shadow:0 10px 26px rgba(255,123,32,.22)}
+    .btn--light{color:#102a43;background:#eef2f7;border:1px solid #e5e9f0}
+    .btn--white{color:#102a43;background:#fff;border:1px solid #e9edf3;box-shadow:0 6px 18px rgba(16,42,67,.04)}
+    .signup{position:relative}
+    .signup>summary{list-style:none;cursor:pointer}
+    .signup>summary::-webkit-details-marker{display:none}
+    .signup__menu{position:absolute;z-index:20;top:calc(100% + 8px);left:0;min-width:220px;padding:10px;background:#fff;border:1px solid #e5e9f0;border-radius:12px;box-shadow:0 18px 36px rgba(16,42,67,.12)}
+    .signup__item{display:block;padding:10px 12px;border-radius:8px;color:#102a43;font-weight:600}
+    .signup__item:hover{background:#f7f8fb}
 
-    /* ====== Hero ====== */
-    .hero{
-      max-width:1200px; margin:28px auto 0; padding:0 16px 24px;
-    }
-    .hero-card{
-      background: var(--brand-grad);
-      border-radius: calc(var(--radius) + 8px);
-      color:#fff;
-      padding:48px 48px;
-      display:grid; grid-template-columns:1.1fr 1fr; gap:24px; align-items:center;
-      box-shadow: var(--ring);
-    }
-    .hero h1{
-      font-size: clamp(28px, 4vw, 48px);
-      line-height:1.08; margin:0 0 14px 0;
-      letter-spacing:.3px;
-      color:#fff;
-      text-shadow: 0 1px 0 rgba(0,0,0,.05);
-    }
-    .hero p{margin:0 0 22px 0; color:#fff; opacity:.95}
-    .cta-row{display:flex; gap:14px; flex-wrap:wrap}
-    .btn{
-      display:inline-flex; align-items:center; justify-content:center;
-      gap:10px; padding:14px 20px; font-weight:700;
-      border-radius:14px; border:1px solid rgba(255,255,255,.35);
-      color:#ff6a00; background:#fff;
-      box-shadow: 0 6px 18px rgba(0,0,0,.12);
-    }
-    .btn.secondary{
-      background: transparent; color:#fff; border-color:rgba(255,255,255,.6);
-      box-shadow: inset 0 0 0 1px rgba(255,255,255,.2);
-    }
-    /* marge claire sous le hero pour bien séparer */
-    .hero-spacer{height:22px}
-
-    /* ====== Sections (cartes centrées & élargies) ====== */
+    /* ===== SECTIONS ===== */
     .section{padding:10px 16px 40px}
-    .card{
-      background:var(--card);
-      border-radius: var(--radius);
-      padding:32px;
-      box-shadow:var(--ring);
-      max-width:1100px;          /* largeur élargie */
-      margin-inline:auto;
-    }
-    .section h2{
-      margin:0 0 16px 0;
-      font-size: clamp(22px, 3vw, 30px);
-    }
-    .features{
-      display:grid; grid-template-columns:1fr 1fr; gap:18px 28px;
-    }
-    .feat{
-      display:grid; grid-template-columns:auto 1fr; gap:12px 14px; align-items:flex-start;
-    }
-    .dot{
-      width:36px; height:36px; border-radius:12px; display:grid; place-items:center;
-      font-weight:800; color:#fff; background:var(--blue);
-      box-shadow: 0 6px 16px rgba(37,99,235,.22);
-    }
-    .dot.p{ background:#ea580c }  /* orange */
-    .dot.s{ background:#059669 }  /* vert */
+    .card{background:var(--card);border-radius:var(--radius);padding:32px;box-shadow:var(--ring);max-width:1100px;margin:auto}
+    .features{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+    .feat{display:flex;gap:12px;align-items:flex-start}
+    .dot{width:36px;height:36px;border-radius:12px;display:grid;place-items:center;font-weight:800;color:#fff;box-shadow:0 6px 16px rgba(0,0,0,.15)}
+    .dot.a{background:var(--blue)} .dot.p{background:var(--orange)} .dot.c{background:var(--blue)} .dot.s{background:var(--green)}
+    .about p{color:var(--muted);margin:0;text-align:center}
 
-    .about p{color:var(--muted); margin:0}
+    /* ===== PARTENAIRES ===== */
+    .partners{padding:64px 0;background:linear-gradient(180deg,#f7f8fb 0%,#ffffff 100%)}
+    .partners .section-title{font-weight:800;color:#102a43}
+    .partners .muted{margin:0 0 28px 0}
+    .partners-grid{--gap:18px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--gap);align-items:center;justify-items:center;max-width:1000px;margin:0 auto;padding:0;list-style:none}
+    @media (min-width:640px){.partners-grid{grid-template-columns:repeat(3,1fr)}}
+    @media (min-width:960px){.partners-grid{grid-template-columns:repeat(6,1fr)}}
+    .partner-badge{display:inline-flex;align-items:center;justify-content:center;padding:10px 16px;min-width:160px;min-height:48px;border-radius:12px;font-weight:700;letter-spacing:.2px;color:#fff;background:linear-gradient(135deg,#ff7b20 0%,#ff9933 100%);box-shadow:0 8px 22px rgba(255,123,32,.18);white-space:nowrap}
 
-    .contact-actions{
-      display:flex; gap:14px; flex-wrap:wrap; margin-top:14px;
-    }
-    .btn-outline{
-      border:2px solid var(--brand); color:var(--brand);
-      background:#fff; padding:12px 18px; border-radius:12px; font-weight:800;
-    }
-    .btn-outline:hover{background: #fff5ef}
+    /* ===== PRICING ===== */
+    .pricing{padding:64px 0;background:#fff}
+    .pricing .muted{text-align:center;margin-bottom:28px}
+    .pricing__grid{display:grid;gap:18px;max-width:1100px;margin:0 auto;grid-template-columns:1fr}
+    @media (min-width:900px){.pricing__grid{grid-template-columns:repeat(3,1fr)}}
+    .plan{position:relative;background:#fff;border:1px solid #eaeef4;border-radius:18px;padding:22px 20px 20px;box-shadow:0 12px 28px rgba(16,42,67,.06)}
+    .plan--popular{border-color:#ffd6b6;box-shadow:0 18px 42px rgba(255,123,32,.20)}
+    .plan__badge{position:absolute;top:-12px;left:20px;background:linear-gradient(135deg,#ff7b20,#ff9933);color:#fff;font-weight:800;font-size:.8rem;padding:6px 10px;border-radius:999px;box-shadow:0 10px 24px rgba(255,123,32,.25)}
+    .plan__title{margin:0 0 4px 0;font-size:1.3rem;font-weight:800}
+    .plan__subtitle{margin:0 0 12px 0;color:#6b7280}
+    .plan__price{display:flex;align-items:baseline;gap:6px;margin:8px 0 14px}
+    .plan__price .amount{font-size:1.8rem;font-weight:900;color:#102a43}
+    .plan__price .currency,.plan__price .period{color:#6b7280;font-weight:700}
+    .plan__features{list-style:none;padding:0;margin:0 0 18px 0}
+    .plan__features li{display:flex;gap:8px;align-items:center;padding:8px 0;border-bottom:1px dashed #eef2f7}
+    .plan__features li:last-child{border-bottom:0}
+    .plan__cta{display:flex;gap:10px;flex-wrap:wrap}
+    .plan__cta .btn{flex:1 1 auto}
 
-    /* ====== Footer ====== */
-    .site-footer{
-      margin-top: 24px;
-      background:#0b1220; color:#e5e7eb;
-      padding:28px 16px;
-    }
-    .footer-inner{
-      max-width:1100px; margin-inline:auto;
-      display:flex; align-items:center; justify-content:space-between; gap:16px;
-      flex-wrap:wrap;
-    }
-    .f-brand{display:flex; align-items:center; gap:12px}
-    .f-brand img{height:34px; width:auto}     /* icône plus grand */
-    .f-brand b{font-size:18px; letter-spacing:.3px}
-    .foot-links{display:flex; gap:18px; flex-wrap:wrap}
+    /* ===== CONTACT ===== */
+    .contact{padding:64px 0}
+    .contact__grid{display:grid;gap:18px;max-width:1100px;margin:0 auto;grid-template-columns:1fr}
+    @media (min-width:900px){.contact__grid{grid-template-columns:1fr 1.2fr}}
+    .contact__card,.contact__form{background:#fff;border:1px solid #eaeef4;border-radius:18px;box-shadow:0 12px 28px rgba(16,42,67,.06);padding:22px 20px}
+    .contact__card-title{margin:0 0 8px 0;font-size:1.2rem;font-weight:800}
+    .contact__list{margin:8px 0 14px;padding:0 0 0 18px}
+    .contact__list li{margin:6px 0}
+    .contact__badges{display:flex;gap:8px;flex-wrap:wrap}
+    .badge{background:#f3f6fb;color:#102a43;font-weight:700;padding:6px 10px;border-radius:999px;border:1px solid #e5e9f0}
+    .form-row{display:grid;grid-template-columns:1fr;gap:12px}
+    @media (min-width:720px){.form-row{grid-template-columns:1fr 1fr}}
+    .form-field{display:grid;gap:6px}
+    .form-field label{font-weight:800;color:#102a43}
+    .form-field input,.form-field select,.form-field textarea{appearance:none;width:100%;border-radius:12px;border:1px solid #dfe5ee;background:#fafbfd;padding:12px 14px;font:inherit;color:#102a43;transition:border-color .2s,box-shadow .2s,background .2s}
+    .form-field textarea{resize:vertical;min-height:140px}
+    .form-field input:focus,.form-field select:focus,.form-field textarea:focus{outline:none;border-color:#ff9933;box-shadow:0 0 0 4px rgba(255,153,51,.15);background:#fff}
+    .check{display:flex;align-items:center;gap:10px;margin:6px 0 14px}
+    .check input{width:18px;height:18px}
+    .form-actions{display:flex;gap:10px;flex-wrap:wrap}
+    .form-actions .btn{min-width:160px}
+
+    /* ===== FOOTER ===== */
+    .site-footer{background:#0b1220;color:#e5e7eb;padding:28px 16px;margin-top:30px}
+    .footer-inner{max-width:1100px;margin:auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
+    .f-brand{display:flex;align-items:center;gap:12px}
+    .f-brand img{height:40px}
+    .f-brand b{font-size:20px}
+    .foot-links{display:flex;gap:18px}
     .foot-links a{color:#cbd5e1}
     .foot-links a:hover{color:#fff}
 
-    /* ====== Responsive ====== */
-    @media (max-width: 980px){
-      .navlinks{display:none}
-      .burger{display:block}
-      .hero-card{grid-template-columns:1fr; padding:32px}
-      .hero-visual{order:-1}
-      .hero .cta-row{margin-top:8px}
+    @media(max-width:900px){
+      .hero-card{grid-template-columns:1fr;padding:32px;text-align:center}
       .features{grid-template-columns:1fr}
     }
   </style>
 </head>
-
 <body>
 
-  <!-- ================= Header ================= -->
-  <header class="site-header" role="banner">
-    <nav class="nav" aria-label="Navigation principale">
-      <a class="brand" href="#top" aria-label="Accueil">
-        <img src="/logo.png" alt="Logo EDUSAFIRA">
-        <!-- (Titre texte supprimé à la demande) -->
-      </a>
-
-      <div class="navlinks">
-        <a href="#features">Fonctionnalités</a>
-        <a href="#about">À propos</a>
-        <a href="#contact">Contact</a>
-        <a href="/health">Health</a>
-        <a href="/check.txt">Check</a>
-      </div>
-
-      <button class="burger" id="burger" aria-label="Ouvrir le menu" aria-controls="mobileNav" aria-expanded="false">
-        <span></span>
-      </button>
-    </nav>
-
-    <div class="mobile-panel" id="mobileNav">
+<header class="site-header">
+  <nav class="nav">
+    <a class="brand" href="#top"><img src="/logo.png" alt="Logo EDUSAFIRA"></a>
+    <div class="navlinks">
+      <a href="#acces-familles">Accès familles</a>
       <a href="#features">Fonctionnalités</a>
       <a href="#about">À propos</a>
+      <a href="#partners">Partenaires</a>
+      <a href="#pricing">Souscription</a>
       <a href="#contact">Contact</a>
       <a href="/health">Health</a>
       <a href="/check.txt">Check</a>
     </div>
-  </header>
+  </nav>
+</header>
 
-  <!-- ================= Hero ================= -->
-  <main id="top">
-    <section class="hero">
-      <div class="hero-card">
-        <div class="hero-copy">
-          <h1>EDUSAFIRA</h1>
-          <p>Application tout‑en‑un pour la gestion scolaire & des centres de formation.</p>
-          <div class="cta-row" style="margin-top:14px">
-            <a class="btn" href="#contact">Demander une démo</a>
-            <a class="btn secondary" href="/health">Voir /health</a>
-          </div>
-        </div>
-
-        <div class="hero-visual" aria-hidden="true">
-          <!-- mets le bon chemin de ton illustration si besoin -->
-          <img src="/src/hero-edu.svg" alt="">
+<main id="top">
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-card">
+      <div>
+        <h1>EDUSAFIRA</h1>
+        <p>Application tout‑en‑un pour la gestion scolaire & des centres de formation.</p>
+        <div class="cta-row">
+          <a class="btn primary" href="#contact">Demander une démo</a>
+          <a class="btn secondary" href="/health">Voir /health</a>
         </div>
       </div>
-    </section>
-
-    <div class="hero-spacer"></div>
-
-    <!-- ================= Fonctionnalités ================= -->
-    <section id="features" class="section">
-      <div class="card">
-        <h2>Fonctionnalités principales</h2>
-
-        <div class="features">
-          <div class="feat">
-            <div class="dot">A</div>
-            <div>
-              <b>Admissions & classes</b>
-              <div class="muted">Inscriptions, groupes, emplois du temps, présences.</div>
-            </div>
-          </div>
-
-          <div class="feat">
-            <div class="dot p">P</div>
-            <div>
-              <b>Paiements intégrés</b>
-              <div class="muted">Carte, Google Pay, mobile money (Wave, OM, MoMo, Moov Africa).</div>
-            </div>
-          </div>
-
-          <div class="feat">
-            <div class="dot">C</div>
-            <div>
-              <b>Communication</b>
-              <div class="muted">Parents ↔ enseignants, notifications, bulletins.</div>
-            </div>
-          </div>
-
-          <div class="feat">
-            <div class="dot s">S</div>
-            <div>
-              <b>Suivi pédagogique</b>
-              <div class="muted">Notes, compétences, tableaux de bord.</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ================= À propos ================= -->
-    <section id="about" class="section">
-      <div class="card about">
-        <h2>À propos d’EDUSAFIRA</h2>
-        <p>
-          EDUSAFIRA est une application inclusive qui simplifie la gestion administrative, financière et pédagogique des écoles
-          et centres de formation. Notre mission est de connecter apprenants, parents, enseignants et administrateurs via une
-          plateforme moderne, rapide et sécurisée.
-        </p>
-      </div>
-    </section>
-
-    <!-- ================= Contact & Démo ================= -->
-    <section id="contact" class="section">
-      <div class="card">
-        <h2>Contact & Démo</h2>
-        <p>Une question ? Besoin d’une démonstration ? Écrivez‑nous :</p>
-        <div class="contact-actions">
-          <a class="btn-outline" href="mailto:info@edusafira.com">Demander une démo</a>
-          <a class="btn-outline" href="mailto:info@edusafira.com?subject=Demande%20d%27information">Ouvrir une demande</a>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <!-- ================= Footer ================= -->
-  <footer class="site-footer">
-    <div class="footer-inner">
-      <div class="f-brand">
-        <img src="/logo.png" alt="Logo EDUSAFIRA">
-        <b>EDUSAFIRA</b>
-      </div>
-
-      <div class="foot-links">
-        <a href="/health">Health</a>
-        <a href="/check.txt">Check</a>
-        <a href="https://github.com/housse99-hash/edusafira-demo" target="_blank" rel="noreferrer">GitHub</a>
+      <div>
+        <img src="/src/hero-edu.svg" alt="Illustration de tableau de bord éducatif">
       </div>
     </div>
-    <div class="footer-inner" style="margin-top:8px; font-size:14px; color:#9aa4b2;">
-      © 2025 EDUSAFIRA — Tous droits réservés • <a href="mailto:info@edusafira.com" style="color:#cbd5e1">info@edusafira.com</a>
+  </section>
+
+  <!-- ACCÈS FAMILLES -->
+  <section id="acces-familles" class="section cta-access">
+    <div class="cta-access__wrap">
+      <div class="cta-access__text">
+        <h2 class="section-title">Accès familles</h2>
+        <p class="muted">Élèves, étudiants & parents — accédez à votre espace en toute sécurité.</p>
+      </div>
+      <div class="cta-access__actions">
+        <a href="/login" class="btn btn--light">Se connecter</a>
+        <details class="signup">
+          <summary class="btn btn--white">S’inscrire</summary>
+          <div class="signup__menu" role="menu" aria-label="Choisir un rôle pour l’inscription">
+            <a role="menuitem" href="/signup?role=student"  class="signup__item">Élève / Étudiant</a>
+            <a role="menuitem" href="/signup?role=parent"   class="signup__item">Parent</a>
+          </div>
+        </details>
+        <a href="/app" class="btn btn--orange">Mon Compte</a>
+      </div>
     </div>
-  </footer>
+  </section>
 
-  <script>
-    // Menu mobile
-    const burger = document.getElementById('burger');
-    const panel  = document.getElementById('mobileNav');
-    burger?.addEventListener('click', () => {
-      const open = panel.style.display === 'block';
-      panel.style.display = open ? 'none' : 'block';
-      burger.setAttribute('aria-expanded', String(!open));
-    });
+  <!-- FONCTIONNALITÉS -->
+  <section id="features" class="section">
+    <div class="card">
+      <h2 class="section-title">Fonctionnalités principales</h2>
+      <div class="features">
+        <div class="feat"><div class="dot a">A</div><div><b>Admissions & classes</b><br><small>Inscriptions, groupes, emplois du temps, présences.</small></div></div>
+        <div class="feat"><div class="dot p">P</div><div><b>Paiements intégrés</b><br><small>Carte, Google Pay, mobile money (Wave, OM, MoMo, Moov Africa).</small></div></div>
+        <div class="feat"><div class="dot c">C</div><div><b>Communication</b><br><small>Parents ↔ enseignants, notifications, bulletins.</small></div></div>
+        <div class="feat"><div class="dot s">S</div><div><b>Suivi pédagogique</b><br><small>Notes, compétences, tableaux de bord.</small></div></div>
+      </div>
+    </div>
+  </section>
 
-    // Fermer le panel mobile après clic
-    panel?.querySelectorAll('a').forEach(a => {
-      a.addEventListener('click', ()=> { panel.style.display='none'; burger.setAttribute('aria-expanded','false'); });
-    });
-  </script>
+  <!-- À PROPOS -->
+  <section id="about" class="section">
+    <div class="card about">
+      <h2 class="section-title">À propos d’EDUSAFIRA</h2>
+      <p>EDUSAFIRA est une application inclusive qui simplifie la gestion administrative, financière et pédagogique des écoles
+      et centres de formation. Elle connecte apprenants, parents, enseignants et administrateurs via une plateforme moderne,
+      rapide et sécurisée.</p>
+    </div>
+  </section>
+
+  <!-- PARTENAIRES -->
+  <section id="partners" class="section partners">
+    <div class="container">
+      <h2 class="section-title">Partenaires & moyens de paiement</h2>
+      <p class="muted">Ils nous font confiance</p>
+      <ul class="partners-grid" aria-label="Logos des partenaires">
+        <li><span class="partner-badge">Visa / Mastercard</span></li>
+        <li><span class="partner-badge">Google&nbsp;Pay</span></li>
+        <li><span class="partner-badge">Wave</span></li>
+        <li><span class="partner-badge">Orange&nbsp;Money</span></li>
+        <li><span class="partner-badge">MTN&nbsp;MoMo</span></li>
+        <li><span class="partner-badge">Moov&nbsp;Africa</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- SOUSCRIPTION ÉCOLES -->
+  <section id="pricing" class="section pricing">
+    <div class="container">
+      <h2 class="section-title">Souscription Écoles</h2>
+      <p class="muted">Démarrez avec un essai gratuit de 14 jours. Sans carte bancaire.</p>
+
+      <div class="pricing__grid">
+        <article class="plan">
+          <h3 class="plan__title">Starter</h3>
+          <p class="plan__subtitle">Jusqu’à 200 élèves</p>
+          <div class="plan__price"><span class="amount">29 000</span><span class="currency">FCFA</span><span class="period">/mois</span></div>
+          <ul class="plan__features">
+            <li>Admissions & classes</li><li>Présences & emplois du temps</li><li>Portail familles</li><li>Support par email</li>
+          </ul>
+          <div class="plan__cta">
+            <a class="btn btn--white"  href="#contact">Demander une démo</a>
+            <a class="btn btn--orange" href="/signup?role=school&plan=starter">Démarrer l’essai</a>
+          </div>
+        </article>
+
+        <article class="plan plan--popular">
+          <div class="plan__badge">Le plus choisi</div>
+          <h3 class="plan__title">Pro</h3>
+          <p class="plan__subtitle">Jusqu’à 1 000 élèves</p>
+          <div class="plan__price"><span class="amount">79 000</span><span class="currency">FCFA</span><span class="period">/mois</span></div>
+          <ul class="plan__features">
+            <li>Toutes les fonctions Starter</li><li>Paiements intégrés (carte, GPay, Wave, OM, MoMo, Moov)</li><li>Notes & compétences, bulletins</li><li>Support prioritaire</li>
+          </ul>
+          <div class="plan__cta">
+            <a class="btn btn--white"  href="#contact">Demander une démo</a>
+            <a class="btn btn--orange" href="/signup?role=school&plan=pro">Démarrer l’essai</a>
+          </div>
+        </article>
+
+        <article class="plan">
+          <h3 class="plan__title">Campus</h3>
+          <p class="plan__subtitle">Établissements illimités</p>
+          <div class="plan__price"><span class="amount">Sur&nbsp;devis</span></div>
+          <ul class="plan__features">
+            <li>Multi‑établissements (primaire → supérieur)</li><li>SSO / Annuaire / API & intégrations</li><li>Hébergement dédié & SLA</li><li>Accompagnement & formation</li>
+          </ul>
+          <div class="plan__cta">
+            <a class="btn btn--white"  href="#contact">Parler à un expert</a>
+            <a class="btn btn--orange" href="/contact">Nous contacter</a>
+          </div>
+        </article>
+      </div>
+
+      <p class="muted" style="text-align:center;margin-top:10px">
+        *Facturation mensuelle — remise <strong>‑15 %</strong> en annuel. Prix indicatifs en FCFA (XOF).
+      </p>
+    </div>
+  </section>
+
+  <!-- CONTACT & DÉMO -->
+  <section id="contact" class="section contact">
+    <div class="container">
+      <h2 class="section-title">Contact & Démo</h2>
+      <p class="muted">Une question, besoin d’une démonstration ou d’un devis ? Écrivez‑nous.</p>
+
+      <div class="contact__grid">
+        <aside class="contact__card">
+          <h3 class="contact__card-title">Équipe EDUSAFIRA</h3>
+          <p>Nous répondons sous 24h ouvrées.</p>
+          <ul class="contact__list">
+            <li><strong>Email :</strong> <a href="mailto:info@edusafira.com">info@edusafira.com</a></li>
+            <li><strong>Support :</strong> Lun‑Ven, 9h‑18h</li>
+            <li><strong>Démo :</strong> sur rendez‑vous (visio)</li>
+          </ul>
+          <div class="contact__badges">
+            <span class="badge">Essai gratuit 14j</span>
+            <span class="badge">Aide au démarrage</span>
+          </div>
+        </aside>
+
+        <form class="contact__form" action="https://formsubmit.co/info@edusafira.com" method="POST">
+          <input type="hidden" name="_subject" value="📩 Nouveau message – edusafira.com">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_next" value="https://edusafira.com/merci.html">
+          <input type="text" name="_honey" style="display:none">
+
+          <div class="form-row">
+            <div class="form-field">
+              <label for="nom">Nom & Prénom</label>
+              <input id="nom" name="nom" type="text" required placeholder="Votre nom complet">
+            </div>
+            <div class="form-field">
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" required placeholder="vous@ecole.tld">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-field">
+              <label for="role">Vous êtes</label>
+              <select id="role" name="role" required>
+                <option value="" disabled selected>Choisir…</option>
+                <option value="Direction">Direction d’établissement</option>
+                <option value="Administration">Administration</option>
+                <option value="Enseignant">Enseignant</option>
+                <option value="Parent">Parent</option>
+                <option value="Etudiant">Élève / Étudiant</option>
+                <option value="Autre">Autre</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label for="ecole">Établissement</label>
+              <input id="ecole" name="ecole" type="text" placeholder="Nom de l’école / campus">
+            </div>
+          </div>
+
+          <div class="form-field">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="6" required placeholder="Décrivez votre besoin (démo, devis, intégrations, etc.)."></textarea>
+          </div>
+
+          <label class="check">
+            <input type="checkbox" name="consent" required>
+            <span>J’accepte d’être recontacté par EDUSAFIRA à propos de ma demande.</span>
+          </label>
+
+          <div class="form-actions">
+            <button type="submit" class="btn btn--orange">Envoyer</button>
+            <a class="btn btn--white" href="#contact">Demander une démo</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="f-brand">
+      <img src="/logo.png" alt="Logo EDUSAFIRA">
+      <b>EDUSAFIRA</b>
+    </div>
+    <div class="foot-links">
+      <a href="#acces-familles">Accès familles</a>
+      <a href="/health">Health</a>
+      <a href="/check.txt">Check</a>
+      <a href="https://github.com/housse99-hash/edusafira-demo-public" target="_blank">GitHub</a>
+    </div>
+  </div>
+  <div class="footer-inner" style="margin-top:8px;font-size:14px;color:#9aa4b2">
+    © <span id="y"></span> EDUSAFIRA — Tous droits réservés • <a href="mailto:info@edusafira.com" style="color:#cbd5e1">info@edusafira.com</a>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('y').textContent = new Date().getFullYear();
+</script>
+
 </body>
 </html>
