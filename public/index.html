@@ -1,327 +1,247 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>EDUSAFIRA — Gestion scolaire & centres de formation</title>
-  <meta name="description" content="EDUSAFIRA : admissions, paiements, communication et suivi pédagogique pour écoles et centres de formation."/>
-  <link rel="icon" href="/icon.png"/>
-
-  <style>
-    :root{
-      --bg:#f8fafc; --card:#ffffff; --ink:#0f172a; --muted:#475569;
-      --brand:#ff7a14; --brand-2:#ff4d00; --blue:#2563eb; --ok:#16a34a;
-      --ring: rgba(37,99,235,.25);
-      --shadow: 0 10px 30px rgba(2,6,23,.08);
-      --radius: 18px;
-    }
-    *{box-sizing:border-box}
-    html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);font:16px/1.6 system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif}
-    a{color:inherit;text-decoration:none}
-    img{max-width:100%;display:block}
-    .container{max-width:1180px;margin:0 auto;padding:0 20px}
-    .section{padding:56px 0}
-    .h2{font-size:1.75rem;margin:0 0 8px}
-    .lead{color:var(--muted);margin:0 0 26px}
-
-    /* Header */
-    .site-header{position:sticky;top:0;z-index:50;background:#fff;backdrop-filter:blur(10px);border-bottom:1px solid rgba(15,23,42,.08)}
-    .nav{display:flex;align-items:center;justify-content:space-between;gap:16px;height:66px}
-    .brand{display:flex;align-items:center;gap:12px}
-    .brand img{height:52px;width:auto}
-    .navlinks{display:flex;gap:22px;align-items:center;flex-wrap:wrap}
-    .nav a{color:var(--muted);font-weight:600}
-    .nav a:hover{color:var(--ink)}
-    .lang{display:flex;gap:10px}
-    .lang a{font-weight:700}
-
-    /* Hero */
-    .hero{padding:28px 0 10px}
-    .hero-wrap{display:grid;grid-template-columns:1.1fr 1fr;gap:36px;align-items:center;background:linear-gradient(135deg,#ff7a14 0%,#ff4d00 100%);border-radius:24px;padding:48px 40px;box-shadow:var(--shadow);color:#fff}
-    .hero h1{font-size:2.6rem;line-height:1.15;margin:.2rem 0 1rem}
-    .hero p{opacity:.95;margin:0 0 22px}
-    .cta-grid{display:flex;gap:16px}
-    .btn{display:inline-flex;align-items:center;justify-content:center;font-weight:700;border-radius:14px;padding:14px 24px;border:2px solid transparent;background:#fff;color:#111;box-shadow:0 6px 18px rgba(0,0,0,.08)}
-    .btn.secondary{background:transparent;border-color:#fff;color:#fff}
-    .btn:focus{outline:3px solid var(--ring);outline-offset:2px}
-
-    /* Equal width buttons for Access Familles */
-    .cta-grid.equal > .btn{flex:1;min-width:0}
-
-    /* Hero illustration with REAL clip */
-    .hero-clip{border-radius:20px;overflow:hidden;box-shadow:0 15px 40px rgba(0,0,0,.18)}
-    .hero-clip img{width:100%;height:auto;object-fit:cover}
-
-    /* Access familles */
-    .families{padding:22px 0 10px}
-    .families .card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:22px}
-
-    /* Features (placeholder minimal) */
-    .features-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
-    .feature{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:16px 18px}
-    .feature b{display:block;margin-bottom:6px}
-
-    /* A propos */
-    .about-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:26px;align-items:center}
-    .about-card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:20px}
-    .about-pic{border-radius:20px;overflow:hidden;box-shadow:0 14px 34px rgba(2,6,23,.14)}
-    .about-pic img{width:100%;height:auto;object-fit:cover}
-
-    /* Comment ça marche */
-    .steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
-    .step{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:18px}
-    .badge{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:999px;background:var(--blue);color:#fff;font-weight:800;margin-bottom:10px}
-
-    /* Témoignages */
-    .testi-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
-    .testi{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:18px}
-    .who{display:flex;align-items:center;gap:12px;margin-top:10px}
-    .avatar{width:44px;height:44px;border-radius:50%;background:#e2e8f0;display:inline-flex;align-items:center;justify-content:center;font-weight:800;color:#475569}
-
-    /* Footer */
-    .footer{background:#0b1220;color:#e5e7eb;padding:36px 0}
-    .footer a{color:#cbd5e1}
-    .pay-logos{display:flex;gap:12px;flex-wrap:wrap;margin-top:10px}
-    .pay-logos img{height:26px;filter:grayscale(.1);opacity:.95}
-
-    /* Responsive */
-    @media (max-width:1024px){
-      .hero-wrap{grid-template-columns:1fr;gap:24px}
-      .features-grid,.about-grid,.steps,.testi-grid{grid-template-columns:1fr}
-      .brand img{height:46px}
-    }
-  </style>
+  <meta name="description" content="EDUSAFIRA : admissions, paiements, communication et suivi pédagogique pour écoles et centres de formation." />
+  <link rel="icon" href="icon.png" />
+  <link rel="stylesheet" href="src/styles.css" />
 </head>
 
 <body>
-  <!-- Header -->
+  <!-- ========== HEADER ========== -->
   <header class="site-header">
-    <div class="container nav">
-      <a class="brand" href="#">
-        <img src="/logo.png" alt="EDUSAFIRA">
+    <div class="container header-inner">
+      <a class="brand" href="/">
+        <img src="logo.png" alt="EDUSAFIRA" class="brand-logo" />
       </a>
 
-      <nav class="navlinks">
-        <a href="#families">Accès familles</a>
-        <a href="#features">Fonctionnalités</a>
-        <a href="#about">À propos</a>
-        <a href="#contact">Contact</a>
-        <a href="/health">Health</a>
-        <a href="/check.txt">Check</a>
-        <span class="lang">
-          <a href="#" data-lang="fr" aria-current="true">FR</a> |
-          <a href="#" data-lang="en">EN</a>
+      <nav class="nav-right">
+        <a href="#features" class="navlink">Fonctionnalités</a>
+        <a href="#about" class="navlink">À propos</a>
+        <a href="#contact" class="navlink">Contact</a>
+        <a href="/health" class="navlink">Health</a>
+
+        <!-- Mon compte -->
+        <a href="#account" class="btn btn-outline small">Mon compte</a>
+
+        <!-- Switch FR/EN -->
+        <span class="lang-switch">
+          <a class="lang active" href="#">FR</a> <span class="sep">|</span>
+          <a class="lang" href="#">EN</a>
         </span>
       </nav>
     </div>
   </header>
 
-  <!-- Hero -->
+  <!-- ========== HERO ========== -->
   <section class="hero">
-    <div class="container">
-      <div class="hero-wrap">
-        <div>
-          <h1>EDUSAFIRA</h1>
-          <p>Application tout-en-un pour la gestion scolaire & des centres de formation.</p>
-          <div class="cta-grid">
-            <a class="btn" href="#contact">Demander une démo</a>
-            <a class="btn secondary" href="/health">Voir /health</a>
-          </div>
-        </div>
+    <div class="container hero-inner">
+      <div class="hero-copy">
+        <h1>EDUSAFIRA</h1>
+        <p>Application tout-en-un pour la gestion scolaire & des centres de formation.</p>
 
-        <div class="hero-clip">
-          <!-- illustration avec ARRONDI réel -->
-          <img src="/hero-edu.svg" alt="Illustration tableau de bord (héros)">
+        <div class="hero-actions">
+          <a href="#contact" class="btn btn-primary">Demander une démo</a>
+          <a href="/health" class="btn btn-ghost">Voir /health</a>
         </div>
+      </div>
+
+      <div class="hero-art">
+        <!-- ton illustration (arrondie) -->
+        <img src="hero-edu.svg" alt="Illustration EDUSAFIRA" class="hero-img" />
       </div>
     </div>
   </section>
 
-  <!-- Accès familles -->
-  <section id="families" class="families section">
-    <div class="container">
-      <h2 class="h2">Accès familles</h2>
-      <p class="lead">Élèves, étudiants & parents — accédez à votre espace en toute sécurité.</p>
-
-      <div class="card">
-        <!-- même largeur pour les 3 boutons -->
-        <div class="cta-grid equal">
-          <a class="btn" href="#" aria-label="Se connecter">Se connecter</a>
-          <a class="btn" href="#" aria-label="S’inscrire">S’inscrire</a>
-          <a class="btn" href="#" aria-label="Mon Compte">Mon Compte</a>
+  <!-- ========== ACCÈS FAMILLES (bannière) ========== -->
+  <section id="families" class="family-cta">
+    <div class="container family-cta-inner">
+      <div class="cta-left">
+        <h2>Accès familles</h2>
+        <p>Élèves, étudiants & parents — accédez à votre espace en toute sécurité.</p>
+        <div class="cta-actions">
+          <a href="#signin" class="btn btn-outline">Se connecter</a>
+          <a href="#signup" class="btn btn-primary">S’inscrire</a>
         </div>
+      </div>
+
+      <div class="cta-right">
+        <!-- petite image à droite -->
+        <img src="src/img/family-cta.png" alt="Accès familles" />
       </div>
     </div>
   </section>
 
-  <!-- Fonctionnalités (placeholder propre et centré) -->
+  <!-- ========== FONCTIONNALITÉS ========== -->
   <section id="features" class="section">
     <div class="container">
-      <h2 class="h2">Fonctionnalités principales</h2>
-      <p class="lead">Tout ce qu’il faut pour piloter efficacement vos établissements.</p>
+      <h2 class="section-title">Fonctionnalités principales</h2>
 
-      <div class="features-grid">
-        <div class="feature">
-          <b>Admissions & classes</b>
-          <div>Inscriptions, groupes, emplois du temps, présences.</div>
-        </div>
-        <div class="feature">
-          <b>Paiements intégrés</b>
-          <div>Carte, Google Pay, mobile money (Wave, OM, MoMo, Moov Africa).</div>
-        </div>
-        <div class="feature">
-          <b>Communication</b>
-          <div>Parents ↔ enseignants, notifications, bulletins.</div>
-        </div>
-        <div class="feature">
-          <b>Suivi pédagogique</b>
-          <div>Notes, compétences, tableaux de bord.</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- À propos (avec image) -->
-  <section id="about" class="section">
-    <div class="container">
-      <h2 class="h2">À propos d’EDUSAFIRA</h2>
-      <p class="lead">Une plateforme inclusive qui simplifie la gestion administrative, financière et pédagogique.</p>
-
-      <div class="about-grid">
-        <div class="about-card">
-          <p>
-            Notre mission : connecter apprenants, parents, enseignants et administrateurs via une plateforme
-            simple, fiable et sécurisée. Nous aidons les écoles et centres de formation à gagner du temps,
-            à mieux communiquer et à prendre de meilleures décisions grâce à des tableaux de bord clairs.
-          </p>
-          <ul>
-            <li>Hébergement sécurisé & conformité RGPD.</li>
-            <li>Intégrations paiements (cartes, mobile money).</li>
-            <li>Support et accompagnement continu.</li>
-          </ul>
+      <div class="feature-grid">
+        <div class="card">
+          <div class="badge-circle">A</div>
+          <h3>Admissions & classes</h3>
+          <p>Inscriptions, groupes, emplois du temps, présences.</p>
         </div>
 
-        <!-- Mets l’image ici : public/src/about.jpg -->
-        <div class="about-pic">
-          <img src="/src/about.jpg" alt="Vie scolaire — illustration À propos" loading="lazy">
+        <div class="card">
+          <div class="badge-circle">P</div>
+          <h3>Paiements intégrés</h3>
+          <p>Carte, Google Pay, mobile money (Wave, OM, MoMo, Moov, Afrique).</p>
+        </div>
+
+        <div class="card">
+          <div class="badge-circle">C</div>
+          <h3>Communication</h3>
+          <p>Parents ↔ enseignants, notifications, bulletins.</p>
+        </div>
+
+        <div class="card">
+          <div class="badge-circle">S</div>
+          <h3>Suivi pédagogique</h3>
+          <p>Notes, compétences, tableaux de bord.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Comment ça marche -->
-  <section class="section" id="how">
+  <!-- ========== À PROPOS ========== -->
+  <section id="about" class="section section-muted">
+    <div class="container about-grid">
+      <div class="about-text">
+        <h2 class="section-title">À propos d’EDUSAFIRA</h2>
+        <p>EDUSAFIRA est une application inclusive qui facilite la gestion administrative, financière et pédagogique des écoles et centres de formation.</p>
+        <p>Notre mission : connecter apprenants, parents et administrateurs via une plateforme simple, rapide et sécurisée.</p>
+      </div>
+      <div class="about-media">
+        <!-- image à ajouter -->
+        <img src="src/img/about.jpg" alt="À propos d’EDUSAFIRA" class="about-img" />
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== COMMENT ÇA MARCHE ========== -->
+  <section id="how" class="section">
     <div class="container">
-      <h2 class="h2">Comment ça marche ?</h2>
-      <p class="lead">Trois étapes simples pour démarrer et réussir votre transformation.</p>
+      <h2 class="section-title">Comment ça marche ?</h2>
 
-      <div class="steps">
+      <div class="how-steps">
         <div class="step">
-          <div class="badge">1</div>
-          <b>Création & paramétrage</b>
-          <div>Nous configurons vos cycles, classes, matières, utilisateurs et rôles.</div>
+          <span class="step-index">1</span>
+          <h3>Créez votre établissement</h3>
+          <p>Inscrivez votre école et configurez les informations essentielles.</p>
         </div>
 
         <div class="step">
-          <div class="badge">2</div>
-          <b>Import & formation</b>
-          <div>Import de vos données (élèves, enseignants, historiques), formation des équipes.</div>
+          <span class="step-index">2</span>
+          <h3>Invitez l’équipe</h3>
+          <p>Ajoutez les enseignants, administratifs et classes en quelques clics.</p>
         </div>
 
         <div class="step">
-          <div class="badge">3</div>
-          <b>Lancement & accompagnement</b>
-          <div>Mise en production, suivi des objectifs et amélioration continue.</div>
+          <span class="step-index">3</span>
+          <h3>Ouvrez l’accès familles</h3>
+          <p>Permettez aux parents et apprenants de suivre la scolarité.</p>
+        </div>
+
+        <div class="step">
+          <span class="step-index">4</span>
+          <h3>Simplifiez les paiements</h3>
+          <p>Activez carte & mobile money pour des règlements rapides.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Témoignages -->
-  <section class="section" id="testi">
+  <!-- ========== TÉMOIGNAGES ========== -->
+  <section id="testimonials" class="section section-muted">
     <div class="container">
-      <h2 class="h2">Témoignages</h2>
-      <p class="lead">Ce que disent les équipes administratives et les parents.</p>
+      <h2 class="section-title">Témoignages</h2>
 
       <div class="testi-grid">
-        <div class="testi">
-          <div>« EDUSAFIRA a fluidifié nos inscriptions et la communication avec les familles. Les paiements intégrés nous font gagner un temps énorme. »</div>
-          <div class="who">
-            <span class="avatar">A</span>
-            <div>
-              <b>Directrice administrative</b><br/>
-              <small>Établissement secondaire</small>
-            </div>
-          </div>
-        </div>
+        <!-- 1 -->
+        <figure class="testi-card">
+          <img src="src/testimonials/t1.jpg" alt="Témoin 1" class="testi-avatar" />
+          <figcaption>
+            <h3>Directrice A.</h3>
+            <p>“EDUSAFIRA nous a fait gagner du temps sur les admissions et la communication.”</p>
+          </figcaption>
+        </figure>
 
-        <div class="testi">
-          <div>« En tant que parent, je reçois les notifications, je consulte les résultats et je règle les frais depuis mon téléphone. Très pratique. »</div>
-          <div class="who">
-            <span class="avatar">P</span>
-            <div>
-              <b>Parent d’élève</b><br/>
-              <small>Groupe scolaire partenaire</small>
-            </div>
-          </div>
-        </div>
+        <!-- 2 -->
+        <figure class="testi-card">
+          <img src="src/testimonials/t2.jpg" alt="Témoin 2" class="testi-avatar" />
+          <figcaption>
+            <h3>Parent B.</h3>
+            <p>“Je suis rassuré : je reçois les informations et les paiements sont super simples.”</p>
+          </figcaption>
+        </figure>
+
+        <!-- 3 -->
+        <figure class="testi-card">
+          <img src="src/testimonials/t3.jpg" alt="Témoin 3" class="testi-avatar" />
+          <figcaption>
+            <h3>Professeur C.</h3>
+            <p>“Les notes et les compétences sont centralisées, avec des tableaux clairs.”</p>
+          </figcaption>
+        </figure>
+
+        <!-- 4 -->
+        <figure class="testi-card">
+          <img src="src/testimonials/t4.jpg" alt="Témoin 4" class="testi-avatar" />
+          <figcaption>
+            <h3>Administrateur D.</h3>
+            <p>“Un vrai cockpit pour piloter l’établissement, même sur mobile !”</p>
+          </figcaption>
+        </figure>
       </div>
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer class="footer" id="contact">
-    <div class="container">
-      <div class="nav" style="gap:24px;align-items:flex-start">
-        <div class="brand">
-          <img src="/logo-pb.png" alt="EDUSAFIRA" style="height:52px">
-        </div>
+  <!-- ========== CONTACT & DEMO + NEWSLETTER + PAIEMENTS ========== -->
+  <footer id="contact" class="site-footer">
+    <div class="container footer-grid">
+      <!-- Bloc marque -->
+      <div class="foot-brand">
+        <img src="logo-pb.png" alt="EDUSAFIRA" class="foot-logo" />
 
-        <div style="flex:1">
-          <b>Contact & Démo</b>
-          <div>Une question ? Besoin d’une démonstration ? Écrivez-nous.</div>
-          <p style="margin:.4rem 0 0">
-            <a href="mailto:info@edusafira.com">info@edusafira.com</a>
-          </p>
-        </div>
-
-        <div>
-          <b>Newsletter</b>
-          <form onsubmit="event.preventDefault();alert('Merci !');" style="margin-top:.4rem;display:flex;gap:8px">
-            <input type="email" required placeholder="Votre e-mail" style="border-radius:10px;border:1px solid #33415533;padding:10px 12px;min-width:220px">
-            <button class="btn" type="submit">S’abonner</button>
-          </form>
-
-          <div style="margin-top:14px">
-            <b>Moyens de paiement</b>
-            <div class="pay-logos">
-              <!-- place ici tes images (PNG/SVG) dans /src/pay/ -->
-              <img src="/src/pay/visa.svg" alt="Visa" onerror="this.style.display='none'">
-              <img src="/src/pay/mastercard.svg" alt="Mastercard" onerror="this.style.display='none'">
-              <img src="/src/pay/wave.svg" alt="Wave" onerror="this.style.display='none'">
-              <img src="/src/pay/om.svg" alt="Orange Money" onerror="this.style.display='none'">
-              <img src="/src/pay/momo.svg" alt="MoMo" onerror="this.style.display='none'">
-              <img src="/src/pay/moov.svg" alt="Moov Africa" onerror="this.style.display='none'">
-            </div>
-          </div>
+        <div class="foot-contact">
+          <h4>Contact & Démo</h4>
+          <p>Une question ? Besoin d’une démonstration ? Écrivez-nous</p>
+          <p><a href="mailto:info@edusafira.com" class="mail">info@edusafira.com</a></p>
         </div>
       </div>
 
-      <div style="margin-top:18px;border-top:1px solid #ffffff22;padding-top:12px;font-size:.9rem">
-        © 2025 EDUSAFIRA — Tous droits réservés
+      <!-- Newsletter -->
+      <div class="newsletter">
+        <h4>Newsletter</h4>
+        <p>Recevez nos mises à jour.</p>
+        <form class="nl-form" onsubmit="return false;">
+          <input type="email" placeholder="Votre e-mail" required />
+          <button class="btn btn-primary small">S’abonner</button>
+        </form>
+
+        <!-- Moyens de paiement -->
+        <div class="footer-payments">
+          <h4>Moyens de paiement acceptés</h4>
+          <div class="payment-logos">
+            <img src="payments/google-pay.png" alt="Google Pay" />
+            <img src="payments/visa-mastercard.png" alt="Visa & MasterCard" />
+            <img src="payments/mtn-momo.png" alt="MTN Mobile Money" />
+            <img src="payments/wave.png" alt="Wave" />
+            <img src="payments/orange-money.png" alt="Orange Money" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="foot-bottom">
+      <div class="container">
+        <p>© 2025 EDUSAFIRA — Tous droits réservés • <a href="mailto:info@edusafira.com">info@edusafira.com</a></p>
       </div>
     </div>
   </footer>
-
-  <script>
-    // (Optionnel) Simili switch FR/EN — garde ton switch actuel si tu en as un.
-    document.querySelectorAll('.lang a').forEach(a=>{
-      a.addEventListener('click', e=>{
-        e.preventDefault();
-        document.querySelectorAll('.lang a').forEach(x=>x.removeAttribute('aria-current'));
-        a.setAttribute('aria-current','true');
-      });
-    });
-  </script>
 </body>
 </html>
