@@ -87,7 +87,7 @@ a{color:var(--blue); text-decoration:none}
 /* footer */
 .site-footer{background:#0f172a; color:#cbd5e1; margin-top:32px}
 .footer-grid{display:grid; grid-template-columns:1.1fr .9fr; gap:24px; padding:28px 16px}
-.foot-logo{height:44px; display:block; margin-bottom:12px}
+.foot-logo{height:60px; display:block; margin-bottom:12px}
 .foot-contact h4{color:#fff; margin:6px 0}
 .foot-contact .mail{color:#fff; text-decoration:underline}
 .newsletter h4{color:#fff}
