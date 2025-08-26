@@ -97,7 +97,7 @@ a{color:var(--blue); text-decoration:none}
 .footer-payments{margin-top:16px; text-align:center}
 .footer-payments h4{color:#fff; font-size:1.05rem; margin-bottom:.6rem}
 .payment-logos{display:flex; gap:16px; justify-content:center; align-items:center; flex-wrap:wrap}
-.payment-logos img{height:40px; object-fit:contain; filter:drop-shadow(0 2px 4px rgba(0,0,0,.3)); transition:.2s}
+.payment-logos img{height:30px; object-fit:contain; filter:drop-shadow(0 2px 4px rgba(0,0,0,.3)); transition:.2s}
 .payment-logos img:hover{transform:scale(1.08)}
 .foot-bottom{border-top:1px solid rgba(255,255,255,.08); padding:12px 0; text-align:center}
 .foot-bottom a{color:#fff}
