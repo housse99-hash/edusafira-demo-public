@@ -27,9 +27,9 @@
         <a href="#account" class="btn btn-outline small">Mon compte</a>
 
         <!-- Switch FR/EN -->
-        <span class="lang-switch">
-          <a class="lang active" href="#">FR</a> <span class="sep">|</span>
-          <a class="lang" href="#">EN</a>
+        <span class="lang-switch" id="lang-switch">
+         <a class="lang" data-lang="fr" href="?lang=fr">FR</a> <span class="sep">|</span>
+         <a class="lang" data-lang="en" href="?lang=en">EN</a>
         </span>
       </nav>
     </div>
@@ -75,37 +75,77 @@
   </section>
 
   <!-- ========== FONCTIONNALITÉS ========== -->
-  <section id="features" class="section">
-    <div class="container">
-      <h2 class="section-title">Fonctionnalités principales</h2>
+<div class="feature-grid">
+  <div class="card">
+    <div class="fe-icon" aria-hidden="true">
+      <!-- Graduation cap -->
+      <svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 3L1 8l11 5 9-4.09V17h2V8zM4 12v4.5C4 19 7.58 21 12 21s8-2 8-4.5V12l-8 3.64z"/></svg>
+    </div>
+    <h3>Admissions & classes</h3>
+    <p>Inscriptions, groupes, emplois du temps, présences.</p>
+  </div>
 
-      <div class="feature-grid">
-        <div class="card">
-          <div class="badge-circle">A</div>
-          <h3>Admissions & classes</h3>
-          <p>Inscriptions, groupes, emplois du temps, présences.</p>
-        </div>
+  <div class="card">
+    <div class="fe-icon" aria-hidden="true">
+      <!-- Payment card -->
+      <svg viewBox="0 0 24 24"><path fill="currentColor" d="M2 7a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v3H2V7Zm0 5h20v5a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-5Z"/></svg>
+    </div>
+    <h3>Paiements intégrés</h3>
+    <p>Carte, Google Pay, mobile money (Wave, OM, MoMo, Moov, Afrique).</p>
+  </div>
 
-        <div class="card">
-          <div class="badge-circle">P</div>
-          <h3>Paiements intégrés</h3>
-          <p>Carte, Google Pay, mobile money (Wave, OM, MoMo, Moov, Afrique).</p>
-        </div>
+  <div class="card">
+    <div class="fe-icon" aria-hidden="true">
+      <!-- Chat bubbles -->
+      <svg viewBox="0 0 24 24"><path fill="currentColor" d="M2 5a3 3 0 0 1 3-3h8a3 3 0 0 1 3 3v6a3 3 0 0 1-3 3H9l-5 4V14a3 3 0 0 1-2-3V5zm14 3h3a3 3 0 0 1 3 3v8l-5-4h-1a3 3 0 0 1-3-3v-1"/></svg>
+    </div>
+    <h3>Communication</h3>
+    <p>Parents ↔ enseignants, notifications, bulletins.</p>
+  </div>
 
-        <div class="card">
-          <div class="badge-circle">C</div>
-          <h3>Communication</h3>
-          <p>Parents ↔ enseignants, notifications, bulletins.</p>
-        </div>
+  <div class="card">
+    <div class="fe-icon" aria-hidden="true">
+      <!-- Analytics -->
+      <svg viewBox="0 0 24 24"><path fill="currentColor" d="M3 3h2v18H3V3Zm16 6h2v12h-2V9ZM7 13h2v8H7v-8Zm8-10h2v18h-2V3Zm-4 6h2v12h-2V9Z"/></svg>
+      </div>
+      <h3>Suivi pédagogique</h3>
+     <p>Notes, compétences, tableaux de bord.</p>
+     </div>
+    </div>
+   </div>
+  </section>
 
-        <div class="card">
-          <div class="badge-circle">S</div>
-          <h3>Suivi pédagogique</h3>
-          <p>Notes, compétences, tableaux de bord.</p>
-        </div>
+  <!-- ========== ÉTABLISSEMENTS (SLIDER) ========== -->
+<section id="partners" class="section section-muted">
+  <div class="container">
+    <h2 class="section-title">Établissements scolaires & universitaires</h2>
+    <p style="text-align:center; color:var(--muted); margin-top:-8px">Réseau d’écoles et centres de formation — partenaires vérifiés</p>
+
+    <div class="partners-slider">
+      <div class="track">
+        <!-- 1 boucle -->
+        <div class="p-item"><span class="verified">Vérifié</span><img src="src/partners/college-moderne-de-bouake.svg" alt="Collège Moderne de Bouaké"></div>
+        <div class="p-item"><span class="verified">Vérifié</span><img src="src/partners/ecole-des-ingenieurs.svg" alt="École des Ingénieurs"></div>
+        <div class="p-item"><span class="verified">Vérifié</span><img src="src/partners/ecole-les-elites.svg" alt="École Les Élites"></div>
+        <div class="p-item"><span class="verified">Vérifié</span><img src="src/partners/ecole-polytechnique-de-mans.svg" alt="École Polytechnique de Mans"></div>
+        <div class="p-item"><span class="verified">Vérifié</span><img src="src/partners/ecole-sainte-marie.svg" alt="École Sainte Marie"></div>
+        <div class="p-item"><span class="verified">Vérifié</span><img src="src/partners/ecole-technique.svg" alt="École Technique"></div>
+        <div class="p-item"><span class="verified">Vérifié</span><img src="src/partners/genie-informatique.svg" alt="Génie Informatique"></div>
+        <div class="p-item"><span class="verified">Vérifié</span><img src="src/partners/la-grande-ecole-des-medecins.svg" alt="La Grande École des Médecins"></div>
+
+        <!-- 2e boucle pour effet infini -->
+        <div class="p-item"><span class="verified">Vérifié</span><img src="src/partners/college-moderne-de-bouake.svg" alt=""></div>
+        <div class="p-item"><span class="verified">Vérifié</span><img src="src/partners/ecole-des-ingenieurs.svg" alt=""></div>
+        <div class="p-item"><span class="verified">Vérifié</span><img src="src/partners/ecole-les-elites.svg" alt=""></div>
+        <div class="p-item"><span class="verified">Vérifié</span><img src="src/partners/ecole-polytechnique-de-mans.svg" alt=""></div>
+        <div class="p-item"><span class="verified">Vérifié</span><img src="src/partners/ecole-sainte-marie.svg" alt=""></div>
+        <div class="p-item"><span class="verified">Vérifié</span><img src="src/partners/ecole-technique.svg" alt=""></div>
+        <div class="p-item"><span class="verified">Vérifié</span><img src="src/partners/genie-informatique.svg" alt=""></div>
+        <div class="p-item"><span class="verified">Vérifié</span><img src="src/partners/la-grande-ecole-des-medecins.svg" alt=""></div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
   <!-- ========== À PROPOS ========== -->
   <section id="about" class="section section-muted">
@@ -199,6 +239,16 @@
       </div>
     </div>
   </section>
+  
+<!-- ========== TARIFS ========== -->
+<section id="pricing" class="section">
+  <div class="container">
+    <h2 class="section-title">Tarifs & souscription</h2>
+    <div style="display:grid;place-items:center">
+      <img src="src/img/pricing.jpg" alt="Grille de tarifs" style="max-width:960px;width:100%;border-radius:16px;box-shadow:0 14px 36px rgba(0,0,0,.08);border:1px solid var(--line)"/>
+    </div>
+  </div>
+</section>
 
   <!-- ========== CONTACT & DEMO + NEWSLETTER + PAIEMENTS ========== -->
   <footer id="contact" class="site-footer">
@@ -245,5 +295,24 @@
       </div>
     </div>
   </footer>
+  <script>
+  (function () {
+    const LS_KEY = 'edusafira_lang';
+    const current = new URLSearchParams(location.search).get('lang')
+                   || localStorage.getItem(LS_KEY) || 'fr';
+    localStorage.setItem(LS_KEY, current);
+
+    // Activer l'état visuel
+    document.querySelectorAll('#lang-switch .lang').forEach(a => {
+      a.classList.toggle('active', a.dataset.lang === current);
+      a.addEventListener('click', (e) => {
+        const lang = e.currentTarget.dataset.lang;
+        localStorage.setItem(LS_KEY, lang);
+        // Ici, vous pouvez déclencher une vraie i18n plus tard
+      });
+    });
+  })();
+</script>
+
 </body>
 </html>
