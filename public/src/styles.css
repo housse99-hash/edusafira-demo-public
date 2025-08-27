@@ -55,13 +55,19 @@ a{color:var(--blue); text-decoration:none}
 .cta-left p{margin:0 0 12px; color:var(--muted)}
 .cta-actions{display:flex; gap:10px}
 /* Accès familles */
-/* CTA familles – image un peu plus large */
-/* CTA familles – image un peu plus large */
-/* CTA familles – image un peu plus large */
-.family-cta .cta-img{
-  width: 320px;  /* 240–360 selon ton goût */
-  height: auto; border-radius:14px; overflow:hidden;
+.cta-right img{
+  max-width: 280px;   /* 180px -> 280px */
+  width: 100%;
+  display: block;
+  margin-inline: auto;
+  border-radius: 14px;              
+  box-shadow: 0 10px 22px rgba(0,0,0,.08);
 }
+
+@media (max-width: 980px){
+  .cta-right img{ max-width: 220px; }
+}
+
 
 
 /* sections */
