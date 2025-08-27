@@ -253,3 +253,14 @@ a{color:var(--blue); text-decoration:none}
     display: block;
   }
 }
+/* Bouton héros contrasté */
+.hero .btn-primary {
+  background: #fff;
+  color: #f76a0a;
+  border: 2px solid #f76a0a;
+}
+
+.hero .btn-primary:hover {
+  background: #f76a0a;
+  color: #fff;
+}
