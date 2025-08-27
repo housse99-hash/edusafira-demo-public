@@ -22,18 +22,34 @@
         <a href="#about" class="navlink">À propos</a>
         <a href="#contact" class="navlink">Contact</a>
         <a href="/health" class="navlink">Health</a>
+        
+        <!-- Mon compte (menu déroulant) -->
+        <li class="menu-item has-submenu">
+          <a href="/account">Mon compte</a>
+          <ul class="submenu">
+            <li><a href="/login">Se connecter</a></li>
+            <li><a href="/register">Créer un compte</a></li>
+            <li class="sep"></li>
+            <!-- NOUVEAU : Rejoindre la communauté -->
+            <li><a href="/community">Rejoindre la communauté</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
 
-        <!-- Mon compte -->
-        <a href="#account" class="btn btn-outline small">Mon compte</a>
-
-        <!-- Switch FR/EN -->
-        <span class="lang-switch" id="lang-switch">
-         <a class="lang" data-lang="fr" href="?lang=fr">FR</a> <span class="sep">|</span>
-         <a class="lang" data-lang="en" href="?lang=en">EN</a>
-        </span>
+    <div class="nav-right">
+      <!-- Switch langue à droite -->
+      <nav class="lang-switch" aria-label="Sélecteur de langue">
+        <a href="#" data-lang="fr" class="lang-link">
+          <img src="/img/flags/fr-rect.svg" alt="FR" width="20" height="15"> FR
+        </a>
+        <a href="#" data-lang="en" class="lang-link">
+          <img src="/img/flags/gb-rect.svg" alt="EN" width="20" height="15"> EN
+        </a>
       </nav>
     </div>
-  </header>
+  </nav>
+</header>
 
   <!-- ========== HERO ========== -->
   <section class="hero">
