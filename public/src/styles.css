@@ -235,3 +235,21 @@ a{color:var(--blue); text-decoration:none}
   padding:6px 10px;
 }
 
+/* Accès familles – contrôle de l'image */
+.family-cta .cta-img {
+  width: 260px;         /* ajuste 240–320 si besoin */
+  max-width: 30vw;      /* protège sur grands écrans */
+  height: auto;
+  border-radius: 14px;
+  object-fit: cover;
+}
+
+/* En mobile, l'image passe pleine largeur mais reste raisonnable */
+@media (max-width: 720px){
+  .family-cta .cta-img {
+    width: 100%;
+    max-width: 420px;
+    margin: 12px auto 0;
+    display: block;
+  }
+}
