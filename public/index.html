@@ -86,21 +86,25 @@
   </div>
 </section>
     
-  <!-- SECTION VIDÉO (à coller après le hero) -->
-<section class="video-promo" id="video">
-  <div class="video-promo__media">
-    <video id="promoVideo" controls playsinline poster="/img/video-cover.jpg">
-      <source src="/media/edusafira-demo.mp4" type="video/mp4">
-      Votre navigateur ne supporte pas la vidéo HTML5.
-    </video>
-  </div>
+<!-- SECTION VIDÉO (vidéo à gauche / CTA à droite) -->
+<section class="video-section">
+  <div class="video-section__container">
+    <!-- Bloc gauche = vidéo -->
+    <div class="video-section__media">
+      <video id="promoVideo" controls playsinline poster="/img/video-cover.jpg">
+        <source src="/media/edusafira-demo.mp4" type="video/mp4">
+        Votre navigateur ne supporte pas la vidéo HTML5.
+      </video>
+    </div>
 
-  <div class="video-promo__content">
-    <h2>Découvrez Édusafira en 90 secondes</h2>
-    <p>Plateforme moderne pour apprendre, enseigner et collaborer en toute simplicité.</p>
+    <!-- Bloc droit = texte + CTA -->
+    <div class="video-section__content">
+      <h2>Découvrez Édusafira en 90 secondes</h2>
+      <p>Plateforme moderne pour apprendre, enseigner et collaborer en toute simplicité.</p>
 
-    <!-- Bouton visible seulement si "admin" activé (voir JS) -->
-    <a class="btn-admin-cta" href="/admin" hidden>Configurer la démo (admin)</a>
+      <a href="#community" class="btn-primary">Rejoindre la communauté</a>
+      <a href="/admin" class="btn-admin-cta" hidden>Configurer la démo (admin)</a>
+    </div>
   </div>
 </section>
   
