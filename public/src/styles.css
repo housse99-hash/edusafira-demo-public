@@ -345,3 +345,30 @@ a{color:var(--blue); text-decoration:none}
   transition: transform .15s ease, box-shadow .15s ease;
 }
 .banner-vertical__cta:hover{ transform:translateY(-1px); box-shadow:0 6px 16px rgba(0,0,0,.2); }
+
+/* === Section Vidéo === */
+.video-promo{
+  display:grid; gap:1.25rem; align-items:center;
+  grid-template-columns: 1.2fr 1fr;
+  max-width:1200px; margin:2rem auto; padding:0 1rem;
+}
+.video-promo__media{
+  position:relative; width:100%; aspect-ratio:16 / 9;
+  border-radius:16px; overflow:hidden; box-shadow:0 10px 26px rgba(0,0,0,.12);
+  background:#000;
+}
+.video-promo__media video{ width:100%; height:100%; object-fit:cover; display:block; }
+.video-promo__content h2{ margin:.25rem 0 .5rem; font-size:1.6rem; }
+.video-promo__content p{ margin:0 0 1rem; color:#333; }
+
+.btn-admin-cta{
+  display:inline-block; background:#FB8515; color:#111; font-weight:800;
+  text-decoration:none; padding:.7rem 1rem; border-radius:12px;
+  box-shadow:0 6px 16px rgba(251,133,21,.35);
+  transition:transform .15s ease, box-shadow .15s ease;
+}
+.btn-admin-cta:hover{ transform:translateY(-1px); box-shadow:0 10px 22px rgba(251,133,21,.5); }
+
+@media (max-width: 900px){
+  .video-promo{ grid-template-columns: 1fr; }
+}
