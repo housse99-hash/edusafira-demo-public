@@ -14,16 +14,28 @@
   <!-- ========== HEADER ========== -->
 <header class="site-header">
   <nav class="main-nav" aria-label="Navigation principale">
+    <!-- Gauche : logo + burger -->
     <div class="nav-left">
-      <!-- Logo image (tu l’as dans /public/src/) -->
       <a href="/" class="logo" aria-label="Accueil Édusafira">
-        <img src="/logo.png" alt="Édusafira" height="75">
+        <img src="/src/edusafira-badge.png" alt="Édusafira" height="28">
       </a>
 
+      <!-- Bouton burger (mobile) -->
+      <button class="nav-toggle" aria-controls="primary-menu" aria-expanded="false" aria-label="Ouvrir le menu">
+        <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+          <path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Centre : menu principal -->
+    <div class="nav-center" id="primary-menu">
       <ul class="menu">
         <li><a href="/#features">Fonctionnalités</a></li>
         <li><a href="/#pricing">Tarifs</a></li>
         <li><a href="/#contact">Contact</a></li>
+
+        <!-- Sous-menu Mon compte -->
         <li class="menu-item has-submenu">
           <a href="/account" class="submenu-trigger" aria-haspopup="true" aria-expanded="false">Mon compte</a>
           <ul class="submenu" role="menu">
@@ -36,14 +48,14 @@
       </ul>
     </div>
 
-    <!-- Drapeaux bien à DROITE -->
+    <!-- Droite : switch langue -->
     <div class="nav-right">
       <nav class="lang-switch" aria-label="Sélecteur de langue">
         <a href="#" data-lang="fr" class="lang-link">
-          <img src="/img/flags/fr-rect.svg" alt="" width="20" height="15"> FR
+          <img src="/img/flags/fr-rect.svg" alt="FR" width="20" height="15"> <span class="lang-text">FR</span>
         </a>
         <a href="#" data-lang="en" class="lang-link">
-          <img src="/img/flags/gb-rect.svg" alt="" width="20" height="15"> EN
+          <img src="/img/flags/gb-rect.svg" alt="EN" width="20" height="15"> <span class="lang-text">EN</span>
         </a>
       </nav>
     </div>
