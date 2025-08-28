@@ -661,3 +661,17 @@ a{color:var(--blue); text-decoration:none}
 
 .logo { display:inline-flex; align-items:center; }
 .logo img { display:block; height:28px; width:auto; }
+
+/* Conteneur de nav centré + padding latéral */
+.main-nav{
+  display:flex; align-items:center; justify-content:space-between;
+  max-width:1200px; margin:0 auto;
+  padding:.75rem 24px;          /* ← espace à gauche/droite */
+}
+
+/* Espace entre logo et menu */
+.nav-left{ display:flex; align-items:center; gap:1.25rem; } /* 1–2rem selon goût */
+
+/* Espace dans le menu */
+.menu{ display:flex; list-style:none; gap:1rem; margin:0; padding:0; flex-wrap:wrap; }
+.menu>li>a{ padding:.35rem .25rem; text-decoration:none; }
