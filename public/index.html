@@ -13,34 +13,37 @@
 <body>
   <!-- ========== HEADER ========== -->
 <header class="site-header">
-  <nav class="main-nav">
+  <nav class="main-nav" aria-label="Navigation principale">
     <div class="nav-left">
-      <a href="/" class="logo"><img src="/edusafira-badge.png" alt="Édusafira" height="28"></a>
+      <!-- Logo image (tu l’as dans /public/src/) -->
+      <a href="/" class="logo" aria-label="Accueil Édusafira">
+        <img src="/src/edusafira-badge.png" alt="Édusafira" height="28">
+      </a>
+
       <ul class="menu">
         <li><a href="/#features">Fonctionnalités</a></li>
         <li><a href="/#pricing">Tarifs</a></li>
         <li><a href="/#contact">Contact</a></li>
-        <li class="menu-item has-submenu"> ... </li>
+        <li class="menu-item has-submenu">
+          <a href="/account" class="submenu-trigger" aria-haspopup="true" aria-expanded="false">Mon compte</a>
+          <ul class="submenu" role="menu">
+            <li><a href="/login" role="menuitem">Se connecter</a></li>
+            <li><a href="/register" role="menuitem">Créer un compte</a></li>
+            <li class="sep" aria-hidden="true"></li>
+            <li><a href="/community" role="menuitem">Rejoindre la communauté</a></li>
+          </ul>
+        </li>
       </ul>
     </div>
 
-    <div class="nav-right">
-      <nav class="lang-switch">
-        <a class="lang-link"><img src="/img/flags/fr-rect.svg" alt="" width="20" height="15"> FR</a>
-        <a class="lang-link"><img src="/img/flags/gb-rect.svg" alt="" width="20" height="15"> EN</a>
-      </nav>
-    </div>
-  </nav>
-</header>
-
-    <!-- Droite : switch langue -->
+    <!-- Drapeaux bien à DROITE -->
     <div class="nav-right">
       <nav class="lang-switch" aria-label="Sélecteur de langue">
         <a href="#" data-lang="fr" class="lang-link">
-          <img src="/img/flags/fr-rect.svg" alt="FR" width="20" height="15"> FR
+          <img src="/img/flags/fr-rect.svg" alt="" width="20" height="15"> FR
         </a>
         <a href="#" data-lang="en" class="lang-link">
-          <img src="/img/flags/gb-rect.svg" alt="EN" width="20" height="15"> EN
+          <img src="/img/flags/gb-rect.svg" alt="" width="20" height="15"> EN
         </a>
       </nav>
     </div>
