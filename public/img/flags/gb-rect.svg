@@ -1,6 +1,18 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4 3" aria-label="France flag" role="img">
-  <rect width="4" height="3" fill="#fff"/>
-  <rect width="1.333" height="3" x="0" y="0" fill="#0055A4"/>
-  <rect width="1.333" height="3" x="2.667" y="0" fill="#EF4135"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 30" aria-label="United Kingdom flag" role="img">
+  <!-- Fond bleu -->
+  <rect width="40" height="30" fill="#012169"/>
+  <!-- Diagonales blanches -->
+  <polygon points="0,0 15,0 40,18 40,30 25,30 0,12" fill="#FFFFFF"/>
+  <polygon points="40,0 25,0 0,18 0,30 15,30 40,12" fill="#FFFFFF"/>
+  <!-- Diagonales rouges -->
+  <polygon points="0,0 5,0 40,23 40,30 35,30 0,7" fill="#C8102E"/>
+  <polygon points="40,0 35,0 0,23 0,30 5,30 40,7" fill="#C8102E"/>
+  <!-- Croix blanche -->
+  <rect x="0" y="12" width="40" height="6" fill="#FFFFFF"/>
+  <rect x="17" y="0" width="6" height="30" fill="#FFFFFF"/>
+  <!-- Croix rouge -->
+  <rect x="0" y="13.5" width="40" height="3" fill="#C8102E"/>
+  <rect x="18.5" y="0" width="3" height="30" fill="#C8102E"/>
 </svg>
+
 
