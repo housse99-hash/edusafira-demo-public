@@ -568,3 +568,17 @@ a{color:var(--blue); text-decoration:none}
 /* Lang switch à droite */
 .lang-switch{ display:inline-flex; gap:.5rem; align-items:center; }
 .lang-link{ display:inline-flex; align-items:center; gap:.35rem; }
+
+/* === Image entête communauté === */
+.community-hero{
+  max-width: 1100px;
+  margin: 1.5rem auto 2rem;
+  padding: 0 1rem;
+}
+.community-hero img{
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 18px;              /* bords arrondis */
+  box-shadow: 0 8px 22px rgba(0,0,0,.12); /* ombre douce */
+}
