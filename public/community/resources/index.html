@@ -2,26 +2,44 @@
 <html lang="fr">
 <head>
   <meta charset="utf-8">
-  <title>Ressources — Communauté Édusafira</title>
+  <title>Groupes — Communauté Édusafira</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
- <link href="../../src/styles.css" rel="stylesheet">
- <script src="../../js/main.js" defer></script>
+  <!-- Chemins corrects depuis /public/community/groups/ -->
+  <link href="../../src/styles.css" rel="stylesheet">
+  <script src="../../js/main.js" defer></script>
 </head>
 <body>
+
 <header class="site-header">
   <nav class="main-nav">
     <div class="nav-left">
       <a href="/" class="logo">Édusafira</a>
       <ul class="menu">
         <li><a href="/#features">Fonctionnalités</a></li>
-        <li><a href="/#pricing">Tarifs</a></li>
+        <li><a href="/#about">À propos</a></li>
         <li><a href="/#contact">Contact</a></li>
+        <li><a href="/health">Health</a></li>
+
+        <li class="menu-item has-submenu">
+          <a href="/account">Mon compte</a>
+          <ul class="submenu">
+            <li><a href="/login">Se connecter</a></li>
+            <li><a href="/register">Créer un compte</a></li>
+            <li class="sep"></li>
+            <li><a href="/community">Rejoindre la communauté</a></li>
+          </ul>
+        </li>
       </ul>
     </div>
+
     <div class="nav-right">
       <nav class="lang-switch" aria-label="Sélecteur de langue">
-        <a href="#" data-lang="fr" class="lang-link"><img src="/img/flags/fr-rect.svg" alt="FR" width="20" height="15"> FR</a>
-        <a href="#" data-lang="en" class="lang-link"><img src="/img/flags/gb-rect.svg" alt="EN" width="20" height="15"> EN</a>
+        <a href="#" data-lang="fr" class="lang-link">
+          <img src="/img/flags/fr-rect.svg" alt="FR" width="20" height="15"> FR
+        </a>
+        <a href="#" data-lang="en" class="lang-link">
+          <img src="/img/flags/gb-rect.svg" alt="EN" width="20" height="15"> EN
+        </a>
       </nav>
     </div>
   </nav>
@@ -31,23 +49,36 @@
   <nav class="breadcrumb" aria-label="Fil d’Ariane">
     <a href="/">Accueil</a><span class="sep">›</span>
     <a href="/community">Communauté</a><span class="sep">›</span>
-    <span>Ressources</span>
+    <span>Groupes</span>
   </nav>
 
-  <div class="page-head">
-    <h1>Ressources</h1>
-    <div class="page-actions">
-      <a href="/community/login">Uploader</a>
-    </div>
-  </div>
-
-  <div class="card">
-    <p>Déposez/consultez des supports de cours, replays et documents partagés.</p>
-    <p><em>À raccorder plus tard à votre stockage/drive/LMS.</em></p>
-  </div>
+  <section class="card">
+    <h1>Groupes</h1>
+    <p>Liste d’exemples à remplacer par votre intégration :</p>
+    <ul>
+      <li>Mathématiques</li>
+      <li>Physique & Chimie</li>
+      <li>Programmation</li>
+      <li>Projets universitaires</li>
+    </ul>
+    <p><em>À raccorder ensuite (BuddyPress / Discourse / solution interne).</em></p>
+  </section>
 </main>
 
-<script src="/js/main.js" defer></script>
+<footer class="site-footer">
+  <div class="container">
+    <ul class="footer-links">
+      <li><a href="/#features">Fonctionnalités</a></li>
+      <li><a href="/#about">À propos</a></li>
+      <li><a href="/#contact">Contact</a></li>
+      <li><a href="/community">Rejoindre la communauté</a></li>
+    </ul>
+    <p>&copy; <span id="year"></span> Édusafira. Tous droits réservés.</p>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
 </body>
 </html>
-
