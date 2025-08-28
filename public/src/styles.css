@@ -584,4 +584,78 @@ a{color:var(--blue); text-decoration:none}
   border-radius: 18px;     /* bords arrondis */
   box-shadow: 0 8px 22px rgba(0,0,0,.12); /* ombre douce */
 }
+/* === Layout commun === */
+.site-header{ background:#fff; border-bottom:1px solid #eee; }
+.main-nav{
+  display:flex; align-items:center; justify-content:space-between;
+  max-width:1200px; margin:0 auto; padding:.75rem 1rem;
+}
+.nav-left{ display:flex; align-items:center; gap:1rem; } /* gap réduit */
+.logo{ text-decoration:none; color:#111; font-weight:800; }
+
+/* Menu desktop */
+.nav-center{ display:block; }
+.menu{ display:flex; list-style:none; gap:1rem; margin:0; padding:0; flex-wrap:wrap; }
+.menu>li{ position:relative; }
+.menu>li>a{ text-decoration:none; color:#333; font-weight:500; padding:.35rem .25rem; }
+
+/* Sous-menu (desktop) */
+.has-submenu{ position:relative; }
+.has-submenu .submenu{
+  position:absolute; top:100%; right:0; left:auto;
+  background:#fff; border:1px solid #eee; border-radius:12px;
+  box-shadow:0 12px 28px rgba(0,0,0,.12);
+  list-style:none; margin:.5rem 0 0; padding:.4rem;
+  min-width:220px; display:none; z-index:1000;
+}
+.has-submenu:hover .submenu,
+.has-submenu:focus-within .submenu{ display:block; }
+/* Pont anti-trou (évite fermeture quand la souris descend) */
+.has-submenu::after{ content:""; position:absolute; left:0; right:0; top:100%; height:10px; }
+
+.submenu li a{ display:block; padding:.55rem .7rem; text-decoration:none; color:#222; border-radius:8px; }
+.submenu li a:hover{ background:#f6f6f6; }
+.submenu .sep{ height:1px; margin:.35rem .4rem; background:#eee; }
+
+/* Drapeaux à droite */
+.nav-right{ margin-left:auto; display:flex; align-items:center; }
+.lang-switch{ display:inline-flex; gap:.5rem; align-items:center; }
+.lang-link{ display:inline-flex; align-items:center; gap:.35rem; }
+
+/* === Mobile / Tablette === */
+.nav-toggle{
+  appearance:none; border:0; background:#111; color:#fff;
+  width:40px; height:36px; border-radius:10px;
+  display:none; align-items:center; justify-content:center; gap:3px;
+}
+.nav-toggle__bar{ display:block; width:20px; height:2px; background:#fff; }
+@media (max-width: 900px){
+  .nav-toggle{ display:inline-flex; }
+
+  /* Le menu devient un panneau à partir du haut */
+  .nav-center{
+    position:fixed; top:60px; left:0; right:0;
+    background:#fff; border-top:1px solid #eee;
+    padding:.75rem 1rem;
+    box-shadow:0 10px 22px rgba(0,0,0,.12);
+    transform: translateY(-12px); opacity:0; pointer-events:none;
+    transition: opacity .18s ease, transform .18s ease;
+  }
+  body.menu-open .nav-center{
+    transform: translateY(0); opacity:1; pointer-events:auto;
+  }
+
+  .menu{ flex-direction:column; gap:.25rem; }
+  .menu>li>a{ padding:.6rem 0; }
+
+  /* Sous-menu en mobile : inline (pas en absolu) */
+  .has-submenu .submenu{
+    position:static; display:none; box-shadow:none; border:0;
+    margin:0; padding:.25rem 0; border-radius:0; min-width:auto;
+  }
+  .has-submenu.open .submenu{ display:block; }
+}
+
+/* Accessibilité focus */
+.menu a:focus, .lang-link:focus, .nav-toggle:focus{ outline:2px solid #FB8515; outline-offset:2px; }
 
