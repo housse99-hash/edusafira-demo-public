@@ -46,3 +46,70 @@
     }
   });
 })();
+
+// Burger : ouvre/ferme le menu sur mobile
+(function(){
+  const toggle = document.querySelector('.nav-toggle');
+  const menu   = document.getElementById('primary-menu');
+  if (!toggle || !menu) return;
+
+  const open = () => {
+    document.body.classList.add('menu-open');
+    toggle.setAttribute('aria-expanded', 'true');
+    toggle.setAttribute('aria-label', 'Fermer le menu');
+  };
+  const close = () => {
+    document.body.classList.remove('menu-open');
+    toggle.setAttribute('aria-expanded', 'false');
+    toggle.setAttribute('aria-label', 'Ouvrir le menu');
+  };
+
+  toggle.addEventListener('click', ()=>{
+    document.body.classList.contains('menu-open') ? close() : open();
+  });
+
+  // Fermer au clic hors du menu (mobile)
+  document.addEventListener('click', (e)=>{
+    if (!document.body.classList.contains('menu-open')) return;
+    const within = e.target.closest('.nav-center, .nav-toggle');
+    if (!within) close();
+  });
+
+  // ESC pour fermer
+  document.addEventListener('keydown', (e)=>{
+    if (e.key === 'Escape') close();
+  });
+
+  // Fermer quand on clique un lien du menu
+  menu.querySelectorAll('a').forEach(a=>{
+    a.addEventListener('click', ()=> close());
+  });
+})();
+
+// Sous-menu "Mon compte" : toggle au clic (utile en mobile)
+(function(){
+  const item = document.querySelector('.menu .has-submenu');
+  if (!item) return;
+  const trigger = item.querySelector('.submenu-trigger');
+  const submenu = item.querySelector('.submenu');
+
+  // Desktop : hover géré par CSS; Mobile : clic pour ouvrir/fermer
+  trigger.addEventListener('click', (e)=>{
+    // Empêche la navigation immédiate si on veut ouvrir le sous-menu
+    if (window.matchMedia('(max-width: 900px)').matches){
+      e.preventDefault();
+      const open = item.classList.toggle('open');
+      trigger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    }
+  });
+
+  // Ferme le sous-menu si clic en dehors (mobile)
+  document.addEventListener('click', (e)=>{
+    if (window.matchMedia('(max-width: 900px)').matches){
+      if (!item.contains(e.target)) {
+        item.classList.remove('open');
+        trigger.setAttribute('aria-expanded', 'false');
+      }
+    }
+  });
+})();
