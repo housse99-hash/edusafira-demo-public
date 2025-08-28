@@ -4,54 +4,113 @@
   <meta charset="utf-8">
   <title>Communauté Édusafira</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Chemins corrects depuis /public/community/ -->
   <link href="../src/styles.css" rel="stylesheet">
-<script src="../js/main.js" defer></script>
+  <script src="../js/main.js" defer></script>
 </head>
 <body>
+
 <header class="site-header">
   <nav class="main-nav">
     <div class="nav-left">
       <a href="/" class="logo">Édusafira</a>
       <ul class="menu">
         <li><a href="/#features">Fonctionnalités</a></li>
-        <li><a href="/#pricing">Tarifs</a></li>
+        <li><a href="/#about">À propos</a></li>
         <li><a href="/#contact">Contact</a></li>
+        <li><a href="/health">Health</a></li>
+
+        <!-- Mon compte (submenu) -->
+        <li class="menu-item has-submenu">
+          <a href="/account">Mon compte</a>
+          <ul class="submenu">
+            <li><a href="/login">Se connecter</a></li>
+            <li><a href="/register">Créer un compte</a></li>
+            <li class="sep"></li>
+            <li><a href="/community">Rejoindre la communauté</a></li>
+          </ul>
+        </li>
       </ul>
     </div>
+
+    <!-- Switch langue à droite -->
     <div class="nav-right">
       <nav class="lang-switch" aria-label="Sélecteur de langue">
-        <a href="#" data-lang="fr" class="lang-link"><img src="/img/flags/fr-rect.svg" alt="FR" width="20" height="15"> FR</a>
-        <a href="#" data-lang="en" class="lang-link"><img src="/img/flags/gb-rect.svg" alt="EN" width="20" height="15"> EN</a>
+        <a href="#" data-lang="fr" class="lang-link">
+          <img src="/img/flags/fr-rect.svg" alt="FR" width="20" height="15"> FR
+        </a>
+        <a href="#" data-lang="en" class="lang-link">
+          <img src="/img/flags/gb-rect.svg" alt="EN" width="20" height="15"> EN
+        </a>
       </nav>
     </div>
   </nav>
 </header>
 
 <main class="page-wrap">
+  <!-- Fil d’Ariane -->
   <nav class="breadcrumb" aria-label="Fil d’Ariane">
     <a href="/">Accueil</a><span class="sep">›</span>
     <span>Communauté</span>
   </nav>
 
-  <div class="page-head">
-    <h1>Communauté Édusafira</h1>
-    <div class="page-actions">
-      <a href="/community/register">Créer mon compte</a>
-    </div>
-  </div>
+  <!-- Carte blanche harmonisée -->
+  <section class="community-landing" id="community">
+    <div class="community-landing__wrap">
+      <header class="community-landing__head">
+        <h2>La Communauté Édusafira</h2>
+        <p>Groupes par matière, forums, messagerie & ressources pour progresser ensemble.</p>
+      </header>
 
-  <div class="card">
-    <p>Bienvenue sur la communauté Édusafira : groupes, forum, messagerie et ressources pour apprendre ensemble.</p>
-    <ul>
-      <li><a href="/community/groups">Groupes</a></li>
-      <li><a href="/community/forum">Forum</a></li>
-      <li><a href="/community/messages">Messagerie</a></li>
-      <li><a href="/community/resources">Ressources</a></li>
-    </ul>
-  </div>
+      <div class="community-grid">
+        <a class="c-card" href="/community/groups">
+          <div class="c-card__icon">👥</div>
+          <h3>Groupes</h3>
+          <p>Rejoignez des groupes d’intérêt (Maths, Physique, Projets…).</p>
+        </a>
+
+        <a class="c-card" href="/community/forum">
+          <div class="c-card__icon">💬</div>
+          <h3>Forum</h3>
+          <p>Posez vos questions et partagez des solutions.</p>
+        </a>
+
+        <a class="c-card" href="/community/messages">
+          <div class="c-card__icon">✉️</div>
+          <h3>Messagerie</h3>
+          <p>Échanges privés avec vos enseignants & pairs.</p>
+        </a>
+
+        <a class="c-card" href="/community/resources">
+          <div class="c-card__icon">📚</div>
+          <h3>Ressources</h3>
+          <p>Cours, supports, replays & documents partagés.</p>
+        </a>
+      </div>
+
+      <div class="community-cta">
+        <a href="/community/register" class="community-cta__btn">Créer mon compte</a>
+        <a href="/community/login" class="community-cta__link">J’ai déjà un compte</a>
+      </div>
+    </div>
+  </section>
 </main>
 
-<script src="/js/main.js" defer></script>
+<footer class="site-footer">
+  <div class="container">
+    <ul class="footer-links">
+      <li><a href="/#features">Fonctionnalités</a></li>
+      <li><a href="/#about">À propos</a></li>
+      <li><a href="/#contact">Contact</a></li>
+      <li><a href="/community">Rejoindre la communauté</a></li>
+    </ul>
+    <p>&copy; <span id="year"></span> Édusafira. Tous droits réservés.</p>
+  </div>
+</footer>
+
+<script>
+  // Année footer
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
 </body>
 </html>
-
