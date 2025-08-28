@@ -136,3 +136,54 @@
   document.addEventListener('click', tryPlay, { once:true });
   document.addEventListener('touchstart', tryPlay, { once:true });
 })();
+
+// Burger: ouvre/ferme le menu en mobile
+(function(){
+  const toggle = document.querySelector('.nav-toggle');
+  const menuWrap = document.getElementById('primary-menu');
+  if (!toggle || !menuWrap) return;
+
+  const open = () => {
+    document.body.classList.add('menu-open');
+    toggle.setAttribute('aria-expanded', 'true');
+    toggle.setAttribute('aria-label', 'Fermer le menu');
+  };
+  const close = () => {
+    document.body.classList.remove('menu-open');
+    toggle.setAttribute('aria-expanded', 'false');
+    toggle.setAttribute('aria-label', 'Ouvrir le menu');
+  };
+
+  toggle.addEventListener('click', () => {
+    document.body.classList.contains('menu-open') ? close() : open();
+  });
+
+  // Fermer au clic hors panneau
+  document.addEventListener('click', (e)=>{
+    if (!document.body.classList.contains('menu-open')) return;
+    const within = e.target.closest('.nav-center, .nav-toggle');
+    if (!within) close();
+  });
+
+  // ESC ferme
+  document.addEventListener('keydown', (e)=>{ if (e.key === 'Escape') close(); });
+
+  // Fermer en cliquant un lien
+  menuWrap.querySelectorAll('a').forEach(a => a.addEventListener('click', close));
+})();
+
+// Sous-menu "Mon compte" : toggle au clic en mobile
+(function(){
+  const item = document.querySelector('.menu .has-submenu');
+  if (!item) return;
+  const trigger = item.querySelector('.submenu-trigger');
+  const mq = window.matchMedia('(max-width: 768px)');
+
+  trigger.addEventListener('click', (e)=>{
+    if (mq.matches){ // mobile
+      e.preventDefault();
+      item.classList.toggle('open');
+      trigger.setAttribute('aria-expanded', item.classList.contains('open') ? 'true' : 'false');
+    }
+  });
+})();
