@@ -11,40 +11,54 @@
 <body>
 
 <header class="site-header">
-  <nav class="main-nav">
+  <nav class="main-nav" aria-label="Navigation principale">
+    <!-- Gauche : logo + burger -->
     <div class="nav-left">
-      <a href="/" class="logo">Édusafira</a>
+      <a href="/" class="logo" aria-label="Accueil Édusafira">
+        <img src="/logo.png" alt="Édusafira" height="28">
+      </a>
+
+      <!-- Bouton burger (mobile) -->
+      <button class="nav-toggle" aria-controls="primary-menu" aria-expanded="false" aria-label="Ouvrir le menu">
+        <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+          <path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Centre : menu principal -->
+    <div class="nav-center" id="primary-menu">
       <ul class="menu">
         <li><a href="/#features">Fonctionnalités</a></li>
-        <li><a href="/#about">À propos</a></li>
+        <li><a href="/#pricing">Tarifs</a></li>
         <li><a href="/#contact">Contact</a></li>
-        <li><a href="/health">Health</a></li>
 
+        <!-- Sous-menu Mon compte -->
         <li class="menu-item has-submenu">
-          <a href="/account">Mon compte</a>
-          <ul class="submenu">
-            <li><a href="/login">Se connecter</a></li>
-            <li><a href="/register">Créer un compte</a></li>
-            <li class="sep"></li>
-            <li><a href="/community">Rejoindre la communauté</a></li>
+          <a href="/account" class="submenu-trigger" aria-haspopup="true" aria-expanded="false">Mon compte</a>
+          <ul class="submenu" role="menu">
+            <li><a href="/login" role="menuitem">Se connecter</a></li>
+            <li><a href="/register" role="menuitem">Créer un compte</a></li>
+            <li class="sep" aria-hidden="true"></li>
+            <li><a href="/community" role="menuitem">Rejoindre la communauté</a></li>
           </ul>
         </li>
       </ul>
     </div>
 
+    <!-- Droite : switch langue -->
     <div class="nav-right">
       <nav class="lang-switch" aria-label="Sélecteur de langue">
-        <a href="#" data-lang="fr" class="lang-link">
-          <img src="/img/flags/fr-rect.svg" alt="FR" width="20" height="15"> FR
+        <a href="/index.html" data-lang="fr" class="lang-link">
+          <img src="/img/flags/fr-rect.svg" alt="FR" width="20" height="15"> <span class="lang-text">FR</span>
         </a>
-        <a href="#" data-lang="en" class="lang-link">
-          <img src="/img/flags/gb-rect.svg" alt="EN" width="20" height="15"> EN
+        <a href="/en/index.html" data-lang="en" class="lang-link">
+          <img src="/img/flags/gb-rect.svg" alt="EN" width="20" height="15"> <span class="lang-text">EN</span>
         </a>
       </nav>
     </div>
   </nav>
 </header>
-
 <main class="page-wrap">
   <nav class="breadcrumb" aria-label="Fil d’Ariane">
     <a href="/">Accueil</a><span class="sep">›</span>
