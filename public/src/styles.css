@@ -675,3 +675,23 @@ a{color:var(--blue); text-decoration:none}
 /* Espace dans le menu */
 .menu{ display:flex; list-style:none; gap:1rem; margin:0; padding:0; flex-wrap:wrap; }
 .menu>li>a{ padding:.35rem .25rem; text-decoration:none; }
+
+.main-nav{
+  display:flex; align-items:center; justify-content:space-between;
+  max-width:1200px; margin:0 auto;
+  padding:.75rem 24px;
+  flex-wrap:nowrap;   /* empêche les drapeaux de passer en dessous */
+}
+
+/* Logo et menu regroupés */
+.nav-left{ display:flex; align-items:center; gap:1.5rem; flex:1; }
+
+/* Le bloc drapeaux colle à droite */
+.nav-right{ margin-left:auto; display:flex; align-items:center; gap:.75rem; }
+
+.site-header{
+  background:#fff;
+  border-bottom:1px solid #eee;
+  box-shadow:0 2px 6px rgba(0,0,0,.04); /* ombre légère sous la nav */
+}
+.main-nav{ padding:1rem 32px; } /* plus d’air en haut/bas */
