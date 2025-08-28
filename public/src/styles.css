@@ -512,3 +512,20 @@ a{color:var(--blue); text-decoration:none}
 }
 .submenu li a:hover{ background:#f6f6f6; }
 .submenu .sep{ height:1px; margin:.35rem .4rem; background:#eee; }
+
+/* Nav alignée: menu à gauche, switch langue à droite */
+.main-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: .75rem 1rem;
+}
+
+.nav-left { display:flex; align-items:center; gap:2rem; }
+.nav-right { display:flex; align-items:center; }
+
+.lang-switch { display:inline-flex; gap:.5rem; align-items:center; }
+.lang-link { display:inline-flex; align-items:center; gap:.35rem; }
+
