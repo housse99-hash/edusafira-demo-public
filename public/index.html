@@ -11,30 +11,41 @@
 </head>
 
 <body>
-<!-- ========== HEADER ========== -->
-  <header class="site-header">
-    <div class="container header-inner">
-      <a class="brand" href="/">
-        <img src="logo.png" alt="EDUSAFIRA" class="brand-logo" />
-      </a>
+<header class="site-header">
+  <nav class="main-nav">
+    <div class="nav-left">
+      <a href="/" class="logo">Édusafira</a>
+      <ul class="menu">
+        <li><a href="/#features">Fonctionnalités</a></li>
+        <li><a href="/#about">À propos</a></li>
+        <li><a href="/#contact">Contact</a></li>
+        <li><a href="/health">Health</a></li>
 
-      <nav class="nav-right">
-        <a href="#features" class="navlink">Fonctionnalités</a>
-        <a href="#about" class="navlink">À propos</a>
-        <a href="#contact" class="navlink">Contact</a>
-        <a href="/health" class="navlink">Health</a>
+        <li class="menu-item has-submenu">
+          <a href="/account">Mon compte</a>
+          <ul class="submenu">
+            <li><a href="/login">Se connecter</a></li>
+            <li><a href="/register">Créer un compte</a></li>
+            <li class="sep"></li>
+            <li><a href="/community">Rejoindre la communauté</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
 
-        <!-- Mon compte -->
-        <a href="#account" class="btn btn-outline small">Mon compte</a>
-
-        <!-- Switch FR/EN -->
-        <span class="lang-switch" id="lang-switch">
-         <a class="lang" data-lang="fr" href="?lang=fr">FR</a> <span class="sep">|</span>
-         <a class="lang" data-lang="en" href="?lang=en">EN</a>
-        </span>
+    <!-- >>> ICI les drapeaux (à droite) -->
+    <div class="nav-right">
+      <nav class="lang-switch" aria-label="Sélecteur de langue">
+        <a href="#" data-lang="fr" class="lang-link">
+          <img src="/img/flags/fr-rect.svg" alt="FR" width="20" height="15"> FR
+        </a>
+        <a href="#" data-lang="en" class="lang-link">
+          <img src="/img/flags/gb-rect.svg" alt="EN" width="20" height="15"> EN
+        </a>
       </nav>
     </div>
-  </header>
+  </nav>
+</header>
     
   <!-- ========== HERO ========== -->
   <section class="hero">
