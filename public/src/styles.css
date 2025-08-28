@@ -897,3 +897,9 @@ a{color:var(--blue); text-decoration:none}
     .lang-link{ gap:0; }
   }
 }
+
+.site-header { transition: box-shadow .18s ease; }
+.site-header.elevated { box-shadow: 0 4px 14px rgba(0,0,0,.06); }
+
+.nav-left{ gap:2.5rem; }    /* au lieu de 2.25rem */
+.main-nav{ padding:16px 32px; }
