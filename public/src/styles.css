@@ -529,3 +529,42 @@ a{color:var(--blue); text-decoration:none}
 .lang-switch { display:inline-flex; gap:.5rem; align-items:center; }
 .lang-link { display:inline-flex; align-items:center; gap:.35rem; }
 
+/* Contexte et layout nav */
+.main-nav{ position:relative; display:flex; justify-content:space-between; align-items:center; max-width:1200px; margin:0 auto; padding:.75rem 1rem; }
+.nav-left{ display:flex; align-items:center; gap:2rem; }
+.nav-right{ display:flex; align-items:center; position:relative; }
+
+/* Menu & sous-menu */
+.menu{ display:flex; list-style:none; gap:1rem; margin:0; padding:0; }
+.menu > li{ position:relative; }
+.menu > li > a{ text-decoration:none; color:#333; font-weight:500; padding:.35rem .25rem; display:inline-block; }
+
+.has-submenu { position:relative; }
+.has-submenu .submenu{
+  position:absolute; top:100%; right:0; left:auto;
+  background:#fff; border:1px solid #eee; border-radius:12px;
+  box-shadow:0 12px 28px rgba(0,0,0,.12);
+  list-style:none; margin:.5rem 0 0; padding:.4rem;
+  min-width:220px; display:none; z-index:1000;
+}
+
+/* Hover + clavier (focus-within) : restent ouverts */
+.has-submenu:hover .submenu,
+.has-submenu:focus-within .submenu{ display:block; }
+
+/* "Pont" anti-trou : évite la fermeture lors du passage de la souris */
+.has-submenu::after{
+  content:""; position:absolute; left:0; right:0;
+  top:100%; height:10px; /* petit pont invisible */
+}
+
+/* Liens du sous-menu */
+.submenu li a{
+  display:block; padding:.55rem .7rem; text-decoration:none; color:#222; border-radius:8px;
+}
+.submenu li a:hover{ background:#f6f6f6; }
+.submenu .sep{ height:1px; margin:.35rem .4rem; background:#eee; }
+
+/* Lang switch à droite */
+.lang-switch{ display:inline-flex; gap:.5rem; align-items:center; }
+.lang-link{ display:inline-flex; align-items:center; gap:.35rem; }
