@@ -113,3 +113,16 @@
     }
   });
 })();
+
+// Forcer la lecture si l'autoplay est bloqué
+(function(){
+  const v = document.getElementById('promoVideo');
+  if (!v) return;
+
+  const tryPlay = () => v.play().catch(()=>{ /* silencieux */ });
+
+  if (v.autoplay) tryPlay();
+  document.addEventListener('DOMContentLoaded', tryPlay, { once:true });
+  document.addEventListener('click', tryPlay, { once:true });     // 1er clic utilisateur
+  document.addEventListener('touchstart', tryPlay, { once:true }); // 1er tap mobile
+})();
