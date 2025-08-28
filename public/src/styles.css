@@ -659,3 +659,5 @@ a{color:var(--blue); text-decoration:none}
 /* Accessibilité focus */
 .menu a:focus, .lang-link:focus, .nav-toggle:focus{ outline:2px solid #FB8515; outline-offset:2px; }
 
+.logo { display:inline-flex; align-items:center; }
+.logo img { display:block; height:28px; width:auto; }
