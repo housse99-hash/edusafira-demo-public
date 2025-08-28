@@ -187,3 +187,12 @@
     }
   });
 })();
+
+// Ombre quand on scrolle
+(function(){
+  const header = document.querySelector('.site-header');
+  if (!header) return;
+  const onScroll = () => header.classList.toggle('elevated', window.scrollY > 4);
+  onScroll();
+  window.addEventListener('scroll', onScroll, {passive:true});
+})();
