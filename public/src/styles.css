@@ -1367,35 +1367,3 @@ a{color:var(--blue); text-decoration:none}
 .hero-cta{
   justify-content: center;                    /* centre les deux CTA côte à côte */
 }
-
-/* Attrape le 1er bloc .card dans #families et aligne ses deux premiers liens/boutons à droite */
-#families .card .btn,
-#families .card a.btn,
-#families .card button.btn{ /* normalise l'affichage des boutons */
-  display:inline-flex; align-items:center; justify-content:center;
-}
-
-#families .card > *:has(.btn) { /* conteneur qui contient les boutons (si support :has) */
-  display:flex; justify-content:flex-end; gap:.75rem;
-  margin-top:1rem; margin-bottom:1rem;
-}
-
-@supports not(selector(:has(*))){
-  /* fallback si :has n'est pas dispo : on cible un conteneur courant des CTA */
-  #families .card .card-actions,
-  #families .card .actions{
-    display:flex; justify-content:flex-end; gap:.75rem;
-    margin-top:1rem; margin-bottom:1rem;
-  }
-}
-
-@media (max-width:768px){
-  #families .card .card-actions,
-  #families .card .actions{
-    flex-direction:column; align-items:flex-end; gap:.75rem;
-  }
-  #families .card .card-actions .btn,
-  #families .card .actions .btn{
-    width:min(280px,100%);
-  }
-}
