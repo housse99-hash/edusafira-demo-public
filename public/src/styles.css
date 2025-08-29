@@ -1508,3 +1508,88 @@ a{color:var(--blue); text-decoration:none}
     width:min(320px,100%);
   }
 }
+
+/* =============== PALETTE CTA (dégradés) =============== */
+.btn--orange,
+.hero-cta a:first-child,
+#families .card-actions a:last-child,
+#families .actions a:last-child,
+#families .families-actions a:last-child {
+  background: linear-gradient(135deg, #ff8c1a, #ff5e00);
+  color: #fff !important;
+  border: none !important;
+}
+.btn--orange:hover {
+  background: linear-gradient(135deg, #e67300, #cc5200);
+}
+
+.btn--blue,
+.hero-cta a:last-child,
+#families .card-actions a:first-child,
+#families .actions a:first-child,
+#families .families-actions a:first-child {
+  background: linear-gradient(135deg, #2563eb, #1e40af);
+  color: #fff !important;
+  border: none !important;
+}
+.btn--blue:hover {
+  background: linear-gradient(135deg, #1e4db8, #16367f);
+}
+
+/* ===== HERO COMMUNITY ===== */
+/* 1) Mettre le 1er CTA en ORANGE et le 2e en BLEU (si styles existants en “outline/white”) */
+.hero-cta a { box-shadow: 0 6px 14px rgba(0,0,0,.12); border-radius: 14px; }
+
+/* 2) Espace entre les CTA et l’illustration (libérer l’image) */
+.hero-cta { margin-bottom: 1.5rem; }                 /* un peu d’air sous les CTA */
+.hero-cta + .hero-image,
+.hero-cta + figure,
+.hero-cta + img { margin-top: .75rem; }             /* pousse l’illustration */
+
+/* Si le groupe est trop à droite: centre-le */
+#community-hero .hero-cta,
+.community-hero .hero-cta{
+  display:flex;
+  gap:1rem;
+  width:max-content;
+  margin-left:auto !important;
+  margin-right:auto !important;
+  justify-content:center !important;
+}
+
+/* ===== ACCÈS FAMILLES ===== */
+/* 1) Centrer / libérer les CTA sur grand écran (le mobile est OK) */
+#families .card-actions,
+#families .actions,
+#families .families-actions{
+  display:flex;
+  gap:1rem;
+  justify-content:center !important;   /* centre les deux boutons */
+  width:max-content;
+  margin: 1rem auto 1.25rem;           /* centre le bloc dans la carte */
+}
+
+/* 2) Couleurs : premier = BLEU, deuxième = ORANGE  (déjà plus haut via :first-child/:last-child) */
+
+/* 3) Mobile — pile et toujours centrés (rendu déjà bon, on sécurise) */
+@media (max-width: 768px){
+  #community-hero .hero-cta,
+  .community-hero .hero-cta{
+    flex-direction:column;
+    align-items:center;
+    width:min(480px,100%);
+  }
+  #families .card-actions,
+  #families .actions,
+  #families .families-actions{
+    flex-direction:column;
+    align-items:center;
+  }
+  .hero-cta .btn,
+  #families .card-actions .btn,
+  #families .actions .btn,
+  #families .families-actions .btn{
+    width:min(320px,100%);
+    border-radius:18px;
+  }
+}
