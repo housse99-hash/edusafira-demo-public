@@ -258,3 +258,33 @@
     toggle.setAttribute('aria-expanded', document.body.classList.contains('menu-open'));
   });
 })();
+
+// Burger: ouvre/ferme le menu mobile
+(function () {
+  const toggle = document.querySelector('.nav-toggle');
+  const menu   = document.querySelector('.nav-center');
+  if (!toggle || !menu) return;
+
+  // évite que le bouton soit traité comme un submit si c'est un <button>
+  if (toggle.tagName.toLowerCase() === 'button') toggle.type = 'button';
+
+  const open  = () => { document.body.classList.add('menu-open');  toggle.setAttribute('aria-expanded','true');  };
+  const close = () => { document.body.classList.remove('menu-open'); toggle.setAttribute('aria-expanded','false'); };
+
+  toggle.addEventListener('click', (e) => {
+    e.stopPropagation();
+    document.body.classList.contains('menu-open') ? close() : open();
+  });
+
+  // Fermer si on clique hors du panneau
+  document.addEventListener('click', (e) => {
+    if (!document.body.classList.contains('menu-open')) return;
+    if (!e.target.closest('.nav-center, .nav-toggle')) close();
+  });
+
+  // ESC pour fermer
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') close(); });
+
+  // Fermer quand on clique un lien du menu
+  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', close));
+})();
