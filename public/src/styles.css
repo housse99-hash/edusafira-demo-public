@@ -1202,3 +1202,47 @@ a{color:var(--blue); text-decoration:none}
     border-radius: 18px;
   }
 }
+
+/* ===== Header mobile: drapeaux + burger ===== */
+@media (max-width: 768px){
+  .main-nav{ position: relative; }
+
+  /* Burger tout à droite */
+  .nav-toggle{
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 3;                 /* au-dessus des drapeaux */
+  }
+
+  /* Drapeaux juste à gauche du burger */
+  .lang-switch{
+    position: absolute;
+    right: 60px;                /* espace réservé au burger (40px + marge) */
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    gap: 8px;
+    z-index: 2;                 /* sous le burger */
+  }
+  .lang-switch .lang-text{ display:none; }   /* on ne garde que les icônes */
+  .lang-switch img{ width:18px; height:14px; }
+  
+  /* Panneau menu déroulant au-dessus du contenu */
+  .nav-center{
+    position: absolute;
+    top: 100%; left: 0; right: 0;
+    background: #fff;
+    border-top: 1px solid #eee;
+    box-shadow: 0 10px 22px rgba(0,0,0,.12);
+    transform: translateY(-10px);
+    opacity: 0; pointer-events: none;
+    transition: transform .2s ease, opacity .2s ease;
+    z-index: 50;
+  }
+  body.menu-open .nav-center{
+    transform: translateY(0);
+    opacity: 1; pointer-events: auto;
+  }
+}
