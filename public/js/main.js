@@ -288,3 +288,49 @@
   // Fermer quand on clique un lien du menu
   menu.querySelectorAll('a').forEach(a => a.addEventListener('click', close));
 })();
+
+// ===== Burger + sous-menu mobile =====
+(function () {
+  const toggle = document.querySelector('.nav-toggle');
+  const menu   = document.querySelector('.nav-center');
+  if (!toggle || !menu) return;
+
+  // sécurité si c'est un <button>
+  if (toggle.tagName.toLowerCase() === 'button') toggle.type = 'button';
+
+  const open  = () => { document.body.classList.add('menu-open');  toggle.setAttribute('aria-expanded','true');  };
+  const close = () => { document.body.classList.remove('menu-open'); toggle.setAttribute('aria-expanded','false'); };
+
+  toggle.addEventListener('click', (e) => {
+    e.stopPropagation();
+    document.body.classList.contains('menu-open') ? close() : open();
+  });
+
+  // Gestion du sous-menu "Mon compte"
+  menu.addEventListener('click', (e) => {
+    const trigger = e.target.closest('.submenu-trigger');
+    if (trigger) {
+      e.preventDefault();            // ne pas naviguer
+      e.stopPropagation();           // ne pas déclencher la fermeture globale
+
+      const li = trigger.closest('.has-submenu');
+      li.classList.toggle('open');
+      trigger.setAttribute('aria-expanded', li.classList.contains('open') ? 'true' : 'false');
+      return;                        // ne pas fermer le menu
+    }
+  });
+
+  // Fermer au clic hors du panneau
+  document.addEventListener('click', (e) => {
+    if (!document.body.classList.contains('menu-open')) return;
+    if (!e.target.closest('.nav-center, .nav-toggle')) close();
+  });
+
+  // ESC pour fermer
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') close(); });
+
+  // Fermer seulement pour les liens "feuilles", pas pour le trigger du sous-menu
+  menu.querySelectorAll('a:not(.submenu-trigger)').forEach(a => {
+    a.addEventListener('click', close);
+  });
+})();
