@@ -1395,3 +1395,38 @@ a{color:var(--blue); text-decoration:none}
     width: min(280px, 100%);  /* largeur max lisible */
   }
 }
+
+/* Choisis le sélecteur qui correspond à ton HTML
+   (décommente-en UN et laisse les autres commentés) */
+
+/* 1) Si tes boutons sont dans .card-actions */
+#families .card-actions{
+  display:flex; justify-content:flex-end; gap:.75rem;
+  margin-top:1rem; margin-bottom:1rem;  /* espace avec le visuel */
+}
+
+/* 2) Si tes boutons sont dans .actions */
+/* #families .actions{
+  display:flex; justify-content:flex-end; gap:.75rem;
+  margin-top:1rem; margin-bottom:1rem;
+} */
+
+/* 3) Si tes boutons sont dans .families-actions */
+/* #families .families-actions{
+  display:flex; justify-content:flex-end; gap:.75rem;
+  margin-top:1rem; margin-bottom:1rem;
+} */
+
+/* Mobile : pile à droite, propre */
+@media (max-width:768px){
+  #families .card-actions,
+  #families .actions,
+  #families .families-actions{
+    flex-direction:column; align-items:flex-end; gap:.75rem;
+  }
+  #families .card-actions .btn,
+  #families .actions .btn,
+  #families .families-actions .btn{
+    width:min(280px, 100%);   /* boutons pas trop larges */
+  }
+}
