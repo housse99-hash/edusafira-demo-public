@@ -1842,3 +1842,29 @@ a{color:var(--blue); text-decoration:none}
 .how-section .card-container {
   margin-bottom: 40px;
 }
+
+/* ===== Espace entre "Comment ça marche ?" (.howit) et le CTA final (.section-cta) ===== */
+
+/* Valeur fluide : 24px en mobile -> ~56px en desktop */
+section.howit,
+.howit,
+#how {
+  padding-bottom: clamp(24px, 4vw, 56px) !important;
+  /* Empêche l'effondrement de marge avec la section suivante */
+  margin-bottom: 0 !important;
+}
+
+/* On neutralise la marge supérieure du bloc suivant,
+   et on insère l'espace via un pseudo-élément pour éviter la collapse */
+section.section-cta,
+.section-cta {
+  position: relative;
+  margin-top: 0 !important;
+}
+
+section.section-cta::before,
+.section-cta::before {
+  content: "";
+  display: block;
+  height: clamp(24px, 4vw, 56px);
+}
