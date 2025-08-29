@@ -4,21 +4,19 @@
   <meta charset="utf-8">
   <title>Communauté Édusafira</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- Chemins corrects depuis /public/community/ -->
+  <!-- Liens CSS/JS (1 niveau de profondeur depuis /public/community) -->
   <link href="../src/styles.css" rel="stylesheet">
   <script src="../js/main.js" defer></script>
 </head>
 <body>
 
-  <header class="site-header">
+<!-- ======= HEADER ======= -->
+<header class="site-header">
   <nav class="main-nav" aria-label="Navigation principale">
-    <!-- Gauche : logo + burger -->
     <div class="nav-left">
       <a href="/" class="logo" aria-label="Accueil Édusafira">
         <img src="/logo.png" alt="Édusafira" height="28">
       </a>
-
-      <!-- Bouton burger (mobile) -->
       <button class="nav-toggle" aria-controls="primary-menu" aria-expanded="false" aria-label="Ouvrir le menu">
         <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
           <path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/>
@@ -26,14 +24,11 @@
       </button>
     </div>
 
-    <!-- Centre : menu principal -->
     <div class="nav-center" id="primary-menu">
       <ul class="menu">
         <li><a href="/#features">Fonctionnalités</a></li>
         <li><a href="/#pricing">Tarifs</a></li>
         <li><a href="/#contact">Contact</a></li>
-
-        <!-- Sous-menu Mon compte -->
         <li class="menu-item has-submenu">
           <a href="/account" class="submenu-trigger" aria-haspopup="true" aria-expanded="false">Mon compte</a>
           <ul class="submenu" role="menu">
@@ -46,80 +41,73 @@
       </ul>
     </div>
 
-    <!-- Droite : switch langue -->
     <div class="nav-right">
       <nav class="lang-switch" aria-label="Sélecteur de langue">
-        <a href="/index.html" data-lang="fr" class="lang-link">
+        <a href="/index.html" class="lang-link">
           <img src="/img/flags/fr-rect.svg" alt="FR" width="20" height="15"> <span class="lang-text">FR</span>
         </a>
-        <a href="/en/index.html" data-lang="en" class="lang-link">
+        <a href="/en/index.html" class="lang-link">
           <img src="/img/flags/gb-rect.svg" alt="EN" width="20" height="15"> <span class="lang-text">EN</span>
         </a>
       </nav>
     </div>
   </nav>
 </header>
-  
+
+<!-- ======= CONTENU ======= -->
 <main class="page-wrap">
-    <!-- Image d'entête Communauté -->
-  <div class="community-hero">
-    <img src="../hero-community.png" alt="Illustration communauté Édusafira">
-  </div>
-  <!-- Fil d’Ariane -->
-  <nav class="breadcrumb" aria-label="Fil d’Ariane">
-    <a href="/">Accueil</a><span class="sep">›</span>
-    <span>Communauté</span>
-  </nav>
 
-  <!-- Fil d’Ariane -->
-  <nav class="breadcrumb" aria-label="Fil d’Ariane">
-    <a href="/">Accueil</a><span class="sep">›</span>
-    <span>Communauté</span>
-  </nav>
-
-  <!-- Carte blanche harmonisée -->
-  <section class="community-landing" id="community">
-    <div class="community-landing__wrap">
-      <header class="community-landing__head">
-        <h2>La Communauté Édusafira</h2>
-        <p>Groupes par matière, forums, messagerie & ressources pour progresser ensemble.</p>
-      </header>
-
-      <div class="community-grid">
-        <a class="c-card" href="/community/groups">
-          <div class="c-card__icon">👥</div>
-          <h3>Groupes</h3>
-          <p>Rejoignez des groupes d’intérêt (Maths, Physique, Projets…).</p>
-        </a>
-
-        <a class="c-card" href="/community/forum">
-          <div class="c-card__icon">💬</div>
-          <h3>Forum</h3>
-          <p>Posez vos questions et partagez des solutions.</p>
-        </a>
-
-        <a class="c-card" href="/community/messages">
-          <div class="c-card__icon">✉️</div>
-          <h3>Messagerie</h3>
-          <p>Échanges privés avec vos enseignants & pairs.</p>
-        </a>
-
-        <a class="c-card" href="/community/resources">
-          <div class="c-card__icon">📚</div>
-          <h3>Ressources</h3>
-          <p>Cours, supports, replays & documents partagés.</p>
-        </a>
+  <!-- Hero Community -->
+  <section class="hero-community">
+    <div class="container hero-grid">
+      <div class="hero-text">
+        <h1>La Communauté Édusafira</h1>
+        <p>
+          Groupes par matière, forums, messagerie privée et ressources partagées 
+          pour apprendre et progresser ensemble.
+        </p>
+        <div class="hero-cta">
+          <a href="/register" class="btn btn-primary">Créer mon compte</a>
+          <a href="/login" class="btn btn-secondary">J’ai déjà un compte</a>
+        </div>
       </div>
-
-      <div class="community-cta">
-        <a href="/community/register" class="community-cta__btn">Créer mon compte</a>
-        <a href="/community/login" class="community-cta__link">J’ai déjà un compte</a>
+      <div class="hero-image">
+        <img src="/src/hero-community.png" alt="Illustration communauté">
       </div>
     </div>
   </section>
+
+  <!-- Aperçu des fonctionnalités -->
+  <section class="community-features container">
+    <div class="feature-card">
+      <img src="/img/icons/group.svg" alt="Groupes" height="42">
+      <h3>Groupes</h3>
+      <p>Rejoignez des groupes d’intérêt (Maths, Physique, Projets…)</p>
+      <a href="/community/groups" class="link">Voir les groupes →</a>
+    </div>
+    <div class="feature-card">
+      <img src="/img/icons/forum.svg" alt="Forum" height="42">
+      <h3>Forum</h3>
+      <p>Posez vos questions et partagez vos solutions.</p>
+      <a href="/community/forum" class="link">Accéder au forum →</a>
+    </div>
+    <div class="feature-card">
+      <img src="/img/icons/message.svg" alt="Messagerie" height="42">
+      <h3>Messagerie</h3>
+      <p>Échanges privés avec vos enseignants et pairs.</p>
+      <a href="/community/messages" class="link">Ouvrir la messagerie →</a>
+    </div>
+    <div class="feature-card">
+      <img src="/img/icons/resources.svg" alt="Ressources" height="42">
+      <h3>Ressources</h3>
+      <p>Cours, supports, replays & documents partagés.</p>
+      <a href="/community/resources" class="link">Voir les ressources →</a>
+    </div>
+  </section>
+
 </main>
 
-  <!-- ========== CONTACT & DEMO + NEWSLETTER + PAIEMENTS ========== -->
+<!-- ========== CONTACT & DEMO + NEWSLETTER + PAIEMENTS ========== -->
   <footer id="contact" class="site-footer">
     <div class="container footer-grid">
       <!-- Bloc marque -->
