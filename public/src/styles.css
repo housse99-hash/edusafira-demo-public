@@ -1486,3 +1486,25 @@ a{color:var(--blue); text-decoration:none}
     width: min(280px, 100%);
   }
 }
+
+/* Centrage simple et robuste pour TOUS les groupes marqués cta-row */
+.cta-row{
+  display:flex;
+  gap:1rem;
+}
+.cta-row--center{
+  justify-content:center;
+  width:max-content;
+  margin:1rem auto;      /* centre le bloc lui-même */
+}
+
+/* Mobile : en colonne mais toujours centré */
+@media (max-width:768px){
+  .cta-row{
+    flex-direction:column;
+    align-items:center;
+  }
+  .cta-row .btn{
+    width:min(320px,100%);
+  }
+}
