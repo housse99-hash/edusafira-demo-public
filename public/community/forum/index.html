@@ -75,52 +75,67 @@
   </section>
 </main>
 
-<!-- ======= FOOTER (chemins ABSOLUS) ======= -->
-<footer id="contact" class="site-footer">
-  <div class="container footer-grid">
+<!-- ========== CONTACT & DEMO + NEWSLETTER + PAIEMENTS ========== -->
+  <footer id="contact" class="site-footer">
+    <div class="container footer-grid">
+      <!-- Bloc marque -->
+      <div class="foot-brand">
+        <img src="/logo-pb.png" alt="EDUSAFIRA" class="foot-logo" />
 
-    <div class="foot-brand">
-      <img src="/logo-pb.png" alt="EDUSAFIRA" class="foot-logo" height="26">
-    </div>
+        <div class="foot-contact">
+          <h4>Contact & Démo</h4>
+          <p>Une question ? Besoin d’une démonstration ? Écrivez-nous</p>
+          <p><a href="mailto:info@edusafira.com" class="mail">info@edusafira.com</a></p>
+          <p>Tél: +225 27.34.76.34.96</p>
+        </div>
+      </div>
 
-    <div class="foot-contact">
-      <h4>Contact & Démo</h4>
-      <p>Une question ? Besoin d’une démonstration ? Écrivez-nous</p>
-      <p><a href="mailto:info@edusafira.com" class="mail">info@edusafira.com</a></p>
-      <p>Tél: +225 27.34.76.34.96</p>
-    </div>
+      <!-- Newsletter -->
+      <div class="newsletter">
+        <h4>Newsletter</h4>
+        <p>Recevez nos mises à jour.</p>
+        <form class="nl-form" onsubmit="return false;">
+          <input type="email" placeholder="Votre e-mail" required />
+          <button class="btn btn-primary small">S’abonner</button>
+        </form>
 
-    <div class="newsletter">
-      <h4>Newsletter</h4>
-      <p>Recevez nos mises à jour.</p>
-      <form class="nl-form" onsubmit="return false;">
-        <input type="email" placeholder="Votre e-mail" required>
-        <button class="btn btn-primary small">S’abonner</button>
-      </form>
-    </div>
-
-    <div class="footer-payments">
-      <h4>Moyens de paiement acceptés</h4>
-      <div class="payment-logos">
-        <img src="/payments/visa-mastercard.png" alt="Visa & MasterCard" height="28">
-        <!-- Ajoute ici d'autres icônes si tu en as (même dossier /payments/) -->
+        <!-- Moyens de paiement -->
+        <div class="footer-payments">
+          <h4>Moyens de paiement acceptés</h4>
+          <div class="payment-logos">
+            <img src="/payments/visa-mastercard.png" alt="Visa & MasterCard" />
+            <img src="/payments/google-pay.png" alt="Google Pay" />
+            <img src="/payments/mtn-momo.png" alt="MTN Mobile Money" />
+            <img src="/payments/wave.png" alt="Wave" />
+            <img src="/payments/orange-money.png" alt="Orange Money" />
+            <img src="/payments/moov-africa.png" alt="Moov Africa" />
+          </div>
+        </div>
       </div>
     </div>
 
-  </div>
-
-  <div class="foot-bottom">
-    <div class="container">
-      <p>© <span id="year"></span> EDUSAFIRA — Tous droits réservés • <a href="mailto:info@edusafira.com">info@edusafira.com</a></p>
+    <div class="foot-bottom">
+      <div class="container">
+        <p>© 2025 EDUSAFIRA — Tous droits réservés • <a href="mailto:info@edusafira.com">info@edusafira.com</a></p>
+      </div>
     </div>
-  </div>
-</footer>
+  </footer>
+  <script>
+  (function () {
+    const LS_KEY = 'edusafira_lang';
+    const current = new URLSearchParams(location.search).get('lang')
+                   || localStorage.getItem(LS_KEY) || 'fr';
+    localStorage.setItem(LS_KEY, current);
 
-<script>
-  // année dynamique (si non présent ailleurs)
-  (function(){
-    var y = document.getElementById('year');
-    if (y) y.textContent = new Date().getFullYear();
+    // Activer l'état visuel
+    document.querySelectorAll('#lang-switch .lang').forEach(a => {
+      a.classList.toggle('active', a.dataset.lang === current);
+      a.addEventListener('click', (e) => {
+        const lang = e.currentTarget.dataset.lang;
+        localStorage.setItem(LS_KEY, lang);
+        // Ici, vous pouvez déclencher une vraie i18n plus tard
+      });
+    });
   })();
 </script>
 
