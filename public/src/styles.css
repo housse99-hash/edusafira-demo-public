@@ -1329,3 +1329,32 @@ a{color:var(--blue); text-decoration:none}
     border-radius: 18px;
   }
 }
+
+/* Panneau du menu mobile fermé par défaut */
+@media (max-width:768px){
+  .main-nav{ position: relative; }
+
+  .nav-center{
+    position: absolute;
+    top: 100%; left: 0; right: 0;
+    background: #fff;
+    border-top: 1px solid #eee;
+    box-shadow: 0 10px 22px rgba(0,0,0,.12);
+    overflow: hidden;
+
+    max-height: 0;            /* fermé */
+    opacity: 0;
+    pointer-events: none;
+    transition: max-height .25s ease, opacity .2s ease;
+    z-index: 50;
+  }
+  body.menu-open .nav-center{
+    max-height: 70vh;         /* ouvert */
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  /* Sécurité de superposition */
+  .nav-toggle{ position:absolute; right:12px; top:50%; transform:translateY(-50%); z-index: 101; }
+  .lang-switch{ position:absolute; right:60px; top:50%; transform:translateY(-50%); z-index: 100; }
+}
