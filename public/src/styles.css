@@ -1059,3 +1059,31 @@ a{color:var(--blue); text-decoration:none}
   /* et la section suivante ne remonte pas trop près */
   .hero-community + section{ margin-top: 1.25rem; }
 }
+
+/* ===== CTA - VERSION DESKTOP ===== */
+.hero-cta {
+  display: flex;
+  gap: 1rem;                 /* espace entre les boutons */
+  margin-top: 1rem;          /* espace au-dessus */
+  margin-bottom: 2rem;       /* espace sous les CTA */
+}
+.hero-cta .btn {
+  padding: 0.9rem 1.8rem;    /* confort de clic */
+  border-radius: 12px;
+}
+
+/* ===== CTA - VERSION MOBILE ===== */
+@media (max-width: 768px){
+  .hero-cta {
+    flex-direction: column;   /* empile en colonne */
+    align-items: stretch;     /* largeur 100% */
+    gap: 0.9rem;
+    margin-top: 0.75rem;
+    margin-bottom: 2.25rem;   /* un peu plus d'air */
+  }
+  .hero-cta .btn {
+    width: 100%;             /* pleine largeur */
+    padding-block: 1rem;
+    border-radius: 16px;     /* plus arrondis sur mobile */
+  }
+}
