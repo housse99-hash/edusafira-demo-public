@@ -1027,3 +1027,35 @@ a{color:var(--blue); text-decoration:none}
   .nav-toggle { position: relative; z-index: 100; }
   .lang-switch { position: absolute; right: 3.5rem; top: 50%; transform: translateY(-50%); }
 }
+
+/* ===== Mobile: CTA du hero ===== */
+@media (max-width: 768px){
+  /* bloc hero en colonne */
+  .hero-grid{ display:block; }
+
+  /* texte du hero */
+  .hero-text{ padding: 0 1rem; }
+
+  /* CTA : 2 boutons pleines largeur + respirent */
+  .hero-cta{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: .9rem;              /* espace entre les 2 boutons */
+    margin-top: .75rem;      /* espace au-dessus */
+    margin-bottom: 1.75rem;  /* <-- espace SOUS les CTA */
+  }
+  .hero-cta .btn{
+    width: 100%;
+    padding-block: .95rem;   /* hauteur confortable */
+    border-radius: 16px;
+  }
+
+  /* image du hero séparée des CTA */
+  .hero-image{ margin-top: 1rem; }
+
+  /* sécurité : le hero ne se fait pas recouvrir */
+  .hero-community{ position: relative; z-index: 1; }
+
+  /* et la section suivante ne remonte pas trop près */
+  .hero-community + section{ margin-top: 1.25rem; }
+}
