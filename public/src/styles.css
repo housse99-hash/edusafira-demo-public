@@ -1650,3 +1650,12 @@ a{color:var(--blue); text-decoration:none}
   box-shadow: 0 6px 14px rgba(0,0,0,.12) !important;
   border-radius: 14px !important;
 }
+
+/* Un peu d’air entre CTA et illustration hero-community */
+#community-hero .hero-cta,
+.community-hero .hero-cta{ margin-bottom: 1.5rem !important; }
+
+#community-hero .hero-cta + .hero-image,
+#community-hero .hero-cta + img,
+.community-hero .hero-cta + .hero-image,
+.community-hero .hero-cta + img{ margin-top: .75rem !important; }
