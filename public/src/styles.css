@@ -911,7 +911,7 @@ a{color:var(--blue); text-decoration:none}
 }
 
 .community-features .feature-card img {
-  height: 64px;   /* ou 72px pour encore plus grand */
+  height: 75px;   /* ou 72px pour encore plus grand */
   width: auto;
   margin-bottom: 0.75rem; /* espace sous l’icône */
 }
