@@ -1143,3 +1143,62 @@ a{color:var(--blue); text-decoration:none}
     border-radius: 16px;
   }
 }
+
+/* ===== Style global des CTA ===== */
+.hero-cta .btn {
+  display: inline-block;
+  font-weight: 600;
+  text-align: center;
+  padding: 0.95rem 1.8rem;
+  border-radius: 14px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0,0,0,.15);
+  color: #fff;
+  text-decoration: none;
+}
+
+/* Orange gradient = Primaire */
+.hero-cta .btn-primary {
+  background: linear-gradient(135deg, #ff8c1a, #ff5e00);
+  border: none;
+}
+.hero-cta .btn-primary:hover {
+  background: linear-gradient(135deg, #e67300, #cc5200);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(0,0,0,.2);
+}
+
+/* Bleu gradient = Secondaire */
+.hero-cta .btn-secondary {
+  background: linear-gradient(135deg, #2563eb, #1e40af);
+  border: none;
+}
+.hero-cta .btn-secondary:hover {
+  background: linear-gradient(135deg, #1e4db8, #16367f);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(0,0,0,.2);
+}
+
+/* ===== Desktop ===== */
+.hero-cta {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+}
+
+/* ===== Mobile ===== */
+@media (max-width: 768px){
+  .hero-cta {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1rem;
+    margin-top: 0.75rem;
+    margin-bottom: 2.25rem;
+  }
+  .hero-cta .btn {
+    width: 100%;
+    padding-block: 1rem;
+    border-radius: 18px;
+  }
+}
