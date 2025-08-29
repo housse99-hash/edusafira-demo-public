@@ -289,48 +289,67 @@
   menu.querySelectorAll('a').forEach(a => a.addEventListener('click', close));
 })();
 
-// ===== Burger + sous-menu mobile =====
-(function () {
+// ===== Burger + sous-menu mobile (robuste) =====
+document.addEventListener('DOMContentLoaded', () => {
   const toggle = document.querySelector('.nav-toggle');
   const menu   = document.querySelector('.nav-center');
   if (!toggle || !menu) return;
 
-  // sécurité si c'est un <button>
   if (toggle.tagName.toLowerCase() === 'button') toggle.type = 'button';
 
-  const open  = () => { document.body.classList.add('menu-open');  toggle.setAttribute('aria-expanded','true');  };
-  const close = () => { document.body.classList.remove('menu-open'); toggle.setAttribute('aria-expanded','false'); };
+  let isOpen = false;
+  let ignoreNextDocClick = false;   // évite la fermeture immédiate après ouverture
 
+  const open  = () => {
+    document.body.classList.add('menu-open');
+    toggle.setAttribute('aria-expanded', 'true');
+    isOpen = true;
+    // on ignore le prochain click document (celui qui suit le tap mobile)
+    ignoreNextDocClick = true;
+    setTimeout(() => { ignoreNextDocClick = false; }, 0);
+  };
+
+  const close = () => {
+    document.body.classList.remove('menu-open');
+    toggle.setAttribute('aria-expanded', 'false');
+    isOpen = false;
+  };
+
+  // Ouvrir / fermer avec le bouton
   toggle.addEventListener('click', (e) => {
+    e.preventDefault();
     e.stopPropagation();
-    document.body.classList.contains('menu-open') ? close() : open();
-  });
+    isOpen ? close() : open();
+  }, true);
 
-  // Gestion du sous-menu "Mon compte"
+  // Gestion du sous-menu "Mon compte" (ne pas fermer le burger)
   menu.addEventListener('click', (e) => {
     const trigger = e.target.closest('.submenu-trigger');
-    if (trigger) {
-      e.preventDefault();            // ne pas naviguer
-      e.stopPropagation();           // ne pas déclencher la fermeture globale
+    if (!trigger) return;
 
-      const li = trigger.closest('.has-submenu');
-      li.classList.toggle('open');
-      trigger.setAttribute('aria-expanded', li.classList.contains('open') ? 'true' : 'false');
-      return;                        // ne pas fermer le menu
-    }
+    e.preventDefault();
+    e.stopPropagation();
+
+    const li = trigger.closest('.has-submenu');
+    li.classList.toggle('open');
+    trigger.setAttribute('aria-expanded', li.classList.contains('open') ? 'true' : 'false');
   });
 
-  // Fermer au clic hors du panneau
+  // Fermer si clic hors panneau
   document.addEventListener('click', (e) => {
-    if (!document.body.classList.contains('menu-open')) return;
-    if (!e.target.closest('.nav-center, .nav-toggle')) close();
+    if (!isOpen) return;
+    if (ignoreNextDocClick) return;                              // évite fermeture immédiate
+    const inside = e.target.closest('.nav-center, .nav-toggle');
+    if (!inside) close();
   });
 
-  // ESC pour fermer
-  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') close(); });
+  // ESC => fermer
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && isOpen) close();
+  });
 
-  // Fermer seulement pour les liens "feuilles", pas pour le trigger du sous-menu
+  // Cliquer un lien "normal" (pas le trigger) => fermer
   menu.querySelectorAll('a:not(.submenu-trigger)').forEach(a => {
-    a.addEventListener('click', close);
+    a.addEventListener('click', () => { if (isOpen) close(); });
   });
-})();
+});
