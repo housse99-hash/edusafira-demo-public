@@ -1621,3 +1621,32 @@ a{color:var(--blue); text-decoration:none}
   box-shadow: 0 6px 14px rgba(0,0,0,.12) !important;
   border-radius: 14px !important;
 }
+
+/* === ACCÈS FAMILLES: mapping par URL pour forcer les couleurs === */
+/* BLEU pour "Se connecter" / login / connexion */
+#families a[href*="login"],
+#families a[href*="connect"],
+#families a[href*="connexion"]{
+  background: none !important;
+  background-image: none !important;
+  border: none !important;
+
+  background: linear-gradient(135deg,#2563eb,#1e40af) !important;
+  color:#fff !important;
+  box-shadow: 0 6px 14px rgba(0,0,0,.12) !important;
+  border-radius: 14px !important;
+}
+
+/* ORANGE pour "S’inscrire" / register / inscription */
+#families a[href*="register"],
+#families a[href*="inscription"],
+#families a[href*="inscrire"]{
+  background: none !important;
+  background-image: none !important;
+  border: none !important;
+
+  background: linear-gradient(135deg,#ff8c1a,#ff5e00) !important;
+  color:#fff !important;
+  box-shadow: 0 6px 14px rgba(0,0,0,.12) !important;
+  border-radius: 14px !important;
+}
