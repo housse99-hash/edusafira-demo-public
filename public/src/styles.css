@@ -1087,3 +1087,59 @@ a{color:var(--blue); text-decoration:none}
     border-radius: 16px;     /* plus arrondis sur mobile */
   }
 }
+
+/* ===== Style global des CTA ===== */
+.hero-cta .btn {
+  display: inline-block;
+  font-weight: 600;
+  text-align: center;
+  padding: 0.9rem 1.8rem;
+  border-radius: 12px;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 10px rgba(0,0,0,.1);
+  color: #fff;
+}
+
+/* Orange = Primaire */
+.hero-cta .btn-primary {
+  background: #f17a1a;     /* orange */
+  border: 2px solid #f17a1a;
+}
+.hero-cta .btn-primary:hover {
+  background: #d9670f;
+  border-color: #d9670f;
+}
+
+/* Bleu = Secondaire */
+.hero-cta .btn-secondary {
+  background: #2563eb;     /* bleu */
+  border: 2px solid #2563eb;
+}
+.hero-cta .btn-secondary:hover {
+  background: #1e4db8;
+  border-color: #1e4db8;
+}
+
+/* ===== Desktop ===== */
+.hero-cta {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+}
+
+/* ===== Mobile ===== */
+@media (max-width: 768px){
+  .hero-cta {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.9rem;
+    margin-top: 0.75rem;
+    margin-bottom: 2.25rem;
+  }
+  .hero-cta .btn {
+    width: 100%;
+    padding-block: 1rem;
+    border-radius: 16px;
+  }
+}
