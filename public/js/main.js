@@ -353,3 +353,42 @@ document.addEventListener('DOMContentLoaded', () => {
     a.addEventListener('click', () => { if (isOpen) close(); });
   });
 });
+
+// === Filet de sécurité pour colorer les 2 CTA du hero (Community) ===
+document.addEventListener('DOMContentLoaded', () => {
+  // heuristique: on ne touche qu'aux ancres visibles dans le haut de page
+  const withinTop = (el) => el.getBoundingClientRect().top < window.innerHeight * 1.2;
+
+  const isRegister = (a) =>
+    /(register|inscription|inscrire)/i.test(a.href) ||
+    /créer mon compte|rejoindre/i.test(a.textContent);
+
+  const isLogin = (a) =>
+    /(login|connexion|connect)/i.test(a.href) ||
+    /(déjà un compte|se connecter)/i.test(a.textContent);
+
+  const candidates = Array.from(document.querySelectorAll('a')).filter(withinTop);
+  const reg = candidates.find(isRegister);
+  const log = candidates.find(isLogin);
+
+  // applique style inline (priorité maxi)
+  if (reg) {
+    reg.style.background = 'linear-gradient(135deg,#ff8c1a,#ff5e00)';
+    reg.style.color = '#fff';
+    reg.style.border = 'none';
+    reg.style.borderRadius = '14px';
+    reg.style.boxShadow = '0 6px 14px rgba(0,0,0,.12)';
+  }
+  if (log) {
+    log.style.background = 'linear-gradient(135deg,#2563eb,#1e40af)';
+    log.style.color = '#fff';
+    log.style.border = 'none';
+    log.style.borderRadius = '14px';
+    log.style.boxShadow = '0 6px 14px rgba(0,0,0,.12)';
+  }
+
+  // espace sous le groupe si les deux sont frères
+  if (reg && log && reg.parentElement === log.parentElement) {
+    reg.parentElement.style.marginBottom = '1.5rem';
+  }
+});
