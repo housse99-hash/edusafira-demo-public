@@ -1320,7 +1320,7 @@ a{color:var(--blue); text-decoration:none}
 
     width: min(480px, 100%);
     margin-left: auto;        /* reste à droite */
-    margin-right: 1rem;       /* garde 1rem d’air côté bord droit */
+    margin-right: 1.5rem;       /* garde 1rem d’air côté bord droit */
     margin-top: .75rem;
     margin-bottom: 2rem;
   }
