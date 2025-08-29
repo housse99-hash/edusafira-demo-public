@@ -1358,3 +1358,12 @@ a{color:var(--blue); text-decoration:none}
   .nav-toggle{ position:absolute; right:12px; top:50%; transform:translateY(-50%); z-index: 101; }
   .lang-switch{ position:absolute; right:60px; top:50%; transform:translateY(-50%); z-index: 100; }
 }
+
+/* === Community hero : centrage desktop (optionnel) === */
+.hero-community .container{ max-width: 1100px; margin-inline: auto; }
+.hero-text{
+  text-align: center;
+}
+.hero-cta{
+  justify-content: center;                    /* centre les deux CTA côte à côte */
+}
