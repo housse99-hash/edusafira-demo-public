@@ -1246,3 +1246,22 @@ a{color:var(--blue); text-decoration:none}
     opacity: 1; pointer-events: auto;
   }
 }
+
+/* ===== Sections centrées ===== */
+#families, .families-section,
+#how, .how-section{
+  text-align: center;
+}
+
+.families-grid, .how-grid{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 1.25rem;
+  justify-content: center;     /* <-- centrage horizontal des cartes */
+  max-width: 1100px;
+  margin-inline: auto;
+}
+
+.families-grid .card, .how-grid .step{
+  width: clamp(240px, 30%, 320px); /* largeur fluide mais centrée */
+}
