@@ -932,26 +932,3 @@ a{color:var(--blue); text-decoration:none}
   gap: 1rem;
   margin-top: 0.5rem; /* petit bonus d’espace au-dessus des boutons */
 }
-
-.hero-grid {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 3rem;   /* <-- espace horizontal entre texte/CTA et image */
-}
-
-.hero-text {
-  flex: 1;
-}
-
-.hero-image {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-}
-
-.hero-image img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 12px; /* optionnel pour harmoniser */
-}
