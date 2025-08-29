@@ -1727,3 +1727,70 @@ a{color:var(--blue); text-decoration:none}
 .page-community .hero .hero-cta + .hero-image{
   margin-top: .75rem !important;
 }
+
+/* =======================
+   ACCÈS FAMILLES — LAYOUT
+   ======================= */
+
+/* 1) Base mobile : 1 colonne (texte + CTA au-dessus, image dessous) */
+#families .card {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem 2rem;
+  align-items: center;
+}
+
+/* Normaliser les noms possibles du bloc texte et du média */
+#families .card > .card-body,
+#families .card > .families-copy,
+#families .card > .content { order: 1; }
+
+#families .card > figure,
+#families .card > .families-media,
+#families .card > img {
+  order: 2;
+  justify-self: center;
+  max-width: 520px;
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
+
+/* 2) Desktop : 2 colonnes — texte/CTA à gauche, image à droite */
+@media (min-width: 992px){
+  #families .card {
+    grid-template-columns: 1fr 520px;  /* ajuste 520px selon ta maquette */
+  }
+
+  #families .card > .card-body,
+  #families .card > .families-copy,
+  #families .card > .content { order: 1; }
+
+  #families .card > figure,
+  #families .card > .families-media,
+  #families .card > img {
+    order: 2;
+    justify-self: end;    /* plaque à droite */
+  }
+}
+
+/* 3) CTA — centrer en mobile, libérer en desktop, et annuler les règles qui forçaient le centrage global */
+#families .card-actions,
+#families .actions,
+#families .families-actions{
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin: 1rem 0;
+}
+
+@media (min-width: 992px){
+  #families .card-actions,
+  #families .actions,
+  #families .families-actions{
+    justify-content: flex-start;    /* pas centré en desktop */
+    width: auto !important;         /* annule width:max-content */
+    margin-left: 0 !important;      /* annule margin:auto */
+    margin-right: 0 !important;
+  }
+}
