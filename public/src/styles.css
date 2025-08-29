@@ -1265,3 +1265,35 @@ a{color:var(--blue); text-decoration:none}
 .families-grid .card, .how-grid .step{
   width: clamp(240px, 30%, 320px); /* largeur fluide mais centrée */
 }
+
+/* === Community hero : centrage mobile === */
+@media (max-width: 768px){
+  .hero-grid{ display:block; }                /* texte puis image */
+  .hero-text{
+    max-width: 720px;
+    margin: 0 auto;                           /* centre le bloc */
+    padding: 0 1rem;
+    text-align: center;                       /* <-- Titre & phrase centrés */
+  }
+  .hero-text h1{ margin-bottom: .75rem; }
+  .hero-text p{
+    margin: 0 auto 1.25rem;                   /* espace sous le texte */
+    color: #555;
+  }
+
+  .hero-cta{
+    display: flex;
+    flex-direction: column;
+    align-items: center;                      /* <-- centre les boutons */
+    gap: 1rem;
+    margin-bottom: 1.75rem;                   /* air au-dessus de l’illustration */
+  }
+  .hero-cta .btn{
+    width: min(460px, 100%);                  /* boutons centrés et pas trop larges */
+    padding-block: 1rem;
+    border-radius: 18px;
+  }
+
+  .hero-image{ margin-top: .5rem; }
+  .hero-image img{ display:block; margin: 0 auto; }
+}
