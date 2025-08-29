@@ -246,3 +246,15 @@
     }
   });
 })();
+
+// ===== Burger toggle =====
+(function(){
+  const toggle = document.querySelector('.nav-toggle');
+  const menu = document.querySelector('.nav-center');
+  if (!toggle || !menu) return;
+
+  toggle.addEventListener('click', ()=>{
+    document.body.classList.toggle('menu-open');
+    toggle.setAttribute('aria-expanded', document.body.classList.contains('menu-open'));
+  });
+})();
