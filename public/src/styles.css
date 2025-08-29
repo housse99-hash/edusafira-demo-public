@@ -951,3 +951,55 @@ a{color:var(--blue); text-decoration:none}
   margin-top: 0.5rem;   /* espace au-dessus des boutons */
   margin-bottom: 2.5rem; /* <-- espace en dessous des boutons */
 }
+
+/* ===== Mobile: Hero Community ===== */
+@media (max-width: 768px){
+  .hero-grid{ display:block; }               /* texte puis image en colonne */
+  .hero-text{ padding: 0 1rem; }
+  .hero-cta{
+    display:flex; flex-direction:column;     /* boutons l'un sous l'autre */
+    align-items:stretch;
+    gap:.75rem;
+    margin-top:.75rem;
+    margin-bottom:1.5rem;                    /* <-- espace SOUS les boutons */
+  }
+  .hero-image{ margin-top: 1rem; }           /* espace entre CTA et image */
+}
+
+/* ===== Mobile: Header layout fixes ===== */
+@media (max-width: 768px){
+  .main-nav{ padding-right: 64px; }          /* réserve de place à droite */
+  .nav-right{
+    position:absolute; right:14px; top:50%;
+    transform:translateY(-50%);
+    z-index:1;                               /* sous le burger */
+  }
+  .nav-toggle{ z-index:2; }                  /* au-dessus des drapeaux */
+
+  /* compacter les drapeaux sur petit écran */
+  .lang-link .lang-text{ display:none; }
+  .lang-link img{ width:18px; height:14px; }
+}
+
+@media (max-width: 768px){
+  .nav-center{
+    position:absolute; top:100%; left:0; right:0;
+    background:#fff; border-top:1px solid #eee;
+    box-shadow:0 10px 22px rgba(0,0,0,.12);
+    padding:.75rem 1rem;
+    transform-origin:top; transform:scaleY(0);
+    opacity:0; pointer-events:none;
+    transition: transform .18s ease, opacity .18s ease;
+    z-index:50;
+  }
+  body.menu-open .nav-center{
+    transform:scaleY(1);
+    opacity:1; pointer-events:auto;
+  }
+
+  /* Sous-menu dans le panneau (clic pour ouvrir) */
+  .has-submenu .submenu{
+    position:static !important; display:none; border:0; box-shadow:none; margin:0; padding:.25rem 0;
+  }
+  .has-submenu.open .submenu{ display:block; }
+}
