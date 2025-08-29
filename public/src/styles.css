@@ -1833,31 +1833,12 @@ a{color:var(--blue); text-decoration:none}
 .btn--blue { background:linear-gradient(135deg,#2563eb,#1e40af); color:#fff; }
 .btn--blue:hover { filter:brightness(.98); }
 
-/* Espace entre "Comment ça marche ?" et le bloc noir suivant */
+/* Ajoute de l’espace sous la section "Comment ça marche ?" */
 .how-section {
-  margin-bottom: 30px; /* espace par défaut pour mobile */
+  margin-bottom: 50px; /* ajuste la valeur (px) selon l’espace désiré */
 }
 
-.cta-block {
-  margin-top: 30px; /* espace au-dessus du bloc noir */
-}
-
-/* Écrans tablettes */
-@media (min-width: 768px) {
-  .how-section {
-    margin-bottom: 50px;
-  }
-  .cta-block {
-    margin-top: 50px;
-  }
-}
-
-/* Grands écrans (desktop) */
-@media (min-width: 1200px) {
-  .how-section {
-    margin-bottom: 70px;
-  }
-  .cta-block {
-    margin-top: 70px;
-  }
+/* Ou bien directement après les cartes si besoin */
+.how-section .card-container {
+  margin-bottom: 40px;
 }
