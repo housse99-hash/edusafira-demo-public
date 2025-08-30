@@ -1,65 +1,136 @@
-<!doctype html><html lang="fr"><head>
-  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Forum • Communauté Édusafira</title>
-  <link href="../../src/styles.css" rel="stylesheet"><script src="../../js/main.js" defer></script>
-</head><body>
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Aide dérivées – exercice 3 • Communauté Édusafira</title>
+  <link href="../../../src/styles.css" rel="stylesheet">
+  <script src="../../../js/main.js" defer></script>
+</head>
+<body>
 
-<header class="site-header"></header>
+<header class="site-header"><!-- Header global --></header>
 
-<main class="container">
-  <nav class="breadcrumb"><a href="/community/">Communauté</a> · Forum</nav>
-  <header class="page-head">
-    <h1 class="h1">Forum</h1>
-    <p class="lead">Questions, entraide et solutions validées par la communauté.</p>
+<main class="container detail">
+  <!-- Fil d’Ariane -->
+  <nav class="breadcrumb">
+    <a href="/community/">Communauté</a> ·
+    <a href="/community/forum/">Forum</a> ·
+    <span>Aide dérivées – exercice 3</span>
+  </nav>
+
+  <!-- En-tête -->
+  <header class="detail-head">
+    <h1 class="h1">Aide dérivées – exercice 3</h1>
+    <ul class="meta-list">
+      <li><span class="meta-k">Matière</span> <span class="meta-v">Maths</span></li>
+      <li><span class="meta-k">Auteur</span> <span class="meta-v">Aïcha</span></li>
+      <li><span class="meta-k">Publié</span> <span class="meta-v">il y a 2 h</span></li>
+      <li><span class="meta-k">Statut</span> <span class="badge">Ouvert</span></li>
+    </ul>
+    <div class="tags">
+      <a class="tag" href="/community/forum/?q=derivées">#dérivées</a>
+      <a class="tag" href="/community/forum/?q=terminale">#terminale</a>
+    </div>
   </header>
 
-  <div class="toolbar">
-    <input type="search" placeholder="Rechercher un sujet…">
-    <select>
-      <option>Tout</option><option>Maths</option><option>Physique</option><option>Français</option>
-    </select>
-    <select>
-      <option>Récents</option><option>Populaires</option><option>Résolus</option>
-    </select>
-    <a href="/login/" class="btn btn--orange">Nouveau sujet</a>
+  <!-- Grille contenu + sidebar -->
+  <div class="detail-grid">
+    <!-- Contenu principal -->
+    <article class="detail-body card">
+      <h2 class="h3">Résumé</h2>
+      <p>Je bloque sur la question 3 : on me demande de déterminer la dérivée de
+      \( f(x)=x^2\sqrt{x+1} \) et d’étudier son signe. J’ai du mal à appliquer le produit avec la racine.</p>
+
+      <h2 class="h3">Énoncé & tentative</h2>
+      <p>J’ai essayé la dérivation du produit \( u\cdot v \) avec
+      \( u=x^2 \) et \( v=\sqrt{x+1} \), mais je ne suis pas sûre de ma simplification.
+      Toute aide pas-à-pas m’aiderait beaucoup 🙏</p>
+
+      <!-- Pièces jointes -->
+      <div class="attachments">
+        <a class="attach" href="/media/deriv-ex3-enonce.pdf">📄 Énoncé (PDF)</a>
+        <a class="attach" href="/media/essai-aicha.jpg">🖼️ Tentative manuscrite (JPG)</a>
+      </div>
+
+      <!-- Actions -->
+      <div class="actions">
+        <a href="/login/" class="btn btn--blue">Répondre</a>
+        <a href="#" class="btn">Partager</a>
+      </div>
+    </article>
+
+    <!-- Sidebar -->
+    <aside class="detail-aside">
+      <div class="aside-card">
+        <h3 class="h4">Infos</h3>
+        <ul class="kv">
+          <li><span>Groupe</span><strong>Maths – Terminale</strong></li>
+          <li><span>Réponses</span><strong>24</strong></li>
+          <li><span>Vues</span><strong>1 203</strong></li>
+        </ul>
+        <a href="/community/groups/maths-terminale/" class="btn btn--orange">Voir le groupe</a>
+      </div>
+
+      <div class="aside-card">
+        <h3 class="h4">Raccourcis</h3>
+        <ul class="links">
+          <li><a href="/community/forum/">Tous les sujets</a></li>
+          <li><a href="/community/resources/?q=d%C3%A9riv%C3%A9es">Ressources liées</a></li>
+        </ul>
+      </div>
+    </aside>
   </div>
 
-  <section class="grid-1">
-    <article class="topic">
-      <div>
-        <h3><a href="/community/forum/sujet-derivées/">Aide dérivées – exercice 3</a></h3>
-        <div class="topic-meta">Maths · posté par Aïcha · il y a 2 h · <span class="badge">Résolu</span></div>
+  <!-- Réponses -->
+  <section class="card detail-comments">
+    <h2 class="h3">Réponses</h2>
+
+    <!-- Réponse 1 -->
+    <article class="comment">
+      <header class="comment-head">
+        <strong>Pr. Koné</strong>
+        <span class="comment-meta">il y a 1 h</span>
+      </header>
+      <div class="comment-body">
+        <p>Pose \( u=x^2 \) et \( v=(x+1)^{1/2} \). Alors \( u' = 2x \) et
+        \( v' = \tfrac{1}{2}(x+1)^{-1/2} \).</p>
+        <p>
+          \( f' = u'v + uv' = 2x\sqrt{x+1} + x^2 \cdot \frac{1}{2\sqrt{x+1}} =
+          \frac{4x(x+1) + x^2}{2\sqrt{x+1}} = \frac{5x^2 + 4x}{2\sqrt{x+1}}. \)
+        </p>
+        <p>Le signe de \( f' \) dépend de \( x(5x+4) \) avec \( x \geq -1 \) (domaine).</p>
       </div>
-      <div class="count">24 réponses</div>
     </article>
 
-    <article class="topic">
-      <div>
-        <h3><a href="/community/forum/energie-cinetique/">Énergie cinétique – compréhension</a></h3>
-        <div class="topic-meta">Physique · posté par Jules · il y a 1 j</div>
+    <!-- Réponse 2 -->
+    <article class="comment">
+      <header class="comment-head">
+        <strong>Jules</strong>
+        <span class="comment-meta">il y a 35 min</span>
+      </header>
+      <div class="comment-body">
+        <p>Tu peux aussi factoriser \( x \) : \( f'(x)= \dfrac{x(5x+4)}{2\sqrt{x+1}} \).
+        Zéros en \( x=0 \) et \( x=-\tfrac{4}{5} \). Ensuite fais ton tableau de signes. 💪</p>
       </div>
-      <div class="count">8 réponses</div>
     </article>
 
-    <article class="topic">
-      <div>
-        <h3><a href="/community/forum/dissertation-intro/">Intro de dissertation : méthode ?</a></h3>
-        <div class="topic-meta">Français · posté par Mariam · il y a 3 j</div>
-      </div>
-      <div class="count">12 réponses</div>
-    </article>
+    <!-- Formulaire (placeholder) -->
+    <div class="comment-form">
+      <a href="/login/" class="btn btn--blue">Se connecter pour répondre</a>
+    </div>
   </section>
 
-  <div class="pagination">
-    <a class="btn">← Précédent</a>
-    <a class="btn btn--blue">Suivant →</a>
-  </div>
-
-  <!-- <div class="empty">Aucun sujet trouvé pour ces filtres.</div> -->
+  <!-- Pager -->
+  <nav class="detail-pager">
+    <a class="btn" href="/community/forum/">← Retour au forum</a>
+    <a class="btn btn--blue" href="/community/forum/sujet-suivant/">Sujet suivant →</a>
+  </nav>
 </main>
 
-<footer class="site-footer"></footer>
-</body></html>
+<footer class="site-footer"><!-- Footer global --></footer>
+</body>
+</html>
 
 <!-- ========== CONTACT & DEMO + NEWSLETTER + PAIEMENTS ========== -->
   <footer id="contact" class="site-footer">
