@@ -1,79 +1,48 @@
-<!doctype html>
-<html lang="fr">
-<head>
-  <meta charset="utf-8">
-  <title>Messages — Communauté Édusafira</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- Sous-page = 2 niveaux -->
-  <link href="../../src/styles.css" rel="stylesheet">
-  <script src="../../js/main.js" defer></script>
-</head>
-<body>
+<!doctype html><html lang="fr"><head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Messagerie • Communauté Édusafira</title>
+  <link href="../../src/styles.css" rel="stylesheet"><script src="../../js/main.js" defer></script>
+</head><body>
 
-<!-- ======= HEADER (consolidé) ======= -->
-<header class="site-header">
-  <nav class="main-nav" aria-label="Navigation principale">
-    <div class="nav-left">
-      <a href="/" class="logo" aria-label="Accueil Édusafira">
-        <img src="/logo.png" alt="Édusafira" height="28">
-      </a>
+<header class="site-header"></header>
 
-      <!-- Burger (mobile) -->
-      <button class="nav-toggle" aria-controls="primary-menu" aria-expanded="false" aria-label="Ouvrir le menu">
-        <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
-          <path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/>
-        </svg>
-      </button>
-    </div>
+<main class="container">
+  <nav class="breadcrumb"><a href="/community/">Communauté</a> · Messagerie</nav>
+  <header class="page-head">
+    <h1 class="h1">Messagerie</h1>
+    <p class="lead">Discutez en privé avec vos encadreurs et vos camarades.</p>
+  </header>
 
-    <div class="nav-center" id="primary-menu">
-      <ul class="menu">
-        <li><a href="/#features">Fonctionnalités</a></li>
-        <li><a href="/#pricing">Tarifs</a></li>
-        <li><a href="/#contact">Contact</a></li>
-        <li class="menu-item has-submenu">
-          <a href="/account" class="submenu-trigger" aria-haspopup="true" aria-expanded="false">Mon compte</a>
-          <ul class="submenu" role="menu">
-            <li><a href="/login" role="menuitem">Se connecter</a></li>
-            <li><a href="/register" role="menuitem">Créer un compte</a></li>
-            <li class="sep" aria-hidden="true"></li>
-            <li><a href="/community" role="menuitem">Rejoindre la communauté</a></li>
-          </ul>
-        </li>
-      </ul>
-    </div>
+  <div class="toolbar">
+    <input type="search" placeholder="Rechercher une conversation…">
+    <a href="/login/" class="btn btn--blue">Ouvrir la messagerie</a>
+  </div>
 
-    <div class="nav-right">
-      <nav class="lang-switch" aria-label="Sélecteur de langue">
-        <a href="/index.html" class="lang-link">
-          <img src="/img/flags/fr-rect.svg" alt="FR" width="20" height="15"> <span class="lang-text">FR</span>
-        </a>
-        <a href="/en/index.html" class="lang-link">
-          <img src="/img/flags/gb-rect.svg" alt="EN" width="20" height="15"> <span class="lang-text">EN</span>
-        </a>
-      </nav>
-    </div>
-  </nav>
-</header>
+  <section class="grid-2">
+    <article class="card">
+      <h3>Encadreur · Pr. Koné</h3>
+      <p>Dernier message : “Pour l’exercice 4, pensez à factoriser…”</p>
+      <div class="meta">il y a 3 h</div>
+      <div class="actions">
+        <a href="/login/" class="btn btn--orange">Continuer</a>
+      </div>
+    </article>
 
-<!-- ======= CONTENU ======= -->
-<main class="page-wrap">
-  <nav class="breadcrumb" aria-label="Fil d’Ariane">
-    <a href="/">Accueil</a><span class="sep">›</span>
-    <a href="/community">Communauté</a><span class="sep">›</span>
-    <span>Messages</span>
-  </nav>
-
-  <section class="card">
-    <h1>Messages</h1>
-    <p>Déposez ici vos supports, replays, fichiers et documents partagés.</p>
-    <ul>
-      <li>Guides PDF</li>
-      <li>Replays de webinaires</li>
-      <li>Fichiers partagés (docs, feuilles de calcul, etc.)</li>
-    </ul>
+    <article class="card">
+      <h3>Groupe · Maths Terminale</h3>
+      <p>“Voici la correction du DS 1 (PDF).”</p>
+      <div class="meta">il y a 1 j</div>
+      <div class="actions">
+        <a href="/login/" class="btn btn--orange">Ouvrir</a>
+      </div>
+    </article>
   </section>
+
+  <!-- <div class="empty">Connectez-vous pour accéder à votre messagerie.</div> -->
 </main>
+
+<footer class="site-footer"></footer>
+</body></html>
 
 <!-- ========== CONTACT & DEMO + NEWSLETTER + PAIEMENTS ========== -->
   <footer id="contact" class="site-footer">
