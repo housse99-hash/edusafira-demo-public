@@ -1,44 +1,61 @@
 <!doctype html><html lang="fr"><head>
   <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Messagerie • Communauté Édusafira</title>
+  <title>Forum • Communauté Édusafira</title>
   <link href="../../src/styles.css" rel="stylesheet"><script src="../../js/main.js" defer></script>
 </head><body>
 
 <header class="site-header"></header>
 
 <main class="container">
-  <nav class="breadcrumb"><a href="/community/">Communauté</a> · Messagerie</nav>
+  <nav class="breadcrumb"><a href="/community/">Communauté</a> · Forum</nav>
   <header class="page-head">
-    <h1 class="h1">Messagerie</h1>
-    <p class="lead">Discutez en privé avec vos encadreurs et vos camarades.</p>
+    <h1 class="h1">Forum</h1>
+    <p class="lead">Questions, entraide et solutions validées par la communauté.</p>
   </header>
 
   <div class="toolbar">
-    <input type="search" placeholder="Rechercher une conversation…">
-    <a href="/login/" class="btn btn--blue">Ouvrir la messagerie</a>
+    <input type="search" placeholder="Rechercher un sujet…">
+    <select>
+      <option>Tout</option><option>Maths</option><option>Physique</option><option>Français</option>
+    </select>
+    <select>
+      <option>Récents</option><option>Populaires</option><option>Résolus</option>
+    </select>
+    <a href="/login/" class="btn btn--orange">Nouveau sujet</a>
   </div>
 
-  <section class="grid-2">
-    <article class="card">
-      <h3>Encadreur · Pr. Koné</h3>
-      <p>Dernier message : “Pour l’exercice 4, pensez à factoriser…”</p>
-      <div class="meta">il y a 3 h</div>
-      <div class="actions">
-        <a href="/login/" class="btn btn--orange">Continuer</a>
+  <section class="grid-1">
+    <article class="topic">
+      <div>
+        <h3><a href="/community/forum/sujet-derivées/">Aide dérivées – exercice 3</a></h3>
+        <div class="topic-meta">Maths · posté par Aïcha · il y a 2 h · <span class="badge">Résolu</span></div>
       </div>
+      <div class="count">24 réponses</div>
     </article>
 
-    <article class="card">
-      <h3>Groupe · Maths Terminale</h3>
-      <p>“Voici la correction du DS 1 (PDF).”</p>
-      <div class="meta">il y a 1 j</div>
-      <div class="actions">
-        <a href="/login/" class="btn btn--orange">Ouvrir</a>
+    <article class="topic">
+      <div>
+        <h3><a href="/community/forum/energie-cinetique/">Énergie cinétique – compréhension</a></h3>
+        <div class="topic-meta">Physique · posté par Jules · il y a 1 j</div>
       </div>
+      <div class="count">8 réponses</div>
+    </article>
+
+    <article class="topic">
+      <div>
+        <h3><a href="/community/forum/dissertation-intro/">Intro de dissertation : méthode ?</a></h3>
+        <div class="topic-meta">Français · posté par Mariam · il y a 3 j</div>
+      </div>
+      <div class="count">12 réponses</div>
     </article>
   </section>
 
-  <!-- <div class="empty">Connectez-vous pour accéder à votre messagerie.</div> -->
+  <div class="pagination">
+    <a class="btn">← Précédent</a>
+    <a class="btn btn--blue">Suivant →</a>
+  </div>
+
+  <!-- <div class="empty">Aucun sujet trouvé pour ces filtres.</div> -->
 </main>
 
 <footer class="site-footer"></footer>
