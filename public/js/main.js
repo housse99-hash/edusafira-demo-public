@@ -503,3 +503,27 @@ document.addEventListener('DOMContentLoaded', () => {
     setTimeout(schedule, 2000); // lance après un court délai
   })();
 })();
+
+// Filtre naïf par mot-clé sur les listes .card ou .topic
+(function(){
+  const toolbars = document.querySelectorAll('.toolbar');
+  toolbars.forEach(tb => {
+    const search = tb.querySelector('input[type="search"]');
+    if (!search) return;
+    const scope = tb.nextElementSibling; // la section qui suit
+    if (!scope) return;
+
+    const items = scope.querySelectorAll('.card, .topic');
+    const index = Array.from(items).map(el => ({
+      el,
+      text: (el.textContent || '').toLowerCase()
+    }));
+
+    search.addEventListener('input', () => {
+      const q = search.value.trim().toLowerCase();
+      index.forEach(({el,text}) => {
+        el.style.display = (q==='' || text.includes(q)) ? '' : 'none';
+      });
+    });
+  });
+})();
