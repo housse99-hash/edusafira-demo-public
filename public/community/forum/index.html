@@ -1,79 +1,65 @@
-<!doctype html>
-<html lang="fr">
-<head>
-  <meta charset="utf-8">
-  <title>Forum — Communauté Édusafira</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- Sous-page = 2 niveaux -->
-  <link href="../../src/styles.css" rel="stylesheet">
-  <script src="../../js/main.js" defer></script>
-</head>
-<body>
+<!doctype html><html lang="fr"><head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Forum • Communauté Édusafira</title>
+  <link href="../../src/styles.css" rel="stylesheet"><script src="../../js/main.js" defer></script>
+</head><body>
 
-<!-- ======= HEADER (consolidé) ======= -->
-<header class="site-header">
-  <nav class="main-nav" aria-label="Navigation principale">
-    <div class="nav-left">
-      <a href="/" class="logo" aria-label="Accueil Édusafira">
-        <img src="/logo.png" alt="Édusafira" height="28">
-      </a>
+<header class="site-header"></header>
 
-      <!-- Burger (mobile) -->
-      <button class="nav-toggle" aria-controls="primary-menu" aria-expanded="false" aria-label="Ouvrir le menu">
-        <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
-          <path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/>
-        </svg>
-      </button>
-    </div>
+<main class="container">
+  <nav class="breadcrumb"><a href="/community/">Communauté</a> · Forum</nav>
+  <header class="page-head">
+    <h1 class="h1">Forum</h1>
+    <p class="lead">Questions, entraide et solutions validées par la communauté.</p>
+  </header>
 
-    <div class="nav-center" id="primary-menu">
-      <ul class="menu">
-        <li><a href="/#features">Fonctionnalités</a></li>
-        <li><a href="/#pricing">Tarifs</a></li>
-        <li><a href="/#contact">Contact</a></li>
-        <li class="menu-item has-submenu">
-          <a href="/account" class="submenu-trigger" aria-haspopup="true" aria-expanded="false">Mon compte</a>
-          <ul class="submenu" role="menu">
-            <li><a href="/login" role="menuitem">Se connecter</a></li>
-            <li><a href="/register" role="menuitem">Créer un compte</a></li>
-            <li class="sep" aria-hidden="true"></li>
-            <li><a href="/community" role="menuitem">Rejoindre la communauté</a></li>
-          </ul>
-        </li>
-      </ul>
-    </div>
+  <div class="toolbar">
+    <input type="search" placeholder="Rechercher un sujet…">
+    <select>
+      <option>Tout</option><option>Maths</option><option>Physique</option><option>Français</option>
+    </select>
+    <select>
+      <option>Récents</option><option>Populaires</option><option>Résolus</option>
+    </select>
+    <a href="/login/" class="btn btn--orange">Nouveau sujet</a>
+  </div>
 
-    <div class="nav-right">
-      <nav class="lang-switch" aria-label="Sélecteur de langue">
-        <a href="/index.html" class="lang-link">
-          <img src="/img/flags/fr-rect.svg" alt="FR" width="20" height="15"> <span class="lang-text">FR</span>
-        </a>
-        <a href="/en/index.html" class="lang-link">
-          <img src="/img/flags/gb-rect.svg" alt="EN" width="20" height="15"> <span class="lang-text">EN</span>
-        </a>
-      </nav>
-    </div>
-  </nav>
-</header>
+  <section class="grid-1">
+    <article class="topic">
+      <div>
+        <h3><a href="/community/forum/sujet-derivées/">Aide dérivées – exercice 3</a></h3>
+        <div class="topic-meta">Maths · posté par Aïcha · il y a 2 h · <span class="badge">Résolu</span></div>
+      </div>
+      <div class="count">24 réponses</div>
+    </article>
 
-<!-- ======= CONTENU ======= -->
-<main class="page-wrap">
-  <nav class="breadcrumb" aria-label="Fil d’Ariane">
-    <a href="/">Accueil</a><span class="sep">›</span>
-    <a href="/community">Communauté</a><span class="sep">›</span>
-    <span>Forum</span>
-  </nav>
+    <article class="topic">
+      <div>
+        <h3><a href="/community/forum/energie-cinetique/">Énergie cinétique – compréhension</a></h3>
+        <div class="topic-meta">Physique · posté par Jules · il y a 1 j</div>
+      </div>
+      <div class="count">8 réponses</div>
+    </article>
 
-  <section class="card">
-    <h1>Forum</h1>
-    <p>Déposez ici vos supports, replays, fichiers et documents partagés.</p>
-    <ul>
-      <li>Guides PDF</li>
-      <li>Replays de webinaires</li>
-      <li>Fichiers partagés (docs, feuilles de calcul, etc.)</li>
-    </ul>
+    <article class="topic">
+      <div>
+        <h3><a href="/community/forum/dissertation-intro/">Intro de dissertation : méthode ?</a></h3>
+        <div class="topic-meta">Français · posté par Mariam · il y a 3 j</div>
+      </div>
+      <div class="count">12 réponses</div>
+    </article>
   </section>
+
+  <div class="pagination">
+    <a class="btn">← Précédent</a>
+    <a class="btn btn--blue">Suivant →</a>
+  </div>
+
+  <!-- <div class="empty">Aucun sujet trouvé pour ces filtres.</div> -->
 </main>
+
+<footer class="site-footer"></footer>
+</body></html>
 
 <!-- ========== CONTACT & DEMO + NEWSLETTER + PAIEMENTS ========== -->
   <footer id="contact" class="site-footer">
