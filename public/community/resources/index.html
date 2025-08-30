@@ -1,72 +1,129 @@
-<!doctype html><html lang="fr"><head>
-  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Ressources • Communauté Édusafira</title>
-  <link href="../../src/styles.css" rel="stylesheet"><script src="../../js/main.js" defer></script>
-</head><body>
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Annales BAC – Maths 2024 • Communauté Édusafira</title>
+  <link href="../../../src/styles.css" rel="stylesheet">
+  <script src="../../../js/main.js" defer></script>
+</head>
+<body>
 
-<header class="site-header"></header>
+<header class="site-header"><!-- Header global --></header>
 
-<main class="container">
-  <nav class="breadcrumb"><a href="/community/">Communauté</a> · Ressources</nav>
-  <header class="page-head">
-    <h1 class="h1">Ressources</h1>
-    <p class="lead">Cours, supports, replays & documents partagés par la communauté.</p>
+<main class="container detail">
+  <!-- Fil d’Ariane -->
+  <nav class="breadcrumb">
+    <a href="/community/">Communauté</a> ·
+    <a href="/community/resources/">Ressources</a> ·
+    <span>Annales BAC – Maths 2024</span>
+  </nav>
+
+  <!-- En-tête -->
+  <header class="detail-head">
+    <h1 class="h1">Annales BAC – Maths 2024</h1>
+    <ul class="meta-list">
+      <li><span class="meta-k">Format</span> <span class="meta-v">PDF · 32 pages</span></li>
+      <li><span class="meta-k">Auteur</span> <span class="meta-v">Aïcha</span></li>
+      <li><span class="meta-k">Ajouté</span> <span class="meta-v">il y a 2 j</span></li>
+    </ul>
+    <div class="tags">
+      <a class="tag" href="/community/resources/?q=maths">#maths</a>
+      <a class="tag" href="/community/resources/?q=bac">#BAC</a>
+      <a class="tag" href="/community/resources/?q=2024">#2024</a>
+    </div>
   </header>
 
-  <div class="toolbar">
-    <input type="search" placeholder="Rechercher une ressource…">
-    <select>
-      <option>Toutes les matières</option><option>Maths</option><option>Physique</option><option>Français</option>
-    </select>
-    <select>
-      <option>Tout format</option><option>PDF</option><option>Vidéo</option><option>Audio</option>
-    </select>
-    <a href="/login/" class="btn btn--orange">Ajouter une ressource</a>
+  <!-- Grille contenu + sidebar -->
+  <div class="detail-grid">
+    <!-- Contenu principal -->
+    <article class="detail-body card">
+      <h2 class="h3">Description</h2>
+      <p>Ce document contient les sujets et corrections du BAC Maths 2024 (série scientifique).
+      Un support idéal pour s’entraîner et réviser.</p>
+
+      <h2 class="h3">Aperçu</h2>
+      <iframe src="/media/annales-maths-2024.pdf#page=1"
+              width="100%" height="480"
+              style="border:1px solid #e5e7eb; border-radius:12px;">
+      </iframe>
+
+      <!-- Pièces jointes -->
+      <div class="attachments">
+        <a class="attach" href="/media/annales-maths-2024.pdf" download>📄 Télécharger le PDF</a>
+      </div>
+
+      <!-- Actions -->
+      <div class="actions">
+        <a href="/login/" class="btn btn--blue">Commenter</a>
+        <a href="#" class="btn">Partager</a>
+      </div>
+    </article>
+
+    <!-- Sidebar -->
+    <aside class="detail-aside">
+      <div class="aside-card">
+        <h3 class="h4">Infos</h3>
+        <ul class="kv">
+          <li><span>Matière</span><strong>Maths</strong></li>
+          <li><span>Niveau</span><strong>Terminale</strong></li>
+          <li><span>Téléchargements</span><strong>432</strong></li>
+        </ul>
+        <a href="/community/groups/maths-terminale/" class="btn btn--orange">Voir le groupe lié</a>
+      </div>
+
+      <div class="aside-card">
+        <h3 class="h4">Ressources liées</h3>
+        <ul class="links">
+          <li><a href="/community/resources/?q=annales">Annales précédentes</a></li>
+          <li><a href="/community/resources/?q=corrections">Corrections d’exercices</a></li>
+        </ul>
+      </div>
+    </aside>
   </div>
 
-  <section class="grid-3">
-    <article class="card">
-      <h3>Annales BAC – Maths 2024</h3>
-      <p>PDF, 32 pages · sujets & corrections.</p>
-      <div class="meta">Ajouté par Aïcha · il y a 2 j</div>
-      <div class="actions">
-        <a href="#" class="btn btn--blue">Télécharger</a>
-        <a href="#" class="btn">Voir</a>
+  <!-- Commentaires -->
+  <section class="card detail-comments">
+    <h2 class="h3">Commentaires</h2>
+
+    <!-- Commentaire 1 -->
+    <article class="comment">
+      <header class="comment-head">
+        <strong>Mariam</strong>
+        <span class="comment-meta">il y a 1 j</span>
+      </header>
+      <div class="comment-body">
+        <p>Merci ! Le corrigé de la partie Probabilités m’a beaucoup aidée 🙌</p>
       </div>
     </article>
 
-    <article class="card">
-      <h3>Vidéo – Énergie cinétique</h3>
-      <p>Replay 14 min · explication pas à pas.</p>
-      <div class="meta">Ajouté par Jules · il y a 5 j</div>
-      <div class="actions">
-        <a href="#" class="btn btn--blue">Regarder</a>
-        <a href="#" class="btn">Détails</a>
+    <!-- Commentaire 2 -->
+    <article class="comment">
+      <header class="comment-head">
+        <strong>Yao</strong>
+        <span class="comment-meta">il y a 18 h</span>
+      </header>
+      <div class="comment-body">
+        <p>Est-ce que quelqu’un a les sujets de la série A aussi ?</p>
       </div>
     </article>
 
-    <article class="card">
-      <h3>Fiche – Intro dissertation</h3>
-      <p>PDF, 3 pages · plan type + exemples.</p>
-      <div class="meta">Ajouté par Mariam · il y a 1 j</div>
-      <div class="actions">
-        <a href="#" class="btn btn--blue">Télécharger</a>
-        <a href="#" class="btn">Voir</a>
-      </div>
-    </article>
+    <!-- Formulaire (placeholder) -->
+    <div class="comment-form">
+      <a href="/login/" class="btn btn--blue">Se connecter pour commenter</a>
+    </div>
   </section>
 
-  <div class="pagination">
-    <a class="btn">← Précédent</a>
-    <a class="btn btn--blue">Suivant →</a>
-  </div>
-
-  <!-- <div class="empty">Aucune ressource trouvée pour ces filtres.</div> -->
+  <!-- Pager -->
+  <nav class="detail-pager">
+    <a class="btn" href="/community/resources/">← Retour aux ressources</a>
+    <a class="btn btn--blue" href="/community/resources/fiche-dissertation/">Ressource suivante →</a>
+  </nav>
 </main>
 
-<footer class="site-footer"></footer>
-</body></html>
-
+<footer class="site-footer"><!-- Footer global --></footer>
+</body>
+</html>
 
 <!-- ========== CONTACT & DEMO + NEWSLETTER + PAIEMENTS ========== -->
   <footer id="contact" class="site-footer">
