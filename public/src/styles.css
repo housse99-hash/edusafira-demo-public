@@ -1921,3 +1921,49 @@ section.section-cta::before,
 
 /* un peu d’air vertical si besoin */
 .stats.section{ padding-top:2rem; padding-bottom:2rem; }
+
+/* ===== Community subpages ===== */
+.breadcrumb{ font-size:.9rem; color:#64748b; margin:1rem 0 0; }
+.breadcrumb a{ color:#1e40af; text-decoration:none; }
+.breadcrumb a:hover{ text-decoration:underline; }
+
+.page-head{ padding: 2rem 0 1rem; }
+.page-head .h1{ font-size:2rem; margin:.25rem 0 .5rem; }
+.page-head p.lead{ color:#475569; margin:0; }
+
+/* barre d’outils / filtres */
+.toolbar{ display:flex; gap:.75rem; flex-wrap:wrap; align-items:center; margin:1rem 0 1.25rem; }
+.toolbar input[type="search"], .toolbar select{
+  padding:.65rem .8rem; border:1px solid #e5e7eb; border-radius:12px; min-width: 220px;
+}
+.toolbar .btn{ padding:.75rem 1rem; border-radius:12px; }
+
+/* grilles */
+.grid-3{ display:grid; gap:1rem; grid-template-columns:repeat(3,1fr); }
+.grid-2{ display:grid; gap:1rem; grid-template-columns:repeat(2,1fr); }
+@media (max-width: 1024px){ .grid-3{ grid-template-columns:repeat(2,1fr);} }
+@media (max-width: 640px){ .grid-3,.grid-2{ grid-template-columns:1fr; } }
+
+/* cartes */
+.card{
+  background:#fff; border-radius:16px; padding:1rem 1rem 1.1rem;
+  box-shadow:0 6px 18px rgba(0,0,0,.06); display:flex; flex-direction:column; gap:.5rem;
+}
+.card .meta{ font-size:.85rem; color:#64748b; }
+.card .actions{ margin-top:auto; display:flex; gap:.5rem; flex-wrap:wrap; }
+
+/* liste forum */
+.topic{ padding:1rem; background:#fff; border-radius:14px; box-shadow:0 6px 16px rgba(0,0,0,.05); display:grid; grid-template-columns:1fr auto; gap:.5rem; }
+.topic .topic-meta{ color:#64748b; font-size:.9rem; }
+.topic .badge{ font-size:.75rem; padding:.15rem .5rem; border-radius:999px; background:#f1f5f9; }
+.topic .count{ font-weight:700; color:#0f172a; }
+
+/* états vides */
+.empty{
+  background:#f8fafc; border:1px dashed #e2e8f0; border-radius:16px;
+  padding:1.25rem; text-align:center; color:#64748b;
+}
+
+/* pagination simple */
+.pagination{ display:flex; gap:.5rem; justify-content:center; margin:1rem 0; }
+.pagination .btn{ padding:.6rem .9rem; border-radius:10px; }
