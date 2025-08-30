@@ -1,48 +1,142 @@
-<!doctype html><html lang="fr"><head>
-  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Messagerie • Communauté Édusafira</title>
-  <link href="../../src/styles.css" rel="stylesheet"><script src="../../js/main.js" defer></script>
-</head><body>
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Conversation • Pr. Koné • Communauté Édusafira</title>
+  <link href="../../../src/styles.css" rel="stylesheet">
+  <script src="../../../js/main.js" defer></script>
+  <style>
+    /* Mini styles spécifiques aux bulles (léger et autonome) */
+    .thread { display:flex; flex-direction:column; gap:.75rem; }
+    .msg { display:flex; gap:.5rem; align-items:flex-end; }
+    .msg .bubble{
+      max-width: min(680px, 90%);
+      padding:.65rem .8rem; border-radius:14px;
+      background:#f8fafc; border:1px solid #e2e8f0; color:#0f172a;
+      box-shadow:0 4px 12px rgba(0,0,0,.04);
+    }
+    .msg.me { justify-content:flex-end; }
+    .msg.me .bubble{
+      background: linear-gradient(135deg,#2563eb,#1e40af);
+      color:#fff; border: none;
+    }
+    .msg .meta { font-size:.8rem; color:#64748b; margin-top:.25rem; }
+    .composer {
+      display:flex; gap:.5rem; align-items:center; margin-top:.75rem;
+      padding:.6rem; border:1px solid #e5e7eb; border-radius:14px; background:#fff;
+    }
+    .composer input[type="text"]{
+      flex:1; border:none; outline:none; padding:.6rem .4rem;
+      font-size:1rem; border-radius:10px;
+    }
+    .composer .btn { border-radius:12px; }
+    @media (max-width:640px){
+      .msg .bubble{ max-width: 100%; }
+    }
+  </style>
+</head>
+<body>
 
-<header class="site-header"></header>
+<header class="site-header"><!-- Header global --></header>
 
-<main class="container">
-  <nav class="breadcrumb"><a href="/community/">Communauté</a> · Messagerie</nav>
-  <header class="page-head">
-    <h1 class="h1">Messagerie</h1>
-    <p class="lead">Discutez en privé avec vos encadreurs et vos camarades.</p>
+<main class="container detail">
+  <!-- Fil d’Ariane -->
+  <nav class="breadcrumb">
+    <a href="/community/">Communauté</a> ·
+    <a href="/community/messages/">Messagerie</a> ·
+    <span>Conversation avec Pr. Koné</span>
+  </nav>
+
+  <!-- En-tête de la conversation -->
+  <header class="detail-head">
+    <h1 class="h1">Conversation · Pr. Koné</h1>
+    <ul class="meta-list">
+      <li><span class="meta-k">Participants</span> <span class="meta-v">Vous, Pr. Koné</span></li>
+      <li><span class="meta-k">Dernière activité</span> <span class="meta-v">il y a 12 min</span></li>
+      <li><span class="meta-k">Groupe</span> <span class="meta-v">Maths – Terminale</span></li>
+    </ul>
   </header>
 
-  <div class="toolbar">
-    <input type="search" placeholder="Rechercher une conversation…">
-    <a href="/login/" class="btn btn--blue">Ouvrir la messagerie</a>
+  <!-- Grille contenu + sidebar -->
+  <div class="detail-grid">
+    <!-- Fil de messages -->
+    <article class="detail-body card">
+      <div class="thread">
+
+        <!-- Message reçu -->
+        <div class="msg">
+          <div class="bubble">
+            Bonjour ! Pour l’exercice 4, pensez à factoriser avant de dériver la somme.
+            N’hésitez pas à m’envoyer votre tentative.
+            <div class="meta">Pr. Koné · il y a 1 h</div>
+          </div>
+        </div>
+
+        <!-- Message envoyé -->
+        <div class="msg me">
+          <div class="bubble">
+            Merci Prof ! Je joins ma tentative (photo). Est-ce que la dérivée de la racine est correcte ?
+            <div class="meta">Vous · il y a 21 min</div>
+          </div>
+        </div>
+
+        <!-- Message reçu -->
+        <div class="msg">
+          <div class="bubble">
+            C’est presque ça. Utilisez bien \(v' = \tfrac{1}{2}(x+1)^{-1/2}\). Je vous renvoie une correction.
+            <div class="meta">Pr. Koné · il y a 12 min</div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Pièces jointes rapides -->
+      <div class="attachments" style="margin-top:.75rem">
+        <a class="attach" href="/media/essai-aicha.jpg">🖼️ Tentative (JPG)</a>
+        <a class="attach" href="/media/correction-ex4.pdf">📄 Correction (PDF)</a>
+      </div>
+
+      <!-- Composer / zone de saisie (placeholder) -->
+      <div class="composer">
+        <input type="text" placeholder="Écrire un message… (connexion requise)" disabled>
+        <a href="/login/" class="btn btn--blue">Se connecter</a>
+        <a href="/register/" class="btn btn--orange">Créer un compte</a>
+      </div>
+    </article>
+
+    <!-- Sidebar conversation -->
+    <aside class="detail-aside">
+      <div class="aside-card">
+        <h3 class="h4">Participants</h3>
+        <ul class="kv">
+          <li><span>Vous</span><strong>Élève</strong></li>
+          <li><span>Encadreur</span><strong>Pr. Koné</strong></li>
+        </ul>
+        <a href="/community/groups/maths-terminale/" class="btn btn--orange">Voir le groupe</a>
+      </div>
+
+      <div class="aside-card">
+        <h3 class="h4">Raccourcis</h3>
+        <ul class="links">
+          <li><a href="/community/messages/">Toutes les conversations</a></li>
+          <li><a href="/community/forum/?q=maths">Sujets liés (Maths)</a></li>
+          <li><a href="/community/resources/?q=derivées">Ressources “dérivées”</a></li>
+        </ul>
+      </div>
+    </aside>
   </div>
 
-  <section class="grid-2">
-    <article class="card">
-      <h3>Encadreur · Pr. Koné</h3>
-      <p>Dernier message : “Pour l’exercice 4, pensez à factoriser…”</p>
-      <div class="meta">il y a 3 h</div>
-      <div class="actions">
-        <a href="/login/" class="btn btn--orange">Continuer</a>
-      </div>
-    </article>
-
-    <article class="card">
-      <h3>Groupe · Maths Terminale</h3>
-      <p>“Voici la correction du DS 1 (PDF).”</p>
-      <div class="meta">il y a 1 j</div>
-      <div class="actions">
-        <a href="/login/" class="btn btn--orange">Ouvrir</a>
-      </div>
-    </article>
-  </section>
-
-  <!-- <div class="empty">Connectez-vous pour accéder à votre messagerie.</div> -->
+  <!-- Pager -->
+  <nav class="detail-pager">
+    <a class="btn" href="/community/messages/">← Retour à la messagerie</a>
+    <a class="btn btn--blue" href="/community/messages/conversation-groupe-maths/">Conversation suivante →</a>
+  </nav>
 </main>
 
-<footer class="site-footer"></footer>
-</body></html>
+<footer class="site-footer"><!-- Footer global --></footer>
+</body>
+</html>
 
 <!-- ========== CONTACT & DEMO + NEWSLETTER + PAIEMENTS ========== -->
   <footer id="contact" class="site-footer">
