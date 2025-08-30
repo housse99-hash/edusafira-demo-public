@@ -1,72 +1,123 @@
-<!doctype html><html lang="fr"><head>
-  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Groupes • Communauté Édusafira</title>
-  <link href="../../src/styles.css" rel="stylesheet"><script src="../../js/main.js" defer></script>
-</head><body>
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Maths – Terminale • Groupe • Communauté Édusafira</title>
+  <link href="../../../src/styles.css" rel="stylesheet">
+  <script src="../../../js/main.js" defer></script>
+</head>
+<body>
 
-<header class="site-header"><!-- même header global --></header>
+<header class="site-header"><!-- Header global --></header>
 
-<main class="container">
-  <nav class="breadcrumb"> <a href="/community/">Communauté</a> · Groupes </nav>
-  <header class="page-head">
-    <h1 class="h1">Groupes</h1>
-    <p class="lead">Rejoignez un groupe par matière ou thématique et progressez ensemble.</p>
+<main class="container detail">
+  <!-- Fil d’Ariane -->
+  <nav class="breadcrumb">
+    <a href="/community/">Communauté</a> ·
+    <a href="/community/groups/">Groupes</a> ·
+    <span>Maths – Terminale</span>
+  </nav>
+
+  <!-- En-tête du groupe -->
+  <header class="detail-head">
+    <h1 class="h1">Maths – Terminale</h1>
+    <ul class="meta-list">
+      <li><span class="meta-k">Matière</span> <span class="meta-v">Mathématiques</span></li>
+      <li><span class="meta-k">Niveau</span> <span class="meta-v">Terminale</span></li>
+      <li><span class="meta-k">Membres</span> <span class="meta-v">1 248</span></li>
+      <li><span class="meta-k">Actifs</span> <span class="meta-v">36</span></li>
+      <li><span class="meta-k">Visibilité</span> <span class="badge">Public</span></li>
+    </ul>
+    <div class="tags">
+      <a class="tag" href="/community/groups/?q=maths">#maths</a>
+      <a class="tag" href="/community/groups/?q=terminale">#terminale</a>
+      <a class="tag" href="/community/forum/?q=maths">#forum-maths</a>
+    </div>
   </header>
 
-  <div class="toolbar">
-    <input type="search" placeholder="Rechercher un groupe…">
-    <select>
-      <option>Toutes les matières</option><option>Maths</option><option>Physique</option><option>Français</option>
-    </select>
-    <select>
-      <option>Tout niveau</option><option>Collège</option><option>Lycée</option><option>Université</option>
-    </select>
-    <a href="/register/" class="btn btn--orange">Créer mon compte</a>
+  <!-- Grille contenu + sidebar -->
+  <div class="detail-grid">
+    <!-- Colonne principale -->
+    <article class="detail-body card">
+      <h2 class="h3">À propos du groupe</h2>
+      <p>Préparation aux épreuves de Maths (spé & tronc commun) : méthodes,
+      exercices corrigés, annales, et entraide entre élèves.</p>
+
+      <h2 class="h3">Fils récents</h2>
+
+      <!-- Aperçu de sujets récents (style forum .topic) -->
+      <section class="topic">
+        <div>
+          <h3><a href="/community/forum/sujet-derivees/">Aide dérivées – exercice 3</a></h3>
+          <div class="topic-meta">posté par Aïcha · il y a 2 h · <span class="badge">Ouvert</span></div>
+        </div>
+        <div class="count">24 réponses</div>
+      </section>
+
+      <section class="topic" style="margin-top:.75rem">
+        <div>
+          <h3><a href="/community/forum/limites-suite/">Limites de suite – vérification</a></h3>
+          <div class="topic-meta">posté par Yao · il y a 1 j</div>
+        </div>
+        <div class="count">9 réponses</div>
+      </section>
+
+      <!-- Ressources mises en avant -->
+      <h2 class="h3" style="margin-top:1rem">Ressources mises en avant</h2>
+      <div class="attachments">
+        <a class="attach" href="/community/resources/annales-bac-maths-2024/">📄 Annales BAC – Maths 2024</a>
+        <a class="attach" href="/community/resources/?q=fonctions">📄 Fiches “Fonctions & dérivées”</a>
+      </div>
+
+      <!-- Actions principales -->
+      <div class="actions">
+        <a href="/login/" class="btn btn--orange">Rejoindre le groupe</a>
+        <a href="/community/forum/?q=maths" class="btn btn--blue">Voir tous les sujets</a>
+      </div>
+    </article>
+
+    <!-- Sidebar -->
+    <aside class="detail-aside">
+      <div class="aside-card">
+        <h3 class="h4">Règles du groupe</h3>
+        <ul class="kv">
+          <li><span>1.</span><strong>Respect & bienveillance</strong></li>
+          <li><span>2.</span><strong>Sources & corrections claires</strong></li>
+          <li><span>3.</span><strong>Pas de plagiat</strong></li>
+        </ul>
+        <a href="/login/" class="btn btn--blue">Suggérer une ressource</a>
+      </div>
+
+      <div class="aside-card">
+        <h3 class="h4">Modérateurs</h3>
+        <ul class="links">
+          <li><a href="#">Pr. Koné</a></li>
+          <li><a href="#">Mariama</a></li>
+        </ul>
+      </div>
+
+      <div class="aside-card">
+        <h3 class="h4">Liens utiles</h3>
+        <ul class="links">
+          <li><a href="/community/resources/?q=annales">Annales & corrigés</a></li>
+          <li><a href="/community/resources/?q=probabilites">Probabilités</a></li>
+          <li><a href="/community/forum/?q=methodes">Méthodes & astuces</a></li>
+        </ul>
+      </div>
+    </aside>
   </div>
 
-  <section class="grid-3">
-    <article class="card">
-      <h3>Maths – Terminale</h3>
-      <p>Exercices, annales, méthodes et corrections.</p>
-      <div class="meta">1 248 membres · 36 actifs</div>
-      <div class="actions">
-        <a href="/community/groups/maths-terminale/" class="btn btn--blue">Voir le groupe</a>
-        <a href="/login/" class="btn">Rejoindre</a>
-      </div>
-    </article>
-
-    <article class="card">
-      <h3>Physique – Mécanique</h3>
-      <p>TD, TP et explications pas à pas.</p>
-      <div class="meta">732 membres · 18 actifs</div>
-      <div class="actions">
-        <a href="/community/groups/physique-meca/" class="btn btn--blue">Voir le groupe</a>
-        <a href="/login/" class="btn">Rejoindre</a>
-      </div>
-    </article>
-
-    <article class="card">
-      <h3>Français – Méthodo</h3>
-      <p>Dissertations, commentaires, oraux.</p>
-      <div class="meta">489 membres · 12 actifs</div>
-      <div class="actions">
-        <a href="/community/groups/fr-methodo/" class="btn btn--blue">Voir le groupe</a>
-        <a href="/login/" class="btn">Rejoindre</a>
-      </div>
-    </article>
-  </section>
-
-  <div class="pagination">
-    <a class="btn">← Précédent</a>
-    <a class="btn btn--blue">Suivant →</a>
-  </div>
-
-  <!-- État vide (exemple à afficher si aucun résultat) -->
-  <!-- <div class="empty">Aucun groupe trouvé pour ces filtres.</div> -->
+  <!-- Navigation -->
+  <nav class="detail-pager">
+    <a class="btn" href="/community/groups/">← Tous les groupes</a>
+    <a class="btn btn--blue" href="/community/groups/physique-meca/">Groupe suivant →</a>
+  </nav>
 </main>
 
-<footer class="site-footer"><!-- footer global --></footer>
-</body></html>
+<footer class="site-footer"><!-- Footer global --></footer>
+</body>
+</html>
 
 <!-- ========== CONTACT & DEMO + NEWSLETTER + PAIEMENTS ========== -->
   <footer id="contact" class="site-footer">
