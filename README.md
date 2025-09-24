@@ -1,7 +1,7 @@
 <!-- ============== HEADER ============== -->
 
 <p align="center">
-  <img src="public/logos.png" alt="EduSafira Logo" width="300"/>
+  <img src="public/logos.png" alt="EduSafira Logo" width="200"/>
 </p>
 
 <p align="center">
