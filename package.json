@@ -1,0 +1,4 @@
+npm i @auth0/nextjs-auth0
+git add package.json package-lock.json
+git commit -m "chore: add @auth0/nextjs-auth0"
+git push
