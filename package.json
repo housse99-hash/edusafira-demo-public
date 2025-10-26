@@ -1,4 +1,17 @@
-npm i @auth0/nextjs-auth0
-git add package.json package-lock.json
-git commit -m "chore: add @auth0/nextjs-auth0"
-git push
+{
+  "name": "edusafira-demo",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start -p 3000"
+  },
+  "dependencies": {
+    "next": "14.2.5",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "@auth0/nextjs-auth0": "^3.5.0"
+  }
+}
